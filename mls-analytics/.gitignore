@@ -1,0 +1,9 @@
+data/
+.env
+__pycache__/
+.ipynb_checkpoints/
+!data/github_actions/**/*
+!data/github_actions/
+*.csv
+*.png
+*.drawio
