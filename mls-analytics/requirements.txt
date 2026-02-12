@@ -7,3 +7,5 @@ selenium
 webdriver_manager
 sqlalchemy
 pytest
+__future__
+lxml

@@ -11,7 +11,7 @@ def main():
         match_id = "debug"
 
         print("[1] calling extract_team_stats")
-        out = extract_team_stats(driver, link, match_id)
+        match_ = extract_team_stats(driver, link, match_id)
         print("[2] returned:", type(out))
 
 

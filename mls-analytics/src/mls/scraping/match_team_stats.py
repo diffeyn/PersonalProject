@@ -1,22 +1,15 @@
-from asyncio import wait
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from mls.utils import utils
+from mls.utils import selenium_helpers
 
 
-def extract_team_stats(driver, link, match_id):   
+def extract_team_stats(driver, match_id):   
     
     wait = WebDriverWait(driver, 10)
-      
-    driver.get(link)
-    
-    print("[OK] loaded:", driver.title)
-    
+        
     wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    
-    utils.dismiss_cookies(driver)
         
     general_stats = []
     shooting_stats = []
@@ -63,8 +56,8 @@ def extract_team_stats(driver, link, match_id):
                     ' and not(contains(@style,"display: none"))]')))
 
 
-            utils.js_scroll_into_view(driver, general_cont)
-            general_cards = utils.scrape_cards(general_cont, driver)
+            selenium_helpers.js_scroll_into_view(driver, general_cont)
+            general_cards = selenium_helpers.scrape_cards(general_cont, driver)
 
             for it in general_cards:
                 general_stats.append({
@@ -87,9 +80,9 @@ def extract_team_stats(driver, link, match_id):
                 './/section[contains(@class,"mls-l-module--shooting-breakdown")]'
             )
 
-            utils.js_scroll_into_view(driver, shooting_cont)
+            selenium_helpers.js_scroll_into_view(driver, shooting_cont)
 
-            shooting_cards = utils.scrape_cards(shooting_cont, driver)
+            shooting_cards = selenium_helpers.scrape_cards(shooting_cont, driver)
 
             for it in shooting_cards:
                 shooting_stats.append({
@@ -104,7 +97,7 @@ def extract_team_stats(driver, link, match_id):
         try:
             passing_cont = driver.find_element(By.XPATH, '//section[contains(@class,"passing-breakdown")]')
 
-            passing_cards = utils.scrape_cards(passing_cont, driver)
+            passing_cards = selenium_helpers.scrape_cards(passing_cont, driver)
             for it in passing_cards:
                 passing_stats.append({
                     'stat_name': it['stat'],
@@ -119,7 +112,7 @@ def extract_team_stats(driver, link, match_id):
             possession_cont = driver.find_element(By.XPATH, '//section[contains(@class,"--possession")]')
             bar_cont = possession_cont.find_element(By.XPATH, './/*[contains(@class,"mls-o-possession__intervals")]')
 
-            utils.js_scroll_into_view(driver, bar_cont)
+            selenium_helpers.js_scroll_into_view(driver, bar_cont)
 
 
             for bar in bar_cont.find_elements(By.XPATH, './/div[contains(@class,"mls-o-possession__average-intervals")]'):
@@ -208,4 +201,4 @@ def extract_team_stats(driver, link, match_id):
     all_stats['away_team'] = away_team
     
     
-    return all_stats
+    return all_stats, date, home_team, away_team
