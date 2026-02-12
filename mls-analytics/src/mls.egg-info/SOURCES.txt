@@ -1,5 +1,6 @@
 README.md
 pyproject.toml
+src/mls/__init__.py
 src/mls.egg-info/PKG-INFO
 src/mls.egg-info/SOURCES.txt
 src/mls.egg-info/dependency_links.txt
@@ -26,11 +27,14 @@ src/mls/modeling/train.py
 src/mls/scraping/__init__.py
 src/mls/scraping/bs_scraper.py
 src/mls/scraping/fetch_schedule.py
+src/mls/scraping/match_team_stats.py
 src/mls/scraping/scrape_match.py
 src/mls/scraping/scrape_player_stats.py
 src/mls/scraping/selenium_scraper.py
 src/mls/utils/__init__.py
 src/mls/utils/hashing.py
 src/mls/utils/helpers.py
+src/mls/utils/io.py
 src/mls/utils/logging.py
+src/mls/utils/paths.py
 src/mls/utils/utils.py

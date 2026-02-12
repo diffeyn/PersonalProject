@@ -1,4 +1,6 @@
 from pathlib import Path
+import math
+import hashlib
 import re
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -161,18 +163,16 @@ def js_scroll_into_view(driver, el):
 
     
 def make_match_id(link):
-    if (
-        link is None
-        or (isinstance(link, float) and math.isnan(link))
-        or str(link).strip() == ''
-        or str(link).strip().lower() == 'nan'
-    ):
-        return None
-
-    return hashlib.md5(
-        link.rstrip('/').split('/')[-1].split('?')[0].encode('utf-8')
-    ).hexdigest()[:8]
-
+    # check if link matches expected pattern and extract teams and date
+    pattern = r'/matches/([a-z]+)vs([a-z]+)-(\d{2}-\d{2}-\d{4})'
+    m = re.search(pattern, link)
+    if m:
+        team1, team2, date = m.groups()
+        return hashlib.md5(f"{team1}vs{team2}-{date}".encode('utf-8')).hexdigest()[:8]
+    # fallback: hash the last part of the URL (after last slash, before query)
+    return
+    
+    
 def scrape_cards(group, driver):
     return driver.execute_script("""
         const root = arguments[0];

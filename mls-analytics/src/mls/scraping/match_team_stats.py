@@ -1,14 +1,23 @@
+from asyncio import wait
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from mls.utils import utils
 
-def extract_team_stats(driver, link, match_id):
+
+def extract_team_stats(driver, link, match_id):   
     
     wait = WebDriverWait(driver, 10)
-    
+      
     driver.get(link)
     
+    print("[OK] loaded:", driver.title)
+    
+    wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+    
+    utils.dismiss_cookies(driver)
+        
     general_stats = []
     shooting_stats = []
     passing_stats = []
@@ -27,12 +36,12 @@ def extract_team_stats(driver, link, match_id):
     teams = title_head.find_element(By.CSS_SELECTOR, 'div.mls-c-matchhub-tile')
 
     try:
-        home_team = title_head.find_element(
+        home_team = teams.find_element(
             By.CSS_SELECTOR,
             "div.mls-c-club.--home span.mls-c-club__shortname"
             ).text.strip()
 
-        away_team = title_head.find_element(
+        away_team = teams.find_element(
             By.CSS_SELECTOR,
             "div.mls-c-club.--away span.mls-c-club__shortname"
         ).text.strip()
@@ -42,6 +51,7 @@ def extract_team_stats(driver, link, match_id):
 
     try:
         date = driver.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
+        
         stats_bttn.click()
 
         try:
@@ -77,9 +87,7 @@ def extract_team_stats(driver, link, match_id):
                 './/section[contains(@class,"mls-l-module--shooting-breakdown")]'
             )
 
-            driver.execute_script(
-                "arguments[0].scrollIntoView({block:'center'});",
-                shooting_cont)
+            utils.js_scroll_into_view(driver, shooting_cont)
 
             shooting_cards = utils.scrape_cards(shooting_cont, driver)
 
@@ -111,15 +119,11 @@ def extract_team_stats(driver, link, match_id):
             possession_cont = driver.find_element(By.XPATH, '//section[contains(@class,"--possession")]')
             bar_cont = possession_cont.find_element(By.XPATH, './/*[contains(@class,"mls-o-possession__intervals")]')
 
-            driver.execute_script(
-                "arguments[0].scrollIntoView({block:'center'});",
-                bar_cont)
+            utils.js_scroll_into_view(driver, bar_cont)
 
 
             for bar in bar_cont.find_elements(By.XPATH, './/div[contains(@class,"mls-o-possession__average-intervals")]'):
                 tip_id = bar.get_attribute('data-for')
-
-                tooltips = bar.find_elements(By.XPATH, './/div[contains(@class,"__react_component_tooltip")]')
 
                 tip = wait.until(EC.presence_of_element_located((By.ID, tip_id)))
 
@@ -161,7 +165,6 @@ def extract_team_stats(driver, link, match_id):
             if chart_group is None:
                 raise Exception("xG chart-group not found")
 
-            # ensure cards exist
             wait.until(lambda d: any(
                 e.is_displayed() for e in chart_group.find_elements(By.CSS_SELECTOR, '.mls-o-stat-chart')
             ))
@@ -203,4 +206,6 @@ def extract_team_stats(driver, link, match_id):
     all_stats['date'] = date
     all_stats['home_team'] = home_team
     all_stats['away_team'] = away_team
+    
+    
     return all_stats

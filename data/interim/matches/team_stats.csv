@@ -1,0 +1,59 @@
+stat_name,home_value,away_value,category,tip_id,home_possession,home_advantage,away_possession,away_advantage,match_id,date,home_team,away_team
+Possession %,48,52,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Shots,12,10,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Shots on Target,7,3,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Blocked Shots,2,2,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Total Passes,355,411,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Passing Accuracy %,89.3,84.4,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Corners,5,12,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Total Crosses,3,6,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Offsides,0,1,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Aerial Duels Won,11,7,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Expected Goals,1.6,1.2,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Goalkeeper Saves,3,4,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Clearances,4,5,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Fouls,10,9,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Yellow Cards,2,2,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Red Cards,0,0,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Overall %,89.3,84.4,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Open Play Pass %,89.3,83.8,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Set Piece Cross %,60,11.1,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Open Play Cross %,33.3,16.7,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Goals,3,0,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+On Target,7,3,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Off Target,9,10,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Blocked,2,2,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Goals Conceded,0,3,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Shots Against,12,10,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Clean Sheets,0,0,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+XG Conceded,1.2,1.6,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Interceptions,1,2,general,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Goals,3,0,shooting,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+On Target,7,3,shooting,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Off Target,3,2,shooting,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Blocked,2,2,shooting,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Overall %,89.3,84.4,passing,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Open Play Pass %,89.3,83.8,passing,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Set Piece Cross %,60,11.1,passing,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Open Play Cross %,33.3,16.7,passing,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_0,Home Possession: 45.58%,Home Advantage: N/A,Away Possession: 54.42%,Away Advantage: 8.84%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_1,Home Possession: 52.31%,Home Advantage: 4.62%,Away Possession: 47.69%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2,Home Possession: 27.57%,Home Advantage: N/A,Away Possession: 72.43%,Away Advantage: 44.86%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_3,Home Possession: 42.46%,Home Advantage: N/A,Away Possession: 57.54%,Away Advantage: 15.08%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_4,Home Possession: 60.89%,Home Advantage: 21.78%,Away Possession: 39.11%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_5,Home Possession: 36.59%,Home Advantage: N/A,Away Possession: 63.41%,Away Advantage: 26.82%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_6,Home Possession: 62.08%,Home Advantage: 24.16%,Away Possession: 37.92%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_7,Home Possession: 32.78%,Home Advantage: N/A,Away Possession: 67.22%,Away Advantage: 34.44%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_8,Home Possession: 59.24%,Home Advantage: 18.48%,Away Possession: 40.76%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_0,Home Possession: 62.48%,Home Advantage: 24.96%,Away Possession: 37.52%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_1,Home Possession: 61.28%,Home Advantage: 22.56%,Away Possession: 38.72%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_2,Home Possession: 39.72%,Home Advantage: N/A,Away Possession: 60.28%,Away Advantage: 20.56%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_3,Home Possession: 49.27%,Home Advantage: N/A,Away Possession: 50.73%,Away Advantage: 1.46%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_4,Home Possession: 67.29%,Home Advantage: 34.58%,Away Possession: 32.71%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_5,Home Possession: 30.33%,Home Advantage: N/A,Away Possession: 69.67%,Away Advantage: 39.34%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_6,Home Possession: 56.38%,Home Advantage: 12.76%,Away Possession: 43.62%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_7,Home Possession: 61.56%,Home Advantage: 23.12%,Away Possession: 38.44%,Away Advantage: N/A,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+,,,possession,bar_2_8,Home Possession: 42.72%,Home Advantage: N/A,Away Possession: 57.28%,Away Advantage: 14.56%,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Total Team XG,1.6,1.2,xg,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Shots,12,10,xg,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
+Shots On Target,7,3,xg,,,,,,8582be8b,Saturday October 18 2025,Cincinnati,Montréal
