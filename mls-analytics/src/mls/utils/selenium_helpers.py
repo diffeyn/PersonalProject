@@ -180,6 +180,42 @@ def dismiss_cookies(driver, timeout=8):
 
 ### FUNCTIONS FOR SELENIUM SCRAPING OF MATCH DATA ###
 
+def extract_match_links(driver):
+    wait = WebDriverWait(driver, 10)
+    
+    ### Load the page
+    driver.get('https://www.mlssoccer.com/schedule/scores#competition=MLS-COM-000001&club=all')
+    
+    wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "body")))
+
+    ### find last week's matches
+    all_links = set()
+
+
+    try:
+        previous_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Previous results']"))) # Locate the "Previous results" button
+
+        previous_button.click() # Click the button to get to last week's matches
+        
+        time.sleep(5)
+        
+        matches_table = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'mls-c-schedule__matches')))
+        if not matches_table:
+            print("No matches table found on this page.")
+            
+        ### Extract all match links    
+        hrefs = matches_table.find_elements(By.TAG_NAME, 'a')
+        
+        for href in hrefs:
+            all_links.add(href.get_attribute('href'))
+            
+    except Exception as e:
+        print(f"Error occurred: {e}")
+            
+    return list(all_links)
+
+
+
 def js_scroll_by(driver, by):
     driver.execute_script("window.scrollBy(0, arguments[0]);", by)
 
@@ -191,13 +227,28 @@ def js_scroll_into_view(driver, el):
     
 import time
 
-def load_full_feed_by_height(driver, step_px=1500, delay=0.6,
+def load_full_feed_by_height(driver, step_px=1000, delay=0.6,
                              max_rounds=80, stable_rounds_required=3):
     prev_h = -1
     stable = 0
 
     for i in range(max_rounds):
         h = driver.execute_script("return document.body.scrollHeight;")
+        
+        time.sleep(delay)
+        
+        ### scroll up 500 pixels to trigger loading of new content if at the bottom
+        driver.execute_script("window.scrollBy(0, arguments[0]);", -step_px // 2)
+        time.sleep(delay)
+        
+        h = driver.execute_script("return document.body.scrollHeight;")
+        
+        driver.execute_script("window.scrollBy(0, arguments[0]);", -step_px // 2)
+        
+        ### check if scrollHeight has changed after scrolling
+        
+        h = driver.execute_script("return document.body.scrollHeight;")
+        
         print(f"[FEED] round {i+1}: height={h} stable={stable}")
 
         if h == prev_h:

@@ -1,3 +1,5 @@
+from concurrent.futures import wait
+from turtle import home
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -5,15 +7,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from mls.utils import selenium_helpers
 
 
-def extract_team_stats(driver, match_id):   
+def extract_team_stats(driver, match_id):
     
     wait = WebDriverWait(driver, 10)
-        
+    
     wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
         
     general_stats = []
     shooting_stats = []
-    passing_stats = []
+    passing_stats = [] 
     possession_stats = []
     xg_stats = []
     date = ''
@@ -23,31 +25,31 @@ def extract_team_stats(driver, match_id):
     main_body = driver.find_element(By.TAG_NAME, 'main')
     stats_bttn = main_body.find_element(By.LINK_TEXT, 'Stats')
     
-    title_head = driver.find_element(By.CSS_SELECTOR,
-                                     "section.mls-l-module--match-hub-header-container"
-                                     )
-    teams = title_head.find_element(By.CSS_SELECTOR, 'div.mls-c-matchhub-tile')
+    
+    hub = wait.until(EC.presence_of_element_located(
+        (By.CSS_SELECTOR, "section[data-bucket-name='match-header']")
+    ))
 
-    try:
-        home_team = teams.find_element(
-            By.CSS_SELECTOR,
-            "div.mls-c-club.--home span.mls-c-club__shortname"
-            ).text.strip()
 
-        away_team = teams.find_element(
-            By.CSS_SELECTOR,
-            "div.mls-c-club.--away span.mls-c-club__shortname"
-        ).text.strip()
-        
-    except:
-        print("Could not extract team names.")
+    home_abbr = wait.until(EC.visibility_of_element_located(
+        (By.CSS_SELECTOR, "section[data-bucket-name='match-header'] .mls-c-club.--home .mls-c-club__shortname")
+    )).text.strip()
+
+    away_abbr = wait.until(EC.visibility_of_element_located(
+        (By.CSS_SELECTOR, "section[data-bucket-name='match-header'] .mls-c-club.--away .mls-c-club__shortname")
+    )).text.strip()
+
+    scores = hub.find_elements(By.CSS_SELECTOR, ".mls-c-scorebug__score")
+    home_score = scores[0].text.strip() if len(scores) > 0 else None
+    away_score = scores[1].text.strip() if len(scores) > 1 else None
 
     try:
         date = driver.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
         
-        stats_bttn.click()
 
         try:
+            stats_bttn.click()
+            
             general_cont = wait.until(
                 EC.presence_of_element_located((
                     By.XPATH,
@@ -189,16 +191,21 @@ def extract_team_stats(driver, match_id):
     passing_stats_df = pd.DataFrame(passing_stats);   passing_stats_df["category"] = "passing"
     possession_stats_df = pd.DataFrame(possession_stats); possession_stats_df["category"] = "possession"
     expected_goals_stats_df = pd.DataFrame(xg_stats); expected_goals_stats_df["category"] = "xg"
-    
-    all_stats = pd.concat(
-        [general_stats_df, shooting_stats_df, passing_stats_df, possession_stats_df, expected_goals_stats_df],
-        axis=0, ignore_index=True
-    )
 
+
+    all_stats = pd.concat([
+        general_stats_df,
+        shooting_stats_df,
+        passing_stats_df,
+        possession_stats_df,
+        expected_goals_stats_df
+    ], ignore_index=True)
+    
     all_stats['match_id'] = match_id
     all_stats['date'] = date
-    all_stats['home_team'] = home_team
-    all_stats['away_team'] = away_team
+    all_stats['home_team'] = home_abbr
+    all_stats['away_team'] = away_abbr
     
     
-    return all_stats, date, home_team, away_team
+    
+    return all_stats, date, home_abbr, away_abbr, home_score, away_score
