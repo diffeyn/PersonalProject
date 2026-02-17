@@ -15,6 +15,7 @@ import time
 # Function to set up Selenium WebDriver with options to avoid detection and handle logging
 def set_up_driver():
     options = Options()
+    options.add_argument("--headless=new")
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
 
