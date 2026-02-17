@@ -25,7 +25,7 @@ jobs:
       - name: Run scrape + clean (small test)
         env:
           LIMIT: "1"
-          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+          SCRAPER_API_KEY: ${{ secrets.SECRET_API_KEY }}
         run: |
           python -m scripts.run_all
 
