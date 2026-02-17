@@ -81,7 +81,6 @@ def scrape_matches():
         try:
             match_team_data, date, home_team, away_team, home_team_score, away_team_score = extract_team_stats(driver, match_id)
             combined_team_stats = pd.concat([combined_team_stats, match_team_data], ignore_index=True)
-            print(f'shaped team stats data: {match_team_data.shape}')
         except Exception as e:
             print(f"Error extracting team stats for {match_id}: {e}")
             traceback.print_exc()
