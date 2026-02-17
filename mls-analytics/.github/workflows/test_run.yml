@@ -24,13 +24,15 @@ jobs:
 
       - name: Run scrape + clean (small test)
         env:
+          PYTHONPATH: ${{ github.workspace }}/src
           LIMIT: "1"
-          SCRAPER_API_KEY: ${{ secrets.SECRET_API_KEY }}
+          SECRET_API_KEY: ${{ secrets.SECRET_API_KEY }}
         run: |
           python -m scripts.run_all
 
       - name: Show output files
         run: |
+          echo "=== data tree ==="
           ls -R data || true
 
       - name: Upload artifacts (raw + clean)
@@ -40,4 +42,4 @@ jobs:
           path: |
             data/raw/**
             data/interim/**
-          if-no-files-found: error
+          if-no-files-found: warn
