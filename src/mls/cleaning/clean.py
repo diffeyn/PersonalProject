@@ -1,11 +1,11 @@
 from mls.cleaning import clean_matches, clean_sofifa
-from mls.utils.scraping import io
-import pandas as pd
+from pathlib import Path
+
 
 
 def clean_data():    ## clean match data
     
-    outdir = "data/interim"
+    outdir = Path("data/interim")
     outdir.mkdir(parents=True, exist_ok=True)
     
     cleaned_match_team_stats, cleaned_match_player_stats, cleaned_feed = clean_matches.clean_matches()
