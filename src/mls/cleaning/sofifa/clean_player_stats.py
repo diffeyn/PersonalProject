@@ -110,7 +110,10 @@ def clean_player_stats(df):
     df = df.loc[:, ~df.columns.str.contains('Unnamed')]
 
     df.loc[:, 'Name'] = df['Name'].str.replace(r'[A-Z]+$', '', regex=True)
-    df.loc[:, 'date'] = pd.to_datetime(df['date']).dt.date
+    
+    if 'date' in df.columns:
+        df['date'] = pd.to_datetime(df['date'].astype(str), errors='coerce').dt.date
+
 
     pat = r'(\w+)\((\d+)\)(\d{4}) ~ (\d{4})'
     df[['position', 'jersey_num', 'contract_start',
