@@ -1,13 +1,14 @@
 from __future__ import annotations
 import traceback
+from mls.utils.scraping import selenium_helpers
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from mls.scraping.selenium.match_team_stats import extract_team_stats
-from mls.scraping.selenium.match_player_stats import extract_player_stats
+from mls.scraping.selenium.match_player_stats import extract_players
 from mls.scraping.selenium.match_feed import extract_feed
-from mls.utils import utils, selenium_helpers
+from mls.utils.scraping import hashing
 
 
 def scrape_matches():
@@ -16,50 +17,67 @@ def scrape_matches():
     print("Driver set up successfully.")
     wait = WebDriverWait(driver, 10)
     
+    ## navigate to most recent schedule page (weekly))
     driver.get("https://www.mlssoccer.com/schedule/scores#competition=MLS-COM-000001&club=all")
     
     driver.implicitly_wait(2)
-
-        
-    print("Clicked on previous button 19 times.")
     
+    ## dismiss cookies if prompted
     selenium_helpers.dismiss_cookies(driver)
 
     wait = WebDriverWait(driver, 3)
     
-        ### button with class
+    ### calendar button for navigating to previous weeks of matches
     button_calendar = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'mls-o-buttons__two-way')))
-    
-    print("found calendar button.")
-    
-    #### press button with value prev with class mls-o-buttons__two-way
-    
+        
+    #### press button to navigate to previous week of matches as scrapehappens monday morning for the previous week's matches    
     button_prev = button_calendar.find_element(By.XPATH, ".//button[@value='prev']")
     
-    ### click the button 19 times to go back to the start of the season
-    for _ in range(19):
+    ##### TEMPORARY ######
+    ## Click prev button 19 times
+    
+    for i in range(19):
         button_prev.click()
+        
+        
+    ##### TEMPORRARY #####
     
-    # match_links = selenium_helpers.extract_match_links(driver)
-    
+    ## scrape match links from schedule page
     match_links = selenium_helpers.extract_match_links(driver)
     print(f"Extracted {len(match_links)} match links.")
     
+    if match_links is None or len(match_links) == 0:
+        print("No match links found. Exiting.")
+        driver.quit()
+        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
+    
+    
+    ### initialize empty dataframes to hold combined data across matches
     combined_team_stats = pd.DataFrame()
     combined_player_stats = pd.DataFrame()
     combined_feed = pd.DataFrame()
-
+    combined_match_data = pd.DataFrame()
     
-    for link in match_links:
-       
-        match_id = utils.make_match_id(link)
+    ### loop through match links and extract data for each match
+    count = 1
+    
+    ##### TEMPORARY ####
+    
+    ## k33p first match for testing
+    match_links = [match_links[0]]
+    
+    for link in match_links:        
+        ### create match_id from link for use as unique identifier across datasets using hashlib
+        match_id = hashing.make_match_id(link)
         
+        ## navigate to match page
         driver.get(link)
         
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
         
-        print(f"Navigated to {link} for match ID: {match_id}")
+        print(f"Processing match: {match_id} ({count}/{len(match_links)})")
                 
+        ### extract match team stats, match player stats, and match feed data for the match with error handling to continue to next match if any step fails
         try:
             match_team_data, date, home_team, away_team, home_team_score, away_team_score = extract_team_stats(driver, match_id)
             combined_team_stats = pd.concat([combined_team_stats, match_team_data], ignore_index=True)
@@ -75,18 +93,16 @@ def scrape_matches():
             "away_team": away_team,
             "home_team_score": home_team_score,
             "away_team_score": away_team_score}])
-                                  
-        print('Finished scraping team stats for match:' + match_id)
-        
-        
+                                          
+        combined_match_data = pd.concat([combined_match_data, match_data], ignore_index=True)
+
         try:
-            match_player_data = extract_player_stats(driver, match_id, date)
+            match_player_data = extract_players(driver, match_id, date)
             combined_player_stats = pd.concat([combined_player_stats, match_player_data], ignore_index=True)
         except Exception as e:
             print(f"Error extracting player stats for {match_id}: {e}")
             traceback.print_exc()
             raise
-        print('Finished scraping player stats for match:' + match_id)
         
         
         try:
@@ -98,9 +114,11 @@ def scrape_matches():
             print(f"Error extracting match feed for {match_id}: {e}")
             traceback.print_exc()
             raise
-        print('Finished scraping match feed for match:' + match_id)
         
-
+        print(f"Finished processing match: {match_id} ({count}/{len(match_links)})")
+        count += 1
+        
+    ### close driver after processing all matches
     driver.quit()
 
-    return combined_team_stats, combined_player_stats, combined_feed, match_data
+    return combined_team_stats, combined_player_stats, combined_feed, combined_match_data

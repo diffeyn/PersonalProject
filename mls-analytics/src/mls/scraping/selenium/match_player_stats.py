@@ -2,17 +2,21 @@ import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from mls.utils import selenium_helpers
+from mls.utils.scraping import selenium_helpers
+from mls.scraping.bs4 import bs_scraper as bs
 
-def extract_player_stats(driver, match_id, date):
+
+def extract_players(driver, match_id, date):
     wait = WebDriverWait(driver, 10)
     
+    ### scroll to top of page to ensure buttons are visible
     title_head = driver.find_element(By.CSS_SELECTOR,
                                      "section.mls-l-module--match-hub-header-container"
                                      )
     
     selenium_helpers.js_scroll_into_view(driver, title_head)
     
+    ### click player stats button to load player stats page for the match with error handling to return empty dataframe if button not found or clickable
     try:
         player_btn = wait.until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, '.mls-o-buttons__segment[value="players"]')
@@ -23,33 +27,13 @@ def extract_player_stats(driver, match_id, date):
         return pd.DataFrame()
 
     driver.implicitly_wait(2)
-    selenium_helpers.js_scroll_by(driver, 1500)
-
-    try:
-        teams = selenium_helpers.get_player_team_blocks(driver)
-    except Exception as e:
-        print("ERROR grouping team blocks:", e)
-        return pd.DataFrame()
-
-    player_rows = []
-    gk_rows = []
-
-
-    for idx, t in enumerate(teams):
-        side = "home" if idx == 0 else "away"
-
-        # parse main
-        for row in selenium_helpers.scrape_table(t["main"]):
-            row.update({"side": side, "club": t["team"], "date": date})
-            player_rows.append(row)
-
-        # parse gk
-        for row in selenium_helpers.scrape_table(t["gk"]):
-            row.update({"side": side, "club": t["team"], "date": date})
-            gk_rows.append(row)
-            
-    player_stats = pd.DataFrame(player_rows + gk_rows)
     
-    player_stats["match_id"] = match_id
+    ### scroll to bottom of page to load all player stats (lazy loading)
+    selenium_helpers.js_scroll_by(driver, 1500)
+    
+    ### get page source and parse player stats tables with BeautifulSoup
+    html = driver.page_source
+    player_stats= bs.parse_player_stats_from_html(html, date, match_id)
+    
     return player_stats
 

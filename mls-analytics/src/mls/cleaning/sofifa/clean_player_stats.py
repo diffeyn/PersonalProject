@@ -105,39 +105,9 @@ def safe_eval(x):
         return x
 
 def clean_player_stats(df):
-    """
-    Clean and standardize player statistics data from a DataFrame.
-    This function performs comprehensive cleaning and transformation of player statistics data,
-    including parsing contract information, converting units, standardizing monetary values,
-    and reorganizing columns.
-    Args:
-        df (pd.DataFrame): Raw player statistics DataFrame containing columns such as:
-            - Name: Player name (may contain trailing capital letters)
-            - date: Date information (will be converted to datetime)
-            - Team & Contract: Combined string with position, jersey number, and contract dates
-            - Height: Height with 'cm' unit
-            - Weight: Weight with 'kg' unit
-            - Wage: Wage with '€' symbol and K/M suffixes
-            - Value: Player value with '€' symbol and K/M suffixes
-    Returns:
-        pd.DataFrame: Cleaned DataFrame with:
-            - Removed unnamed columns
-            - Cleaned player names (trailing capitals removed)
-            - Parsed contract information (position, jersey_num, contract_start, contract_end)
-            - Converted height and weight to integer values in cm and kg
-            - Converted wage and value to integer EUR values
-            - Applied safe_eval to all columns except 'date'
-            - Reorganized columns with main columns first, followed by remaining columns
-            - Numeric conversion applied where possible
-            - Column names lowercased and spaces replaced with underscores
-    Note:
-        - Requires 'safe_eval' function to be defined in scope
-        - Assumes specific format for 'Team & Contract': position(jersey_num)start_year ~ end_year
-        - K suffix represents thousands (000), M suffix represents millions (000000)
-    """
     df = df.copy()
 
-    df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+    df = df.loc[:, ~df.columns.str.contains('Unnamed')]
 
     df.loc[:, 'Name'] = df['Name'].str.replace(r'[A-Z]+$', '', regex=True)
     df.loc[:, 'date'] = pd.to_datetime(df['date']).dt.date
@@ -184,16 +154,5 @@ def clean_player_stats(df):
 
     df.columns = df.columns.str.lower().str.replace(' ', '_')
     
-    df = df.rename(columns={
-    'goals_saved': 'gk_goals_saved',
-    'goals_against': 'gk_goals_against',
-    'expected_goals_against': 'gk_expected_goals_against',
-    'Pass': 'gk_pass'
-    })
-    
-    df = df.drop(columns=['date'])
-    
-    df['team_abbr'] = df['team'].map(team_map_clean)
-   
     return df
 

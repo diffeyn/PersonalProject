@@ -10,7 +10,9 @@ from typing import List, Dict, Optional
 import time
 
 
+### SETUP AND UTILITY FUNCTIONS FOR SELENIUM ###
 
+# Function to set up Selenium WebDriver with options to avoid detection and handle logging
 def set_up_driver():
     options = Options()
     options.add_argument("--disable-gpu")
@@ -38,25 +40,6 @@ def set_up_driver():
 
 ### Function to dismiss cookie popup
 def dismiss_cookies(driver, timeout=8):
-    """
-    Attempts to dismiss cookie consent banners on a web page, specifically targeting OneTrust banners.
-    This function tries multiple strategies to find and click cookie acceptance buttons:
-    1. Direct selector matching for common OneTrust button IDs/classes
-    2. Searching within the OneTrust banner container
-    3. Switching into iframes that might contain consent dialogs
-    4. Using OneTrust's JavaScript API or removing the banner as a last resort
-    Args:
-        driver: Selenium WebDriver instance used to interact with the page
-        timeout (int, optional): Maximum time in seconds to wait for elements. Defaults to 8.
-    Returns:
-        bool: True if a cookie banner was successfully dismissed, False otherwise.
-            Also prints debug information about attempted selectors if unsuccessful.
-    Note:
-        - The function attempts non-intrusive methods first (clicking visible buttons)
-        - Falls back to JavaScript execution for stubborn elements
-        - Handles iframe switching and ensures driver context is restored
-        - Designed to be resilient to various OneTrust implementation patterns
-    """
     wait = WebDriverWait(driver, timeout)
     tried = []
 
@@ -66,7 +49,7 @@ def dismiss_cookies(driver, timeout=8):
         except Exception:
             return False
 
-    # 0) Give the banner a second to mount
+    # Give the banner a second to mount
     driver.execute_script("window._probe = Date.now();")
     try:
         wait.until(
@@ -74,14 +57,14 @@ def dismiss_cookies(driver, timeout=8):
     except TimeoutException:
         pass
 
-    # 1) Direct hit: common OneTrust IDs/classes
+    # Direct hit: common OneTrust IDs/classes
     candidates = [
         (By.ID, "onetrust-accept-btn-handler"),
         (By.CSS_SELECTOR, "button#onetrust-accept-btn-handler"),
         (By.CSS_SELECTOR,
          "#onetrust-banner-sdk button#onetrust-accept-btn-handler"),
         (By.CSS_SELECTOR, "button#onetrust-reject-all-handler"
-         ),  # sometimes only Reject is visible first
+         ),
         (By.CSS_SELECTOR, "[data-testid='onetrust-accept-btn-handler']"),
         (By.XPATH,
          "//button[contains(@id,'accept') and contains(translate(., 'ACEPT','acept'),'accept')]"
@@ -100,14 +83,13 @@ def dismiss_cookies(driver, timeout=8):
         except NoSuchElementException:
             continue
         except WebDriverException:
-            # Try JS click if the element exists but normal click fails
             try:
                 driver.execute_script("arguments[0].click();", btn)
                 return True
             except Exception:
                 continue
 
-    # 2) If not found, check for a banner container (present but hidden/animating)
+    # If not found, check for a banner container (present but hidden/animating)
     try:
         banner = driver.find_element(By.ID, "onetrust-banner-sdk")
         if _visible(banner):
@@ -121,10 +103,9 @@ def dismiss_cookies(driver, timeout=8):
     except NoSuchElementException:
         pass
 
-    # 3)Scan iframes and try inside.
+    # Scan iframes and try inside.
     iframes = driver.find_elements(By.TAG_NAME, "iframe")
     for i, frame in enumerate(iframes):
-        # quick filter to avoid costly switches
         src = (frame.get_attribute("src") or "").lower()
         name = (frame.get_attribute("name") or "").lower()
         if any(k in src + name
@@ -132,7 +113,6 @@ def dismiss_cookies(driver, timeout=8):
             tried.append(f"iframe[{i}] src={src or name}")
             try:
                 driver.switch_to.frame(frame)
-                # try common selectors again inside this frame
                 for how, what in candidates:
                     try:
                         btn = WebDriverWait(driver, 2).until(
@@ -152,13 +132,12 @@ def dismiss_cookies(driver, timeout=8):
                         continue
                 driver.switch_to.default_content()
             except Exception:
-                # ensure we’re back
                 try:
                     driver.switch_to.default_content()
                 except:
                     pass
 
-    # 4) Last resort: call OneTrust API if it exists, or remove the banner to unblock clicks
+    # Last resort: call OneTrust API if it exists, or remove the banner to unblock clicks
     try:
         ok = driver.execute_script("""
             if (window.OneTrust && OneTrust.AcceptAll) { OneTrust.AcceptAll(); return true; }
@@ -180,6 +159,7 @@ def dismiss_cookies(driver, timeout=8):
 
 ### FUNCTIONS FOR SELENIUM SCRAPING OF MATCH DATA ###
 
+# Function to load the match feed by scrolling until no new content loads
 def extract_match_links(driver):
     wait = WebDriverWait(driver, 10)
     
@@ -193,11 +173,14 @@ def extract_match_links(driver):
 
 
     try:
-        previous_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Previous results']"))) # Locate the "Previous results" button
-
-        previous_button.click() # Click the button to get to last week's matches
+        # Locate the "Previous results" button
+        previous_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Previous results']"))) 
         
-        time.sleep(5)
+        # Click the button to get to last week's matches as scrape runs on Monday morning for the previous week's matches
+        previous_button.click() 
+        
+        # Wait for the page to load after clicking
+        time.sleep(3)  
         
         matches_table = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'mls-c-schedule__matches')))
         if not matches_table:
@@ -210,63 +193,22 @@ def extract_match_links(driver):
             all_links.add(href.get_attribute('href'))
             
     except Exception as e:
-        print(f"Error occurred: {e}")
+        print(f"Error occurred while extracting match links: {e}")
             
     return list(all_links)
 
 
-
+# Function to scroll by a certain amount of pixels
 def js_scroll_by(driver, by):
     driver.execute_script("window.scrollBy(0, arguments[0]);", by)
 
-
+# Function to scroll an element into view
 def js_scroll_into_view(driver, el):
     driver.execute_script(
         "arguments[0].scrollIntoView({block:'center', inline:'nearest'});", el)
     
-    
-import time
 
-def load_full_feed_by_height(driver, step_px=1000, delay=0.6,
-                             max_rounds=80, stable_rounds_required=3):
-    prev_h = -1
-    stable = 0
-
-    for i in range(max_rounds):
-        h = driver.execute_script("return document.body.scrollHeight;")
-        
-        time.sleep(delay)
-        
-        ### scroll up 500 pixels to trigger loading of new content if at the bottom
-        driver.execute_script("window.scrollBy(0, arguments[0]);", -step_px // 2)
-        time.sleep(delay)
-        
-        h = driver.execute_script("return document.body.scrollHeight;")
-        
-        driver.execute_script("window.scrollBy(0, arguments[0]);", -step_px // 2)
-        
-        ### check if scrollHeight has changed after scrolling
-        
-        h = driver.execute_script("return document.body.scrollHeight;")
-        
-        print(f"[FEED] round {i+1}: height={h} stable={stable}")
-
-        if h == prev_h:
-            stable += 1
-        else:
-            stable = 0
-
-        if stable >= stable_rounds_required:
-            print("[FEED] scrollHeight stabilized")
-            return h
-
-        prev_h = h
-        driver.execute_script("window.scrollBy(0, arguments[0]);", step_px)
-        time.sleep(delay)
-
-    return driver.execute_script("return document.body.scrollHeight;")
-
-
+# function to scrape stats cards from the team stats page using JavaScript execution to avoid issues with lazy loading and dynamic content
 def scrape_cards(group, driver):
     return driver.execute_script("""
         const root = arguments[0];
@@ -276,75 +218,39 @@ def scrape_cards(group, driver):
         second: c.querySelector('.mls-o-stat-chart__second-value')?.textContent.trim() || '',
         }));
     """, group)
-    
 
-def get_player_team_blocks(driver):
+# Function to load the full match feed by scrolling until the scroll height stabilizes, indicating all content is loaded
+def load_full_feed_by_height(driver, step_px=1000, delay=1.5,
+                             max_rounds=80, stable_rounds_required=10):
+    prev_h = -1
+    stable = 0
 
-    section = driver.find_element(
-        By.CSS_SELECTOR,
-        "div.mls-c-stats.mls-c-stats--match-hub-player-stats"
-    )
+    for i in range(max_rounds):
+        h = driver.execute_script("return document.body.scrollHeight;")
 
-    elems = section.find_elements(By.XPATH, "./*")
+        # If we're at (or near) the footer, nudge up to trigger lazy-loading.
+        scroll_y = driver.execute_script("return window.pageYOffset;")
+        view_h = driver.execute_script("return window.innerHeight;")
+        if scroll_y + view_h >= h - 5:
+            driver.execute_script("window.scrollBy(0, arguments[0]);", -500)
+            time.sleep(delay)
 
-    teams = []
-    i = 0
-
-    while i < len(elems):
-
-        el = elems[i]
-
-        if "mls-c-stats__club-abbreviation" in el.get_attribute("class"):
-            team = el.text.strip()
-
-            main = None
-            gk = None
-
-            j = i + 1
-            while j < len(elems):
-                if "mls-c-stats__table" in elems[j].get_attribute("class"):
-                    main = elems[j].find_element(By.CSS_SELECTOR, "table")
-                    break
-                j += 1
-
-            j = j + 1
-            while j < len(elems):
-                if "mls-o-match-hub-container__mt-25" in elems[j].get_attribute("class"):
-                    gk = elems[j].find_element(By.CSS_SELECTOR, "table")
-                    break
-                j += 1
-
-            teams.append({
-                "team": team,
-                "main": main,
-                "gk": gk
-            })
-
-            i = j
+        # Re-check height after any footer nudge.
+        h = driver.execute_script("return document.body.scrollHeight;")
+        
+        if h == prev_h:
+            stable += 1
         else:
-            i += 1
+            stable = 0
 
-    return teams
-    
-    
-def scrape_table(table_el):
-    rows = []
+        if stable >= stable_rounds_required:
+            return h
 
-    header_cells = table_el.find_elements(By.CSS_SELECTOR, "thead .mls-o-table__header")
-    headers = [h.text.strip() for h in header_cells]
+        prev_h = h
+        driver.execute_script("window.scrollBy(0, arguments[0]);", step_px)
+        time.sleep(delay)
 
-    for tr in table_el.find_elements(By.CSS_SELECTOR, "tbody .mls-o-table__row"):
-        cells = tr.find_elements(By.CSS_SELECTOR, ".mls-o-table__cell")
-        values = [c.text.strip() for c in cells]
-
-        if len(values) < len(headers):
-            values += [""] * (len(headers) - len(values))
-        elif len(values) > len(headers):
-            values = values[:len(headers)]
-
-        rows.append(dict(zip(headers, values)))
-
-    return rows
+    return driver.execute_script("return document.body.scrollHeight;")
 
 
 

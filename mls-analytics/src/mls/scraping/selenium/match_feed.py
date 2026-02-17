@@ -3,7 +3,7 @@ import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from mls.utils import selenium_helpers
+from mls.utils.scraping import selenium_helpers
 from bs4 import BeautifulSoup
 
 
@@ -40,9 +40,9 @@ def extract_feed(driver, match_id, date):
         if not cont:
             print(f"[WARN] feed container not found in HTML for match {match_id}")
             return pd.DataFrame(columns=["match_id","date","minute","title","comment","out_player","in_player"])
-
+        
+        # extract events from feed container
         events = cont.select("div.mls-o-match-feed__container")
-        print(f"[FEED] parsing {len(events)} events for match {match_id}")
 
         for ev in events:
             minute = selenium_helpers._text(ev.select_one(".mls-o-match-feed__regular-time")) or \
@@ -65,10 +65,12 @@ def extract_feed(driver, match_id, date):
     except Exception as e:
         print(f"[ERR] extract_feed failed for match {match_id}: {type(e).__name__}: {e}")
         traceback.print_exc()
-
+        
+    # convert to DataFrame and return
     feed = pd.DataFrame(rows)
     if feed.empty:
         print(f"[WARN] Feed DataFrame is empty for match ID {match_id}")
+        return pd.DataFrame()
 
     return feed
 

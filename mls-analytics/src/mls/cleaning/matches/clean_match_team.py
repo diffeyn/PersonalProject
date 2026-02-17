@@ -1,33 +1,22 @@
 import pandas as pd
+import re
+
+def reframe_stats(df):
+    ### save match_id column and pivot the rest of the data to wide format
+    match_id = df['match_id'].iloc[0]
+    out = {}
+    for _, row in df.iterrows():
+        out[f"{row['stat']}_home"] = row['home_value']
+        out[f"{row['stat']}_away"] = row['away_value']
+
+    wide = pd.DataFrame([out])
+    wide.columns = [c.replace(' ', '_').replace('%', 'pct').replace('-', '_').lower() for c in wide.columns]
+    wide['match_id'] = match_id
+    return wide
 
 
-def clean_teams_stats(df):
-    """
-    Clean and transform team statistics data from wide to long format.
-    This function processes team statistics by:
-    1. Mapping time period codes (bar_0, bar_1, etc.) to their minute ranges (0-5, 6-10, etc.)
-    2. Combining category and stat_name into a single stat column
-    3. Extracting possession percentages for time-based statistics
-    4. Removing unnecessary columns and standardizing the output format
-    Args:
-        df (pd.DataFrame): DataFrame containing team statistics with columns:
-            - match_id: Unique identifier for the match
-            - category: Category of the statistic
-            - stat_name: Name of the specific statistic
-            - tip_id: Time period identifier (e.g., 'bar_0', '0-5')
-            - home_possession: Home team possession data
-            - away_possession: Away team possession data
-            - home_value: Home team statistic value
-            - away_value: Away team statistic value
-            - home_advantage: Home advantage indicator (dropped)
-            - away_advantage: Away advantage indicator (dropped)
-    Returns:
-        pd.DataFrame: Cleaned DataFrame with columns:
-            - match_id: Match identifier
-            - stat: Combined statistic name (e.g., 'possession_0_5')
-            - home_value: Home team value for the statistic
-            - away_value: Away team value for the statistic
-    """   
+def clean_match_team(df):
+    df = df.copy()
     bar_dict = {
         '0-5': 'bar_1_0',
         '6-10': 'bar_1_1',
@@ -50,7 +39,6 @@ def clean_teams_stats(df):
     }
 
     bar_dict_switched = {v: k for k, v in bar_dict.items()}
-    df = df.copy()
     df = df.drop(columns=['home_advantage', 'away_advantage'])
     df['stat'] = df['category'].astype(str) + '_' + df['stat_name'].astype(str)
     df = df.drop(columns=['category', 'stat_name'])
@@ -64,5 +52,6 @@ def clean_teams_stats(df):
     df.loc[mask, "stat"] = "possession_" + df.loc[mask, "tip_id"].str.replace("-", "_", regex=False)
     df = df.drop(columns=['tip_id', 'home_possession', 'away_possession'])
     df = df[['match_id', 'stat', 'home_value', 'away_value']]
+    df = reframe_stats(df)
     return df
 

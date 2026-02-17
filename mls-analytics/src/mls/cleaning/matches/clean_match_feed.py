@@ -1,36 +1,7 @@
 import pandas as pd
 import re
 
-def clean_feed(df):
-    """
-    Clean and standardize match feed data from a DataFrame.
-    This function processes raw match feed data by:
-    - Standardizing event titles based on comment content (Corner, Foul, Offside)
-    - Removing lineup announcements and match status events (KICK OFF, HALF TIME, etc.)
-    - Filtering out rows without minute values
-    - Reversing the order of events and resetting the index
-    - Handling substitution events by filling missing titles and formatting comments
-    - Creating sequential feed IDs for each match
-    - Parsing and standardizing date formats to datetime objects
-    - Selecting and reordering relevant columns
-    Args:
-        df (pandas.DataFrame): Input DataFrame containing match feed data with columns:
-            - match_id: Unique identifier for the match
-            - date: Match date (string format)
-            - minute: Minute of the event
-            - title: Event title/type
-            - comment: Additional event description
-            - in_player: Player entering (for substitutions)
-            - out_player: Player leaving (for substitutions)
-    Returns:
-        pandas.DataFrame: Cleaned DataFrame with columns:
-            - match_id: Unique identifier for the match
-            - date: Standardized datetime object
-            - feed_id: Sequential event number within each match
-            - minute: Minute of the event
-            - title: Standardized event title
-            - comment: Processed event description
-    """
+def clean_match_feed(df):
     df = df.copy()
     
     df['title'] = df.apply(lambda x: 'Corner' if pd.notna(x['comment']) and 'corner' in x['comment'].lower() else x['title'], axis=1)
@@ -62,7 +33,7 @@ def clean_feed(df):
         "may": "05", "june": "06", "july": "07", "august": "08",
         "september": "09", "october": "10", "november": "11", "december": "12"
     }
-
+ 
     df['date'] = df['date'].apply(
         lambda x: re.sub(
             r"[A-Za-z]+",
