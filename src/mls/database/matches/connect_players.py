@@ -49,7 +49,7 @@ def attach_player_ids(match_players, engine, cutoff):
                             club_norm=lambda d: d["team_name"].map(norm)))
 
     mp = (match_players.copy()
-          .assign(name_norm=lambda d: d["player_name"].map(norm),
+          .assign(name_norm=lambda d: d["name"].map(norm),
                   club_norm=lambda d: d["club"].map(norm)))
 
     # --- exact merge first ---
@@ -82,5 +82,7 @@ def attach_player_ids(match_players, engine, cutoff):
     
     print(f'players not matched: {out["player_id"].isna().sum()} / {len(out)}')
     print('colnames after merge:', out.columns.tolist())
-
+    
+    out.rename(columns={'name':'player_name"}
+    
     return out
