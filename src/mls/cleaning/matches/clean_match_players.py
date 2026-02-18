@@ -39,12 +39,6 @@ team_map = {
 def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
-    # ---- basic renames / ordering ----
-    df = df.rename(columns={
-        "player": "player_name",
-        "total_red_card": "red_card",
-    })
-
     if "match_id" in df.columns:
         df = df[["match_id"] + [c for c in df.columns if c != "match_id"]]
     else:
@@ -107,8 +101,6 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
             lambda x: x.upper() if x.upper() in abbrs else team_map_norm.get(x)
         )
 
-        # Optional: flag unmapped clubs (keep this until you're confident)
-        df["_club_unmapped"] = df["club"].isna()
         # Drop helper norm column
         df = df.drop(columns=["_club_norm"])
     else:
@@ -116,6 +108,9 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
 
     # ---- sort ----
     df = df.sort_values(by=["date", "match_id"], ascending=[False, False])
+    
+    print('columns after cleaning:', df.columns.tolist())
+
 
     # ---- stat column renames ----
     df = df.rename(columns={
@@ -148,6 +143,8 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
         "GKSV": "goals_on_kick",
         "CC": "corners_conceded",
     })
+    
+    print('columns after rename:', df.columns.tolist())
 
     return df
 
