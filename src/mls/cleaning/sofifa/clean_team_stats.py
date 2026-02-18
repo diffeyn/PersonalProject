@@ -57,9 +57,9 @@ def clean_team_stats(df: pd.DataFrame) -> pd.DataFrame:
     df['date'] = pd.to_datetime(df['date'])
     
             
-    df = df.rename(columns={'lineup': 'formation_base', 'style': 'formation_style', 'overall_score': 'overall', 'defense': 'defence', 'worth_euro': 'club_worth', 'team_name': 'name', 'num_players': 'players', 'Pressure': 'pressure'}) 
+    df = df.rename(columns={'lineup': 'formation_base', 'style': 'formation_style', 'overall_score': 'overall', 'defense': 'defence', 'worth_euro': 'club_worth', 'num_players': 'players'}) 
     
     
-    df = df[['team_id', 'date', 'name', 'overall', 'attack', 'midfield', 'defence', 'pressure', 'formation_base', 'formation_style', 'club_worth', 'players']]
+    df = df[['date', 'team_id', 'formation_base', 'formation_style', 'overall', 'attack', 'midfield', 'defence', 'club_worth', 'players']]
         
     return df

@@ -10,11 +10,16 @@ def clean_data():    ## clean match data
     outdir = Path("data/interim")
     outdir.mkdir(parents=True, exist_ok=True)
     
-    cleaned_match_team_stats, cleaned_match_player_stats, cleaned_feed = clean_matches.clean_matches()
+    cleaned_match_team_stats, cleaned_match_player_stats, cleaned_feed, cleaned_data = clean_matches.clean_matches()
+    
+    bad = cleaned_match_player_stats[cleaned_match_player_stats["_club_unmapped"]]
+    print(bad["club"].value_counts(dropna=False).head(30))
+    
     
     write_csv(cleaned_match_team_stats, outdir / "cleaned_matches/cleaned_match_team_stats.csv")
     write_csv(cleaned_match_player_stats, outdir / "cleaned_matches/cleaned_match_player_stats.csv")
     write_csv(cleaned_feed, outdir / "cleaned_matches/cleaned_match_feed.csv")  
+    write_csv(cleaned_data, outdir / "cleaned_matches/cleaned_match_data.csv")  
     
     ## clean SoFIFA data
     cleaned_players, cleaned_team = clean_sofifa.clean_sofifa()

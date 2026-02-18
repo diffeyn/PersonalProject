@@ -154,6 +154,8 @@ def clean_player_stats(df):
             df[c] = pd.to_numeric(df[c])
         except (ValueError, TypeError):
             pass 
+    
+    df = df.rename(columns={'id': 'player_id', 'team': 'team_name'})
 
     df.columns = df.columns.str.lower().str.replace(' ', '_')
     

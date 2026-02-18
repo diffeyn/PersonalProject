@@ -29,44 +29,30 @@ def parse_stat_table(table):
     if not table:
         return []
 
+    # --- HEADER: skip ONLY the fake stats-type TH ---
     ths = table.select("thead th.mls-o-table__header")
 
-    # Identify which header indices to KEEP
-    keep_idx = []
+    # drop header ths with class stats-type (usually the first one)
+    ths = [th for th in ths if "stats-type" not in (th.get("class") or [])]
+
     headers = []
-
     for i, th in enumerate(ths):
-        classes = th.get("class", []) or []
+        h = th.get_text(" ", strip=True)
+        if not h:
+            h = f"col_{i}"   # keep the column, don’t drop it
+        headers.append(h)
 
-        # Skip the fake stats-type column
-        if "stats-type" in classes:
-            continue
-
-        header_text = th.get_text(strip=True)
-
-        # Skip blank headers
-        if not header_text:
-            continue
-
-        keep_idx.append(i)
-        headers.append(header_text)
-
+    # --- BODY: keep ALL real tds as-is ---
     out = []
-
     for tr in table.select("tbody tr.mls-o-table__row"):
         tds = tr.select("td.mls-o-table__cell")
+        cells = [td.get_text(" ", strip=True) for td in tds]
 
-        # Pad or trim to match header count
-        if len(tds) < len(ths):
-            tds += [None] * (len(ths) - len(tds))
-        elif len(tds) > len(ths):
-            tds = tds[:len(ths)]
-
-        # Now extract ONLY the kept indices
-        cells = []
-        for i in keep_idx:
-            td = tds[i]
-            cells.append(td.get_text(strip=True) if td else "")
+        # Make lengths match headers (we keep the LEFT side aligned)
+        if len(cells) < len(headers):
+            cells += [""] * (len(headers) - len(cells))
+        elif len(cells) > len(headers):
+            cells = cells[:len(headers)]
 
         out.append(dict(zip(headers, cells)))
 
