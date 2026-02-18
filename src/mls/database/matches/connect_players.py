@@ -49,7 +49,7 @@ def attach_player_ids(match_players, engine, cutoff):
                             club_norm=lambda d: d["team_name"].map(norm)))
 
     mp = (match_players.copy()
-          .assign(name_norm=lambda d: d["name"].map(norm),
+          .assign(name_norm=lambda d: d["player_name"].map(norm),
                   club_norm=lambda d: d["club"].map(norm)))
 
     # --- exact merge first ---
