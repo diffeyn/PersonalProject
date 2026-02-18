@@ -21,9 +21,7 @@ def upload_to_sql():
     
     ### Attach player_ids to match player stats using DB mapping
     mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cutoff=88)
-    
-    mls_match_player_stats = mls_match_player_stats.drop(columns=['player_name', 'side', 'club'])
-    
+        
     ### Upload match data to SQL
     upload_to_db(mls_match_team_stats, "match_team_stats", engine)
     upload_to_db(mls_match_player_stats, "match_player_stats", engine)
