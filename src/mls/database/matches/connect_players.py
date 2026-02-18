@@ -23,7 +23,7 @@ def attach_player_ids(match_players, engine, cutoff=88, team_cutoff=80):
         SELECT player_id, team_id, stint_end, obs_count
         FROM team_roster
     """), engine)
-    teams = pd.read_sql(text("SELECT team_id, team_name FROM teams"), engine)
+    teams = pd.read_sql(text("SELECT team_id, team_abbr FROM teams"), engine)
 
     # ---- normalize ----
     mp["name_norm"] = mp["player_name"].map(norm)
@@ -31,7 +31,7 @@ def attach_player_ids(match_players, engine, cutoff=88, team_cutoff=80):
 
     players["name_norm"] = players["name"].map(norm)
 
-    teams["team_norm"] = teams["team_name"].map(norm)
+    teams["team_norm"] = teams["team_abbr"].map(norm)
     team_norms = teams["team_norm"].dropna().tolist()
 
     # ---- map scraped club -> team_id (fuzzy) ----
