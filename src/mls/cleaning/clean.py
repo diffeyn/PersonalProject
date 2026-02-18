@@ -12,9 +12,6 @@ def clean_data():    ## clean match data
     
     cleaned_match_team_stats, cleaned_match_player_stats, cleaned_feed, cleaned_data = clean_matches.clean_matches()
     
-    bad = cleaned_match_player_stats[cleaned_match_player_stats["_club_unmapped"]]
-    print(bad["club"].value_counts(dropna=False).head(30))
-    
     
     write_csv(cleaned_match_team_stats, outdir / "cleaned_matches/cleaned_match_team_stats.csv")
     write_csv(cleaned_match_player_stats, outdir / "cleaned_matches/cleaned_match_player_stats.csv")
