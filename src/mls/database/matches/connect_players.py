@@ -2,6 +2,28 @@ import pandas as pd
 from sqlalchemy import text
 from rapidfuzz import process, fuzz
 
+import re
+import unicodedata
+
+def norm(x):
+    if pd.isna(x):
+        return None
+    
+    # remove accents
+    x = unicodedata.normalize("NFKD", str(x))
+    x = "".join(c for c in x if not unicodedata.combining(c))
+    
+    # lowercase
+    x = x.lower().strip()
+    
+    # remove punctuation
+    x = re.sub(r"[^\w\s]", "", x)
+    
+    # collapse multiple spaces
+    x = re.sub(r"\s+", " ", x)
+    
+    return x
+
 
 def attach_player_ids(match_players, engine, cutoff):
     players = pd.read_sql(text("SELECT player_id, name FROM players_general"), engine)
