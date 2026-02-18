@@ -111,6 +111,11 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
     
     print('columns after cleaning:', df.columns.tolist())
 
+    ### if anything after space in column name, delete it (e.g. "Player Name" -> "Player")
+    df.columns = [col.split()[0] for col in df.columns]
+    
+    print('columns after cleaning:', df.columns.tolist())
+
 
     # ---- stat column renames ----
     df = df.rename(columns={
