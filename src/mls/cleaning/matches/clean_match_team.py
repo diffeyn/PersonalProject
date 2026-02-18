@@ -53,9 +53,14 @@ def clean_match_team(df):
     df = df.drop(columns=['tip_id', 'home_possession', 'away_possession'])
     df = df[['match_id', 'stat', 'home_value', 'away_value']]
     df = reframe_stats(df)
-    df = df.drop(columns=['general_blocked_home', 'general_blocked_away',
+    df = df.drop(columns=['general_blocked_shots_home', 'general_blocked_shots_away',
                       'general_goals_home', 'general_goals_away',
                         'general_off_target_home', 'general_off_target_away',
                         'general_on_target_home', 'general_on_target_away'])
+    
+    df.rename(columns={'general_shots_on_target_home': 'general_shots_on_goal_home',
+                       'general_shots_on_target_away': 'general_shots_on_goal_away'}, inplace=True)
+    
+    print('columns after cleaning match team stats:', df.columns)
     return df
 
