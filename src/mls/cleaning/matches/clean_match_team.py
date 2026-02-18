@@ -1,18 +1,32 @@
 import pandas as pd
 import re
 
+
 def reframe_stats(df):
-    ### save match_id column and pivot the rest of the data to wide format
     match_id = df['match_id'].iloc[0]
     out = {}
-    for _, row in df.iterrows():
-        out[f"{row['stat']}_home"] = row['home_value']
-        out[f"{row['stat']}_away"] = row['away_value']
 
-    wide = pd.DataFrame([out])
-    wide.columns = [c.replace(' ', '_').replace('%', 'pct').replace('-', '_').lower() for c in wide.columns]
-    wide['match_id'] = match_id
+    for _, row in df.iterrows():
+        stat = row.get("stat")
+        if pd.isna(stat):
+            continue
+        stat = str(stat).strip().lower()
+        if stat in ("", "nan", "none") or "nan" in stat:
+            continue
+
+        out[f"{stat}_home"] = row.get("home_value")
+        out[f"{stat}_away"] = row.get("away_value")
+
+    wide = pd.DataFrame([out]) if out else pd.DataFrame([{}])
+
+    wide.columns = [
+        re.sub(r"\s+", "_",
+        c.replace('%', 'pct').replace('-', '_')).lower()
+        for c in wide.columns
+    ]
+    wide["match_id"] = match_id
     return wide
+
 
 
 def clean_match_team(df):
@@ -40,6 +54,13 @@ def clean_match_team(df):
 
     bar_dict_switched = {v: k for k, v in bar_dict.items()}
     df = df.drop(columns=['home_advantage', 'away_advantage'])
+    df["category"] = df["category"].fillna("").astype(str).str.strip()
+    df["stat_name"] = df["stat_name"].fillna("").astype(str).str.strip()
+
+    df["stat"] = (df["category"] + "_" + df["stat_name"]).str.strip("_")
+
+    # remove junk stats
+    df = df[df["stat"].ne("") & df["stat"].ne("nan") & ~df["stat"].str.contains(r"\bnan\b", na=False)]
     df['stat'] = df['category'].astype(str) + '_' + df['stat_name'].astype(str)
     df = df.drop(columns=['category', 'stat_name'])
     df['tip_id'] = df['tip_id'].astype(str).str.strip() 
