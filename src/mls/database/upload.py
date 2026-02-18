@@ -20,6 +20,7 @@ def upload_to_sql():
     matches = pd.read_csv(indir / 'cleaned_matches/cleaned_match_data.csv')
     
     ### Attach player_ids to match player stats using DB mapping
+    print(mls_match_player_stats.columns)
     mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cutoff=88)
     
     ### Upload match data to SQL
