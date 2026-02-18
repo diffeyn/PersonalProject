@@ -83,6 +83,6 @@ def attach_player_ids(match_players, engine, cutoff):
     print(f'players not matched: {out["player_id"].isna().sum()} / {len(out)}')
     print('colnames after merge:', out.columns.tolist())
     
-    out.rename(columns={'name':'player_name"}
+    out.rename(columns={'name': 'player_name'}
     
     return out
