@@ -193,12 +193,21 @@ def extract_players(team_links):
         
         ### extract date from the team page using roster date
         date_elem = soup.find('select', {'name': 'roster'})
-        if date_elem != None:
-            date = date_elem.find('option', selected=True).text.strip()
+        selected_option = None
+
+        if date_elem:
+            selected_option = (
+                date_elem.find('option', selected=True)
+                or date_elem.find('option')
+            )
+
+        if selected_option:
+            date = selected_option.text.strip()
             safe_date = date.replace("/", "-").replace(":", "-").strip()
         else:
             safe_date = datetime.now().strftime("%Y-%m-%d")
-        
+            
+            
         ## find table within html
         players_table = soup.find("table")
         if players_table is None:
