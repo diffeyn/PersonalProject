@@ -3,7 +3,6 @@ from sqlalchemy import text
 import pandas as pd
 
 
-engine = make_engine()
 
 def create_snapshot_df(df, engine):
     df = df.copy()

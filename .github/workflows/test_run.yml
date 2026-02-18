@@ -22,11 +22,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # ---------- TAILSCALE ----------
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          args: --accept-dns=true
+
+      # Optional: sanity check network / DNS / reachability
+      - name: Verify Tailscale connection
+        run: |
+          tailscale status
+          tailscale ip -4
+
+
+      # ---------- YOUR PIPELINE ----------
       - name: Run scrape + clean (small test)
         env:
           PYTHONPATH: ${{ github.workspace }}/src
           LIMIT: "1"
           SECRET_API_KEY: ${{ secrets.SECRET_API_KEY }}
+
+          # DB settings: pick ONE approach:
+          # A) Single DB_URL string (recommended)
+          DB_TEST_STRING: ${{ secrets.DB_TEST_STRING }}
         run: |
           python -m scripts.run_all
 
