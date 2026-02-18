@@ -45,7 +45,7 @@ def attach_player_ids(match_players, engine, cutoff):
 
     lookup = (players.merge(latest_team[["player_id", "team_name"]], on="player_id", how="left")
                     .dropna(subset=["team_name"])
-                    .assign(name_norm=lambda d: d["player_name"].map(norm),
+                    .assign(name_norm=lambda d: d["name"].map(norm),
                             club_norm=lambda d: d["team_name"].map(norm)))
 
     mp = (match_players.copy()
