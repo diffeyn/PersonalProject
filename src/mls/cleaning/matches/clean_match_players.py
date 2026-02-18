@@ -148,10 +148,6 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
         "GKSV": "goals_on_kick",
         "CC": "corners_conceded",
     })
-    
-    ### drop player_name, club, side collumns
-    
-    df = df.drop(columns=["player_name", "club", "side"], errors="ignore")
 
     return df
 
