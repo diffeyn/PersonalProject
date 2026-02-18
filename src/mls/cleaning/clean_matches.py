@@ -12,8 +12,6 @@ def clean_matches():
 
     cleaned_team_stats = clean_match_team.clean_match_team(match_team_stats)
     cleaned_player_stats = clean_match_players.clean_match_players(match_player_stats)
-    bad = cleaned_player_stats[cleaned_player_stats["_club_unmapped"]]
-    print(bad["club"].value_counts(dropna=False).head(30))
     cleaned_feed = clean_match_feed.clean_match_feed(match_feed)
     cleaned_data = clean_match_data.clean_match_data(match_data)
     
