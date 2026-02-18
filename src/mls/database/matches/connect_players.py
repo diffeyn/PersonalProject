@@ -14,7 +14,7 @@ def norm(x):
     return x or None
 
 
-def attach_player_ids(match_players, engine, cutoff=88, team_cutoff=80):
+def attach_player_ids(match_players, engine, cutoff=70, team_cutoff=80):
     mp = match_players.copy()
 
     # ---- load DB tables ----
