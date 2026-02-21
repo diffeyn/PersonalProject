@@ -104,7 +104,22 @@ def parse_player_stats_from_html(html, match_id=None):
     return pd.DataFrame(all_rows)
 
 
-# function to parse team stats from the HTML content of a match page, extracting relevant information such as team names, stats, and linking with match_id for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
+    
+    
+#----SOFIFA SCRAPING FUNCTIONS----#
+
+
+## column names to filter results on SOFIFA.com to get more detailed player stats, these are the same columns that are available on the website when you click "show more" on the player stats table, we can add or remove columns from this list as needed to get the desired level of detail in our dataset without overwhelming it with too many columns that may not be relevant for analysis. The add_columns_to_url function will append these columns as query parameters to the team URLs before scraping to ensure we get all the detailed stats for each player.
+
+
+COLS = [
+    "pi","ae","hi","wi","pf","oa","bo","bp","vl","wg","ta","cr","fi","he","sh","vo","ts",
+    "dr","cu","fr","lo","bl","to","ac","sp","ag","re","ba","tp","so","ju","st","ln","te",
+    "ar","in","po","vi","pe","cm","td","ma","sa","sl","tg","gd","gh","gc","gp","gr"
+]
+
+
+# function to parse team stats from the HTML content of team pages, extracting relevant information such as team names, stats, and linking with date for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
 def scrape_team_table(soup):
     print("Scraping team stats table...")
     teams_table = soup.find('table')
@@ -147,19 +162,6 @@ def scrape_team_table(soup):
     return teams_df, team_links, date
     
     
-    
-#----SOFIFA SCRAPING FUNCTIONS----#
-
-
-## column names to filter results on SOFIFA.com to get more detailed player stats, these are the same columns that are available on the website when you click "show more" on the player stats table, we can add or remove columns from this list as needed to get the desired level of detail in our dataset without overwhelming it with too many columns that may not be relevant for analysis. The add_columns_to_url function will append these columns as query parameters to the team URLs before scraping to ensure we get all the detailed stats for each player.
-
-
-COLS = [
-    "pi","ae","hi","wi","pf","oa","bo","bp","vl","wg","ta","cr","fi","he","sh","vo","ts",
-    "dr","cu","fr","lo","bl","to","ac","sp","ag","re","ba","tp","so","ju","st","ln","te",
-    "ar","in","po","vi","pe","cm","td","ma","sa","sl","tg","gd","gh","gc","gp","gr"
-]
-
 ### function to add query parameters to the team URLs to specify which columns we want to scrape from the team pages on SOFIFA.com, this allows us to get more detailed player stats without having to scrape the entire
 def add_columns_to_url(u: str, cols) -> str:
     pu = urlparse(u)
