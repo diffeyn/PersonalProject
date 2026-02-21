@@ -1,4 +1,5 @@
 from concurrent.futures import wait
+import traceback
 from turtle import home
 import pandas as pd
 from selenium.webdriver.common.by import By
@@ -24,28 +25,40 @@ def extract_team_stats(driver, match_id):
     away_team = ''
     
     main_body = driver.find_element(By.TAG_NAME, 'main')
-    
-    ### extract match header info (teams, score, date) for context in team stats dataset and to link with other datasets using match_id
-    hub = wait.until(EC.presence_of_element_located(
-        (By.CSS_SELECTOR, "section[data-bucket-name='match-header']")
-    ))
+    try:
+        
+        ### extract match header info (teams, score, date) for context in team stats dataset and to link with other datasets using match_id
+        hub = wait.until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "section[data-bucket-name='match-header']")
+        ))
 
-    home_team = wait.until(EC.visibility_of_element_located(
-        (By.CSS_SELECTOR, "section[data-bucket-name='match-header'] .mls-c-club.--home .mls-c-club__shortname")
-    )).text.strip()
+        home_team = wait.until(EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, "section[data-bucket-name='match-header'] .mls-c-club.--home .mls-c-club__shortname")
+        )).text.strip()
 
-    away_team = wait.until(EC.visibility_of_element_located(
-        (By.CSS_SELECTOR, "section[data-bucket-name='match-header'] .mls-c-club.--away .mls-c-club__shortname")
-    )).text.strip()
+        away_team = wait.until(EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, "section[data-bucket-name='match-header'] .mls-c-club.--away .mls-c-club__shortname")
+        )).text.strip()
 
-    scores = hub.find_elements(By.CSS_SELECTOR, ".mls-c-scorebug__score")
-    home_score = scores[0].text.strip() if len(scores) > 0 else None
-    away_score = scores[1].text.strip() if len(scores) > 1 else None
-    date = hub.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
-    
-    if '+' in date:
-        date = date.split('+')[0].strip()
+        scores = hub.find_elements(By.CSS_SELECTOR, ".mls-c-scorebug__score")
+        home_score = scores[0].text.strip() if len(scores) > 0 else None
+        away_score = scores[1].text.strip() if len(scores) > 1 else None
+        date = hub.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
+        
+                # ---- date parsing (robust) ----
+            # Handles: "Saturday March 2", "March 2", "March 2 2025", "March 2, 2025"
+            # Removes leading weekday word if present, then lets pandas do the work.
+        if date != None:
+            date = date.astype(str).str.replace(r"^[A-Za-z]+,\s*|^[A-Za-z]+\s+", "", regex=True)
+        # If year missing, assume 2025 (change if you need dynamic behavior)
+            date = date.where(date.str.contains(r"\b\d{4}\b"), date + " 2025")
+            date = pd.to_datetime(date, errors="coerce")
+        else:
+            raise ValueError("No date column found.")
 
+    except Exception as e:
+        print(f"[ERR] extract_feed failed for match {match_id}: {type(e).__name__}: {e}")
+        traceback.print_exc()
     try:
         try:
             ### navigate to stats tab for the match to access team stats data

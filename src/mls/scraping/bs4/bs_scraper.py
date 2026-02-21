@@ -144,7 +144,7 @@ def scrape_team_table(soup):
             team_links.append(a['href'])
             
     print(f"Found {len(team_links)} team links for player extraction.")
-    return teams_df, team_links
+    return teams_df, team_links, date
     
     
     
