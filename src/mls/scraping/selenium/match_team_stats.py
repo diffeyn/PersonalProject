@@ -44,7 +44,7 @@ def extract_team_stats(driver, match_id):
     date = driver.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
     
     if ' +' in date:
-        date = date.split(' +')[0].strip()
+        date = date.split('+')[0].strip()
 
     try:
         try:
