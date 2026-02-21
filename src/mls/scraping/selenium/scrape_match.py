@@ -93,9 +93,9 @@ def scrape_matches():
             "away_team": away_team,
             "home_team_score": home_team_score,
             "away_team_score": away_team_score}])
-                                          
+        
         combined_match_data = pd.concat([combined_match_data, match_data], ignore_index=True)
-
+                                          
         try:
             match_player_data = extract_players(driver, match_id, date)
             combined_player_stats = pd.concat([combined_player_stats, match_player_data], ignore_index=True)

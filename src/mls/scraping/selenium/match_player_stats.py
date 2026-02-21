@@ -61,7 +61,7 @@ def extract_players(driver, match_id, date):
     
     ### get page source and parse player stats tables with BeautifulSoup
     html = driver.page_source
-    player_stats= bs.parse_player_stats_from_html(html, date, match_id)
+    player_stats= bs.parse_player_stats_from_html(html, match_id)
     
     print(player_stats.columns.tolist())
     

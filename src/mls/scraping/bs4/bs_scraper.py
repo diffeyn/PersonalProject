@@ -60,7 +60,7 @@ def parse_stat_table(table):
 
 
 # function to parse player stats from the HTML content of a match page, extracting relevant information such as player names, teams, stats, and linking with match_id and date for context in the dataset. It handles both main stats and goalkeeper stats tables if present.
-def parse_player_stats_from_html(html, date, match_id=None):
+def parse_player_stats_from_html(html, match_id=None):
     soup = BeautifulSoup(html, "lxml")
 
     section = soup.select_one("div.mls-c-stats.mls-c-stats--match-hub-player-stats")
@@ -90,13 +90,13 @@ def parse_player_stats_from_html(html, date, match_id=None):
         gk_table   = tables[1] if len(tables) > 1 else None
 
         for row in parse_stat_table(main_table):
-            row.update({"club": team, "side": side, "date": date})
+            row.update({"club": team, "side": side})
             if match_id is not None:
                 row["match_id"] = match_id
             all_rows.append(row)
 
         for row in parse_stat_table(gk_table):
-            row.update({"club": team, "side": side, "date": date})
+            row.update({"club": team, "side": side})
             if match_id is not None:
                 row["match_id"] = match_id
             all_rows.append(row)
@@ -104,7 +104,7 @@ def parse_player_stats_from_html(html, date, match_id=None):
     return pd.DataFrame(all_rows)
 
 
-# function to parse team stats from the HTML content of a match page, extracting relevant information such as team names, stats, and linking with match_id and date for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
+# function to parse team stats from the HTML content of a match page, extracting relevant information such as team names, stats, and linking with match_id for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
 def scrape_team_table(soup):
     print("Scraping team stats table...")
     teams_table = soup.find('table')

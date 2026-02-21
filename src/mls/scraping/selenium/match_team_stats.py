@@ -41,9 +41,9 @@ def extract_team_stats(driver, match_id):
     scores = hub.find_elements(By.CSS_SELECTOR, ".mls-c-scorebug__score")
     home_score = scores[0].text.strip() if len(scores) > 0 else None
     away_score = scores[1].text.strip() if len(scores) > 1 else None
-    date = driver.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
+    date = hub.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
     
-    if ' +' in date:
+    if '+' in date:
         date = date.split('+')[0].strip()
 
     try:
