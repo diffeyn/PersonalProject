@@ -43,25 +43,9 @@ def extract_team_stats(driver, match_id):
     away_score = scores[1].text.strip() if len(scores) > 1 else None
     date = driver.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
     
-    ### strip and format date to consistent format for easier analysis and linking with other datasets (e.g. "Saturday March 2, 2024" -> "2024-03-02")
-    
-    ### strip anything after 2012-2030 to handle any weird date formats and ensure consistent formatting for easier analysis and linking with other datasets
-    import re
-    date_match = re.search(r'(\w+\s+\d{1,2},\s+(20\d{2}|2030))', date)
-    if date_match:
-        date_str = date_match.group(1)
-        try:
-            date_parsed = pd.to_datetime(date_str, errors='coerce')
-            if pd.isna(date_parsed):
-                print(f"Warning: Unable to parse date '{date_str}' for match_id {match_id}")
-                date = None
-            else:
-                date = date_parsed.strftime('%Y-%m-%d')
-        except Exception as e:
-            print(f"Error parsing date '{date_str}' for match_id {match_id}: {e}")
-            date = None
-            
-            
+    if ' +' in date:
+        date = date.split(' +')[0].strip()
+
     try:
         try:
             ### navigate to stats tab for the match to access team stats data
