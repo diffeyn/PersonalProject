@@ -45,14 +45,10 @@ def extract_team_stats(driver, match_id):
         away_score = scores[1].text.strip() if len(scores) > 1 else None
         date = hub.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
         
-            # ---- date parsing (robust) ----
-            # Handles: "Saturday March 2", "March 2", "March 2 2025", "March 2, 2025"
-            # Removes leading weekday word if present, then lets pandas do the work.
+        # ---- date parsing (robust) ----#
+        # break string at ' + ' and keep first part 
         if date != None:
-            date = date.replace(r"^[A-Za-z]+,\s*|^[A-Za-z]+\s+", "", regex=True)
-        # If year missing, assume 2025 (change if you need dynamic behavior)
-            date = date.where(date.str.contains(r"\b\d{4}\b"), date + " 2025")
-            date = pd.to_datetime(date, errors="coerce")
+            date = date.split(' + ')[0].strip()
         else:
             raise ValueError("No date column found.")
 
