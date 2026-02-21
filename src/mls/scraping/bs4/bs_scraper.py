@@ -103,20 +103,10 @@ def parse_player_stats_from_html(html, match_id=None):
 
     return pd.DataFrame(all_rows)
 
-
     
     
 #----SOFIFA SCRAPING FUNCTIONS----#
 
-
-## column names to filter results on SOFIFA.com to get more detailed player stats, these are the same columns that are available on the website when you click "show more" on the player stats table, we can add or remove columns from this list as needed to get the desired level of detail in our dataset without overwhelming it with too many columns that may not be relevant for analysis. The add_columns_to_url function will append these columns as query parameters to the team URLs before scraping to ensure we get all the detailed stats for each player.
-
-
-COLS = [
-    "pi","ae","hi","wi","pf","oa","bo","bp","vl","wg","ta","cr","fi","he","sh","vo","ts",
-    "dr","cu","fr","lo","bl","to","ac","sp","ag","re","ba","tp","so","ju","st","ln","te",
-    "ar","in","po","vi","pe","cm","td","ma","sa","sl","tg","gd","gh","gc","gp","gr"
-]
 
 
 # function to parse team stats from the HTML content of team pages, extracting relevant information such as team names, stats, and linking with date for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
@@ -140,6 +130,9 @@ def scrape_team_table(soup):
 
     teams_df = pd.DataFrame(teams_data, columns=headers)
     
+    teams_df['date'] = None  # initialize date column
+    
+    
     date = soup.find('select', {'name': 'roster'})
     if date:
         date = date.find('option', selected=True).text.strip()
@@ -151,6 +144,8 @@ def scrape_team_table(soup):
         date = datetime.now().strftime("%Y-%m-%d")
         teams_df['date'] = date
         
+    teams_df['date'] = date
+        
     team_links = []
     
     for td in teams_table.find_all('td', class_='s20'):
@@ -159,9 +154,19 @@ def scrape_team_table(soup):
             team_links.append(a['href'])
             
     print(f"Found {len(team_links)} team links for player extraction.")
-    return teams_df, team_links, date
+    return teams_df, team_links
     
     
+    
+## column names to filter results on SOFIFA.com to get more detailed player stats, these are the same columns that are available on the website when you click "show more" on the player stats table, we can add or remove columns from this list as needed to get the desired level of detail in our dataset without overwhelming it with too many columns that may not be relevant for analysis. The add_columns_to_url function will append these columns as query parameters to the team URLs before scraping to ensure we get all the detailed stats for each player.
+
+
+COLS = [
+    "pi","ae","hi","wi","pf","oa","bo","bp","vl","wg","ta","cr","fi","he","sh","vo","ts",
+    "dr","cu","fr","lo","bl","to","ac","sp","ag","re","ba","tp","so","ju","st","ln","te",
+    "ar","in","po","vi","pe","cm","td","ma","sa","sl","tg","gd","gh","gc","gp","gr"
+]
+
 ### function to add query parameters to the team URLs to specify which columns we want to scrape from the team pages on SOFIFA.com, this allows us to get more detailed player stats without having to scrape the entire
 def add_columns_to_url(u: str, cols) -> str:
     pu = urlparse(u)
