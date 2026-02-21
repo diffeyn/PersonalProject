@@ -96,7 +96,7 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
         raise ValueError("No club column found.")
 
     # ---- sort ----
-    df = df.sort_values(by=["date", "match_id"], ascending=[False, False])
+    df = df.sort_values(by=["match_id"], ascending=[False])
     
     print('columns after cleaning:', df.columns.tolist())
 
