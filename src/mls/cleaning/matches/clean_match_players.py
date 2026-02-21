@@ -44,17 +44,6 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
     else:
         raise ValueError(f"No match_id column found. Columns are: {df.columns.tolist()}")
 
-    # ---- date parsing (robust) ----
-    # Handles: "Saturday March 2", "March 2", "March 2 2025", "March 2, 2025"
-    # Removes leading weekday word if present, then lets pandas do the work.
-    if "date" in df.columns:
-        df["date"] = df["date"].astype(str).str.replace(r"^[A-Za-z]+,\s*|^[A-Za-z]+\s+", "", regex=True)
-        # If year missing, assume 2025 (change if you need dynamic behavior)
-        df["date"] = df["date"].where(df["date"].str.contains(r"\b\d{4}\b"), df["date"] + " 2025")
-        df["date"] = pd.to_datetime(df["date"], errors="coerce")
-    else:
-        raise ValueError("No date column found.")
-
     # ---- team mapping ----
     def norm_team(s):
         if pd.isna(s):
