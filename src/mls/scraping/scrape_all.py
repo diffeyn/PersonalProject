@@ -14,6 +14,20 @@ def scrape_all():
     try:
         print("Starting to scrape matches...")
         match_team_stats, match_player_stats, match_feed, match_data = scrape_matches()
+        
+        outputs = {
+            "team_stats": match_team_stats,
+            "player_stats": match_player_stats,
+            "feed": match_feed,
+            "match_data": match_data,
+        }
+
+        failed = [k for k, v in outputs.items() if v is None]
+
+        if failed:
+            print(f"Scraping failed for: {failed}")
+            return
+
         write_csv(match_team_stats, outdir / "matches/match_team_stats.csv")
         write_csv(match_player_stats, outdir / "matches/match_player_stats.csv")
         write_csv(match_feed, outdir / "matches/match_feed.csv")
