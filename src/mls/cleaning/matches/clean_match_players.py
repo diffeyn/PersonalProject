@@ -44,6 +44,8 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
     else:
         raise ValueError(f"No match_id column found. Columns are: {df.columns.tolist()}")
 
+
+
     # ---- team mapping ----
     def norm_team(s):
         if pd.isna(s):
@@ -96,7 +98,7 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
         raise ValueError("No club column found.")
 
     # ---- sort ----
-    df = df.sort_values(by=["match_id"], ascending=[False])
+    df = df.sort_values(by=["match_id"], ascending=[False, False])
     
     print('columns after cleaning:', df.columns.tolist())
 

@@ -128,6 +128,8 @@ def scrape_team_table(soup):
     date = soup.find('select', {'name': 'roster'})
     if date:
         date = date.find('option', selected=True).text.strip()
+        ### find # in date and extract first part before it 
+        date = date.split("#")[0].strip()
         safe_date = date.replace("/", "-").replace(":", "-").strip()
         teams_df['date'] = safe_date
     else:
