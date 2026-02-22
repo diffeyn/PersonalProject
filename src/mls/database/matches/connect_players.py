@@ -1,180 +1,227 @@
+from __future__ import annotations
+
+import re
+import unicodedata
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Optional, Tuple
+
 import pandas as pd
+from rapidfuzz import fuzz, process
 from sqlalchemy import text
-from rapidfuzz import process, fuzz
-import re, unicodedata
-
-def norm(x):
-    """Normalize text for matching. Keep separators as spaces so hyphenated names don't get glued."""
-    if pd.isna(x):
-        return None
-    x = unicodedata.normalize("NFKD", str(x))
-    x = "".join(c for c in x if not unicodedata.combining(c))
-    x = x.lower().strip()
-    # IMPORTANT: replace punctuation with SPACE (not nothing)
-    x = re.sub(r"[^\w\s]", " ", x)
-    x = re.sub(r"\s+", " ", x).strip()
-    return x or None
-
-def first_initial(full_name):
-    if pd.isna(full_name):
-        return None
-    s = str(full_name).strip()
-    return s[0].lower() if s else None
-
-def last1(full_name):
-    n = norm(full_name)
-    if not n:
-        return None
-    p = n.split()
-    return p[-1] if p else None
-
-def last2(full_name):
-    n = norm(full_name)
-    if not n:
-        return None
-    p = n.split()
-    if len(p) >= 2:
-        return " ".join(p[-2:])
-    return p[-1] if p else None
 
 
-def attach_player_ids(match_players, engine, cutoff=70, team_cutoff=80):
-    mp = match_players.copy()
+# -------------------------
+# name normalization
+# -------------------------
+def _strip_accents(s: str) -> str:
+    s = unicodedata.normalize("NFKD", s)
+    return "".join(c for c in s if not unicodedata.combining(c))
 
-    # ---- load DB tables ----
-    players = pd.read_sql(text("SELECT player_id, name FROM players_general"), engine)
-    roster = pd.read_sql(text("""
-        SELECT player_id, team_id, stint_end, obs_count
+def norm_name(s) -> str:
+    """
+    Aggressive normalization: accents off, lowercase, remove punctuation, collapse spaces.
+    """
+    if pd.isna(s):
+        return ""
+    s = str(s).replace("\u200b", "").replace("\xa0", " ").strip()
+    s = _strip_accents(s)
+    s = s.lower()
+    s = re.sub(r"[^\w\s]", " ", s)     # kill punctuation
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+def norm_initial_last(s) -> str:
+    """
+    Normalizes common MLS display names like 'A. Markanich' to 'a markanich'
+    and also handles 'Á. Markanich', 'A.Markanich', etc.
+    """
+    s = norm_name(s)
+    # turn "a." into "a"
+    s = re.sub(r"\b([a-z])\b", r"\1", s)
+    return s
+
+def last_name_key(s) -> str:
+    """
+    Cheap helper for tie-breaking: last token.
+    """
+    s = norm_name(s)
+    return s.split()[-1] if s else ""
+
+
+# -------------------------
+# team normalization
+# -------------------------
+TEAM_ALIASES = {
+    "ny": "rbny", "new york": "rbny", "new york red bulls": "rbny",
+    "new york city": "nyc", "new york city fc": "nyc",
+    "los angeles": "la", "la galaxy": "la",
+    "los angeles fc": "lafc", "la fc": "lafc",
+    "dc": "dc", "d c": "dc", "d c united": "dc",
+    "st louis": "stl", "st louis city": "stl",
+    "montreal": "mtl", "cf montreal": "mtl",
+}
+
+def norm_club(club) -> str:
+    if pd.isna(club):
+        return ""
+    s = str(club).strip()
+    s = s.upper()
+    # if already an abbr like MIN, SKC, etc.
+    if re.fullmatch(r"[A-Z]{2,4}", s):
+        return s.lower()
+    # otherwise normalize
+    s2 = norm_name(s)
+    return TEAM_ALIASES.get(s2, s2)
+
+
+# -------------------------
+# DB fetch helpers
+# -------------------------
+def fetch_players_general(engine) -> pd.DataFrame:
+    """
+    players_general must have: player_id, name (or player_name), and ideally club/team_abbr.
+    """
+    q = text("""
+        SELECT
+            CAST(player_id AS CHAR) AS player_id,
+            COALESCE(name, player_name) AS name,
+            COALESCE(club, team, team_abbr) AS club
+        FROM players_general
+        WHERE player_id IS NOT NULL
+    """)
+    return pd.read_sql(q, engine)
+
+def fetch_team_roster(engine) -> pd.DataFrame:
+    """
+    team_roster should have: player_id, player_name, team_abbr/club.
+    If your schema differs, edit the SELECT aliases.
+    """
+    q = text("""
+        SELECT
+            CAST(player_id AS CHAR) AS player_id,
+            COALESCE(player_name, name) AS name,
+            COALESCE(team_abbr, club, team) AS club
         FROM team_roster
-    """), engine)
-    teams = pd.read_sql(text("SELECT team_id, team_abbr FROM teams"), engine)
+        WHERE player_id IS NOT NULL
+    """)
+    return pd.read_sql(q, engine)
 
-    # ---- normalize scraped ----
-    mp["name_norm"] = mp["player_name"].map(norm)
-    mp["club_norm"] = mp["club"].map(norm)
-    mp["fi"] = mp["player_name"].map(first_initial)
-    mp["last1"] = mp["player_name"].map(last1)
-    mp["last2"] = mp["player_name"].map(last2)
 
-    # ---- normalize DB ----
-    players["name_norm"] = players["name"].map(norm)
+# -------------------------
+# core matching
+# -------------------------
+@dataclass
+class AttachConfig:
+    name_col: str = "player_name"
+    club_col: str = "club"          # in match stats df: MIN/SKC etc
+    out_col: str = "player_id"
+    threshold: int = 92             # fuzzy threshold
+    log_path: str = "data/interim/unmatched_match_players.csv"
+    keep_best_guess: bool = False   # if True, keep best_guess columns for debugging
 
-    teams["abbr_norm"] = teams["team_abbr"].map(norm)
-    abbr_to_team_id = dict(zip(teams["abbr_norm"], teams["team_id"]))
 
-    # ---- map club -> team_id (exact abbr first; fuzzy only if needed) ----
-    mp["team_id"] = mp["club_norm"].map(abbr_to_team_id)
+def _build_team_index(ref: pd.DataFrame) -> dict[str, Tuple[list[str], list[str], list[str]]]:
+    """
+    Returns: team -> (norm_names, player_ids, last_keys)
+    """
+    ref = ref.copy()
+    ref["club_norm"] = ref["club"].map(norm_club)
+    ref["name_norm"] = ref["name"].map(norm_initial_last)
+    ref["last_key"] = ref["name"].map(last_name_key)
 
-    unmapped = mp["team_id"].isna() & mp["club_norm"].notna()
-    if unmapped.any():
-        team_norms = teams["abbr_norm"].dropna().tolist()
-        club_to_team_id = {}
-        for club in mp.loc[unmapped, "club_norm"].unique():
-            best = process.extractOne(club, team_norms, scorer=fuzz.token_sort_ratio)
-            if best and best[1] >= team_cutoff:
-                club_to_team_id[club] = teams.loc[teams["abbr_norm"] == best[0], "team_id"].iloc[0]
-        mp.loc[unmapped, "team_id"] = mp.loc[unmapped, "club_norm"].map(club_to_team_id)
+    idx = {}
+    for club, g in ref.groupby("club_norm"):
+        idx[club] = (g["name_norm"].tolist(), g["player_id"].tolist(), g["last_key"].tolist())
+    return idx
 
-    # ---- latest roster team per player_id ----
-    roster["stint_end"] = pd.to_datetime(roster["stint_end"], errors="coerce")
 
-    latest_team = (
-        roster.sort_values(["player_id", "stint_end", "obs_count"], ascending=[True, False, False])
-              .drop_duplicates("player_id", keep="first")[["player_id", "team_id"]]
-    )
+def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig] = None) -> pd.DataFrame:
+    """
+    Attaches player_id to match player stats using team_roster (preferred) then players_general (fallback).
 
-    lookup = (
-        players.merge(latest_team, on="player_id", how="left")
-               .dropna(subset=["team_id", "name_norm"])
-               [["player_id", "team_id", "name_norm"]]
-               .copy()
-    )
+    Never inserts NULL ids silently:
+    - returns df with player_id (string) column
+    - writes unmatched rows to cfg.log_path
+    """
+    cfg = cfg or AttachConfig()
+    df = match_df.copy()
 
-    # enrich lookup for initial/last matching
-    lookup["fi"] = lookup["name_norm"].map(lambda x: x[0] if isinstance(x, str) and x else None)
-    lookup["last1"] = lookup["name_norm"].map(lambda x: x.split()[-1] if isinstance(x, str) and x else None)
-    lookup["last2"] = lookup["name_norm"].map(
-        lambda x: " ".join(x.split()[-2:]) if isinstance(x, str) and x and len(x.split()) >= 2 else x
-    )
+    # normalize input cols
+    if cfg.name_col not in df.columns:
+        raise ValueError(f"attach_player_ids: missing {cfg.name_col}")
+    if cfg.club_col not in df.columns:
+        raise ValueError(f"attach_player_ids: missing {cfg.club_col}")
 
-    # ---- pass 1: exact match (team_id + name_norm) ----
-    out = mp.merge(
-        lookup[["player_id", "team_id", "name_norm"]],
-        on=["team_id", "name_norm"],
-        how="left",
-    )
+    df["_club_norm"] = df[cfg.club_col].map(norm_club)
+    df["_name_norm"] = df[cfg.name_col].map(norm_initial_last)
 
-    # ---- pass 2: initial + last2, then last1 within team ----
-    missing = out["player_id"].isna()
+    # fetch reference tables
+    roster = fetch_team_roster(engine)
+    general = fetch_players_general(engine)
+
+    # build indices
+    roster_idx = _build_team_index(roster)
+    general_idx = _build_team_index(general)
+
+    def match_one(club_norm: str, name_norm: str) -> Tuple[Optional[str], Optional[str], Optional[int]]:
+        """
+        Returns (player_id, source, score)
+        """
+        if not club_norm or not name_norm:
+            return None, None, None
+
+        # 1) exact match in roster for that club
+        if club_norm in roster_idx:
+            names, ids, _ = roster_idx[club_norm]
+            try:
+                j = names.index(name_norm)
+                return ids[j], "roster_exact", 100
+            except ValueError:
+                pass
+
+            # 2) fuzzy match in roster
+            best = process.extractOne(name_norm, names, scorer=fuzz.token_sort_ratio)
+            if best and best[1] >= cfg.threshold:
+                return ids[best[2]], "roster_fuzzy", int(best[1])
+
+        # 3) exact match in general for that club
+        if club_norm in general_idx:
+            names, ids, _ = general_idx[club_norm]
+            try:
+                j = names.index(name_norm)
+                return ids[j], "general_exact", 100
+            except ValueError:
+                pass
+
+            # 4) fuzzy match in general
+            best = process.extractOne(name_norm, names, scorer=fuzz.token_sort_ratio)
+            if best and best[1] >= cfg.threshold:
+                return ids[best[2]], "general_fuzzy", int(best[1])
+
+        return None, None, None
+
+    matches = df.apply(lambda r: match_one(r["_club_norm"], r["_name_norm"]), axis=1)
+    df[cfg.out_col] = [m[0] for m in matches]
+    df["_id_source"] = [m[1] for m in matches]
+    df["_id_score"]  = [m[2] for m in matches]
+
+    # log unmatched
+    missing = df[cfg.out_col].isna() | (df[cfg.out_col].astype(str).str.strip() == "")
     if missing.any():
-        lk2 = lookup.dropna(subset=["team_id", "fi", "player_id"]).copy()
+        bad = df.loc[missing, ["match_id", cfg.club_col, cfg.name_col, "_club_norm", "_name_norm", "_id_source", "_id_score"]].copy()
 
-        key_last2 = {
-            (r.team_id, r.last2, r.fi): r.player_id
-            for r in lk2.dropna(subset=["last2"])
-                       .drop_duplicates(["team_id", "last2", "fi"])
-                       .itertuples(index=False)
-        }
-        key_last1 = {
-            (r.team_id, r.last1, r.fi): r.player_id
-            for r in lk2.dropna(subset=["last1"])
-                       .drop_duplicates(["team_id", "last1", "fi"])
-                       .itertuples(index=False)
-        }
+        Path(cfg.log_path).parent.mkdir(parents=True, exist_ok=True)
+        # append for automation runs
+        write_header = not Path(cfg.log_path).exists()
+        bad.to_csv(cfg.log_path, mode="a", header=write_header, index=False)
 
-        for i in out[missing].index:
-            tid = out.at[i, "team_id"]
-            fi = out.at[i, "fi"]
-            if pd.isna(tid) or not fi:
-                continue
+        # hard truth: drop them so DB doesn’t explode
+        df = df.loc[~missing].copy()
 
-            pid = key_last2.get((tid, out.at[i, "last2"], fi))
-            if pid is None:
-                pid = key_last1.get((tid, out.at[i, "last1"], fi))
+    # cleanup
+    drop_cols = ["_club_norm", "_name_norm"]
+    if not cfg.keep_best_guess:
+        drop_cols += ["_id_source", "_id_score"]
 
-            if pid is not None:
-                out.at[i, "player_id"] = pid
-
-    # ---- pass 3: fuzzy fallback within team, then global ----
-    missing = out["player_id"].isna()
-    if missing.any():
-        team_map = {
-            tid: sub[["name_norm", "player_id"]].values.tolist()
-            for tid, sub in lookup.groupby("team_id")
-        }
-
-        global_choices = lookup[["name_norm", "player_id"]].values.tolist()
-        global_names = [x[0] for x in global_choices]
-
-        for i in out[missing].index:
-            tid = out.at[i, "team_id"]
-            name = out.at[i, "name_norm"]
-            if pd.isna(tid) or not name:
-                continue
-
-            # team-scoped fuzzy
-            choices = team_map.get(tid, [])
-            if choices:
-                names = [x[0] for x in choices]
-                best = process.extractOne(name, names, scorer=fuzz.token_sort_ratio)
-                if best and best[1] >= cutoff:
-                    out.at[i, "player_id"] = choices[best[2]][1]
-                    continue
-
-            # global fuzzy fallback
-            best = process.extractOne(name, global_names, scorer=fuzz.token_sort_ratio)
-            if best and best[1] >= cutoff:
-                out.at[i, "player_id"] = global_choices[best[2]][1]
-
-    # ---- cleanup ----
-    out = out.drop(columns=["name_norm", "club_norm", "fi", "last1", "last2"], errors="ignore")
-
-    print(f"team_id mapped: {out['team_id'].notna().sum()} / {len(out)}")
-    print(f"players matched: {out['player_id'].notna().sum()} / {len(out)}")
-
-    misses = out[out["player_id"].isna()][["match_id", "club", "player_name", "team_id"]].drop_duplicates()
-    if len(misses):
-        print("unmatched examples:")
-        print(misses.head(25).to_string(index=False))
-
-    return out
+    return df.drop(columns=drop_cols, errors="ignore")

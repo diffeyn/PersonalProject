@@ -1,5 +1,6 @@
+from sqlalchemy import engine
 from mls.utils.database.sql_funct import upload_to_db
-from mls.database.matches.connect_players import attach_player_ids
+from mls.database.matches.connect_players import attach_player_ids, AttachConfig
 from mls.database.sofifa.players_general import players_general
 from mls.database.sofifa.players_finance import get_players_finance
 from mls.database.sofifa.players_stats import get_player_stats
@@ -19,9 +20,14 @@ def upload_to_sql():
     match_events = pd.read_csv(indir / 'cleaned_matches/cleaned_match_feed.csv')
     matches = pd.read_csv(indir / 'cleaned_matches/cleaned_match_data.csv')
     
-    ### Attach player_ids to match player stats using DB mapping
-    mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cutoff=88)
-    
+    cfg = AttachConfig(
+        name_col="player_name",
+        club_col="club",
+        threshold=92,
+        log_path="data/interim/unmatched_match_players.csv",
+    )
+
+    mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cfg)    
     mls_match_player_stats = mls_match_player_stats.drop(columns=['team_id'])
             
     ### Upload match data to SQL
