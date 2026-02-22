@@ -24,30 +24,27 @@ def clean_match_feed(df):
     
     df['feed_id'] = df.groupby('match_id').cumcount() + 1
     
-    df['date'] = df['date'].astype(str)
-    
-    df['date'] = df['date'].str.split(' + ').str[0].str.strip()
+   # 1) make string + remove venue (anything after •)
+    s = df["date"].astype(str).str.split("•", n=1).str[0].str.strip()
 
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12"
-    }
- 
-    df['date'] = df['date'].apply(
-        lambda x: re.sub(
-            r"[A-Za-z]+",
-            lambda m: month_map.get(m.group(0).lower(), m.group(0)),
-            x
-        )
+    # 2) remove leading weekday if present (Sunday, Mon, etc.)
+    s = s.str.replace(
+        r"^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+",
+        "",
+        regex=True
     )
 
-    df['date'] = df['date'].apply(
-        lambda x: x + " 2025" if not re.search(r"\b\d{4}\b", x) else x
-    )
-    
-    df['date'] = pd.to_datetime(df['date'], format="%m %d %Y")
-    
+    # 3) optional: collapse multiple spaces
+    s = s.str.replace(r"\s+", " ", regex=True).str.strip()
+
+    # 4) parse dates (handles both "Feb 16 2026" and "10 5 2025")
+    # Try strict known formats first, then fall back to inference.
+    dt = pd.to_datetime(s, format="%b %d %Y", errors="coerce")  # Feb 16 2026
+    dt2 = pd.to_datetime(s, format="%B %d %Y", errors="coerce") # February 16 2026
+    dt3 = pd.to_datetime(s, format="%m %d %Y", errors="coerce") # 10 5 2025
+
+    df["date"] = dt.fillna(dt2).fillna(dt3)
+        
     df = df.sort_values(by=['date', 'match_id', 'feed_id'], ascending=[False, True, False]).reset_index(drop=False)
     
     df = df.drop(columns=['in_player', 'out_player'])
