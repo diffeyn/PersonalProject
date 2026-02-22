@@ -26,7 +26,7 @@ def clean_match_feed(df):
     
     df['date'] = df['date'].astype(str)
     
-    df['date'] = df['date'].str.replace(r"^[A-Za-z]+ ", "", regex=True)
+    df['date'] = df['date'].str.split(' + ').str[0].str.strip()
 
     month_map = {
         "january": "01", "february": "02", "march": "03", "april": "04",
