@@ -10,7 +10,4 @@ def clean_sofifa():
     cleaned_player_stats = clean_player_stats.clean_player_stats(player_stats)
     cleaned_team_stats = clean_team_stats.clean_team_stats(team_stats)
     
-    print('columns before cleaning player stats:', player_stats.columns)
-    print('columns after cleaning player stats:', cleaned_player_stats.columns)
-    
     return cleaned_player_stats, cleaned_team_stats
