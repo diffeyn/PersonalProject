@@ -92,18 +92,50 @@ def fetch_players_general(engine) -> pd.DataFrame:
     """)
     return pd.read_sql(q, engine)
 
-def fetch_team_roster(engine) -> pd.DataFrame:
-    """
-    team_roster should have: player_id, player_name, team_abbr/club.
-    If your schema differs, edit the SELECT aliases.
-    """
+def _table_columns(engine, table: str) -> set[str]:
     q = text("""
+        SELECT COLUMN_NAME
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_SCHEMA = DATABASE()
+          AND TABLE_NAME = :t
+    """)
+    cols = pd.read_sql(q, engine, params={"t": table})["COLUMN_NAME"].tolist()
+    return set(c.lower() for c in cols)
+
+def _pick(cols: set[str], candidates: list[str]) -> str | None:
+    for c in candidates:
+        if c.lower() in cols:
+            return c
+    return None
+
+def fetch_team_roster(engine) -> pd.DataFrame:
+    cols = _table_columns(engine, "team_roster")
+
+    pid = _pick(cols, ["player_id"])
+    name = _pick(cols, ["player_name", "name", "player", "full_name"])
+    club = _pick(cols, ["team_abbr", "club", "team", "team_name"])
+
+    if not pid:
+        raise ValueError("team_roster is missing player_id column")
+
+    # if you *truly* don't have a name column, you can still join by player_id elsewhere,
+    # but for your matching logic you need a name.
+    if not name:
+        raise ValueError(f"team_roster has no usable name column. Found columns: {sorted(cols)[:50]} ...")
+
+    if not club:
+        # allow roster without club (worst case)
+        club_expr = "NULL AS club"
+    else:
+        club_expr = f"{club} AS club"
+
+    q = text(f"""
         SELECT
-            CAST(player_id AS CHAR) AS player_id,
-            COALESCE(player_name, name) AS name,
-            COALESCE(team_abbr, club, team) AS club
+            CAST({pid} AS CHAR) AS player_id,
+            {name} AS name,
+            {club_expr}
         FROM team_roster
-        WHERE player_id IS NOT NULL
+        WHERE {pid} IS NOT NULL
     """)
     return pd.read_sql(q, engine)
 
