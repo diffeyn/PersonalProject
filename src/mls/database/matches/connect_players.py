@@ -30,31 +30,46 @@ def norm_name(s) -> str:
     return s
 
 def norm_initial_last(s) -> str:
-    s = norm_name(s)
-    return s
+    return norm_name(s)
 
 def norm_club(club) -> str:
     if pd.isna(club):
         return ""
-    return str(club).strip().upper()
+    s = str(club).strip()
+    # keep abbreviations as-is
+    return s.upper()
 
 
 # ============================================================
-# DB FETCH HELPERS
+# SCHEMA INTROSPECTION
+# ============================================================
+
+def _table_columns(engine, table: str) -> set[str]:
+    q = text("""
+        SELECT COLUMN_NAME
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_SCHEMA = DATABASE()
+          AND TABLE_NAME = :t
+    """)
+    cols = pd.read_sql(q, engine, params={"t": table})["COLUMN_NAME"].tolist()
+    return set(c.lower() for c in cols)
+
+def _pick(cols: set[str], candidates: list[str]) -> Optional[str]:
+    for c in candidates:
+        if c.lower() in cols:
+            return c
+    return None
+
+
+# ============================================================
+# DB FETCH HELPERS (robust to schema)
 # ============================================================
 
 def fetch_players_general(engine) -> pd.DataFrame:
-    """
-    Must contain:
-        player_id
-        name (or player_name)
-        team_id OR club/team/team_abbr (optional but helpful)
-    """
-
     q = text("""
         SELECT
             CAST(player_id AS CHAR) AS player_id,
-            COALESCE(name, player_name) AS name,
+            name AS name,
             team_id,
             COALESCE(club, team, team_abbr) AS club
         FROM players_general
@@ -65,19 +80,30 @@ def fetch_players_general(engine) -> pd.DataFrame:
 
 def fetch_team_roster_ids(engine) -> pd.DataFrame:
     """
-    team_roster has NO names.
-    It only helps constrain by team_id.
+    team_roster has no names. It's only for player_id + team_id constraints.
     """
+    cols = _table_columns(engine, "team_roster")
 
-    q = text("""
+    pid = _pick(cols, ["player_id"])
+    team_id = _pick(cols, ["team_id"])
+    stint_start = _pick(cols, ["stint_start"])
+    stint_end = _pick(cols, ["stint_end"])
+
+    if not pid or not team_id:
+        raise ValueError(f"team_roster missing required columns. Found: {sorted(cols)[:60]}")
+
+    stint_start_expr = f"{stint_start} AS stint_start" if stint_start else "NULL AS stint_start"
+    stint_end_expr = f"{stint_end} AS stint_end" if stint_end else "NULL AS stint_end"
+
+    q = text(f"""
         SELECT
-            CAST(player_id AS CHAR) AS player_id,
-            team_id,
-            stint_start,
-            stint_end
+            CAST({pid} AS CHAR) AS player_id,
+            {team_id} AS team_id,
+            {stint_start_expr},
+            {stint_end_expr}
         FROM team_roster
-        WHERE player_id IS NOT NULL
-          AND team_id IS NOT NULL
+        WHERE {pid} IS NOT NULL
+          AND {team_id} IS NOT NULL
     """)
     return pd.read_sql(q, engine)
 
@@ -88,9 +114,9 @@ def fetch_team_roster_ids(engine) -> pd.DataFrame:
 
 @dataclass
 class AttachConfig:
-    name_col: str = "player_name"
-    club_col: str = "club"
-    team_id_col: Optional[str] = "team_id"  # optional
+    name_col: str = "player_name"     # in match_player_stats df
+    club_col: str = "club"            # MIN/SKC/etc
+    team_id_col: Optional[str] = "team_id"  # optional in match df
     out_col: str = "player_id"
     threshold: int = 92
     log_path: str = "data/interim/unmatched_match_players.csv"
@@ -105,19 +131,19 @@ def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig
     df = match_df.copy()
 
     if cfg.name_col not in df.columns:
-        raise ValueError(f"Missing column: {cfg.name_col}")
+        raise ValueError(f"Missing column in match df: {cfg.name_col}")
     if cfg.club_col not in df.columns:
-        raise ValueError(f"Missing column: {cfg.club_col}")
+        raise ValueError(f"Missing column in match df: {cfg.club_col}")
 
-    # Normalize
     df["_name_norm"] = df[cfg.name_col].map(norm_initial_last)
     df["_club_norm"] = df[cfg.club_col].map(norm_club)
 
-    # Load lookup tables
+    # Reference players
     players = fetch_players_general(engine)
     players["_name_norm"] = players["name"].map(norm_initial_last)
     players["_club_norm"] = players["club"].map(norm_club)
 
+    # Optional constraint by team_roster (if match df has team_id)
     roster_ids = None
     if cfg.team_id_col and cfg.team_id_col in df.columns:
         roster = fetch_team_roster_ids(engine)
@@ -132,14 +158,14 @@ def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig
 
         candidates = players
 
-        # Filter by roster team_id if available
+        # constrain by roster if possible
         if roster_ids and pd.notna(row.get(cfg.team_id_col)):
             team_id = row[cfg.team_id_col]
-            valid_ids = roster_ids.get(team_id)
-            if valid_ids:
-                candidates = candidates[candidates["player_id"].isin(valid_ids)]
+            valid = roster_ids.get(team_id)
+            if valid:
+                candidates = candidates[candidates["player_id"].isin(valid)]
 
-        # Filter by club if possible
+        # constrain by club if useful
         club_filtered = candidates[candidates["_club_norm"] == club]
         if len(club_filtered) > 0:
             candidates = club_filtered
@@ -147,14 +173,14 @@ def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig
         names = candidates["_name_norm"].tolist()
         ids = candidates["player_id"].tolist()
 
-        # Exact match
+        # exact
         try:
-            idx = names.index(name)
-            return ids[idx], "exact", 100
+            j = names.index(name)
+            return ids[j], "exact", 100
         except ValueError:
             pass
 
-        # Fuzzy match
+        # fuzzy
         if names:
             best = process.extractOne(name, names, scorer=fuzz.token_sort_ratio)
             if best and best[1] >= cfg.threshold:
@@ -162,25 +188,20 @@ def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig
 
         return pd.NA, None, None
 
-    results = df.apply(match_row, axis=1, result_type="expand")
-    df[cfg.out_col] = results[0]
-    df["_match_type"] = results[1]
-    df["_match_score"] = results[2]
+    res = df.apply(match_row, axis=1, result_type="expand")
+    df[cfg.out_col] = res[0]
+    df["_match_type"] = res[1]
+    df["_match_score"] = res[2]
 
-    # --------------------------------------------------------
-    # Enforce NOT NULL player_id
-    # --------------------------------------------------------
-
+    # log + drop missing ids (automation friendly)
     missing = df[cfg.out_col].isna() | (df[cfg.out_col].astype(str).str.strip() == "")
-
     if missing.any():
-        bad = df.loc[missing, ["match_id", cfg.club_col, cfg.name_col, "_match_type", "_match_score"]]
+        bad = df.loc[missing, ["match_id", cfg.club_col, cfg.name_col, "_match_type", "_match_score"]].copy()
 
         Path(cfg.log_path).parent.mkdir(parents=True, exist_ok=True)
-        write_header = not Path(cfg.log_path).exists()
-        bad.to_csv(cfg.log_path, mode="a", header=write_header, index=False)
+        header = not Path(cfg.log_path).exists()
+        bad.to_csv(cfg.log_path, mode="a", header=header, index=False)
 
-        # Drop so DB insert does not fail
         df = df.loc[~missing].copy()
 
     return df.drop(columns=["_name_norm", "_club_norm", "_match_type", "_match_score"], errors="ignore")
