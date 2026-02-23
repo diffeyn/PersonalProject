@@ -33,8 +33,8 @@ def upload_to_sql():
     
     
     ### Read in latest cleaned SoFIFA data
-    sofifa_players = pd.read_csv(indir / 'sofifa/cleaned_player_stats.csv')
-    sofifa_teams = pd.read_csv(indir / 'sofifa/cleaned_team_stats.csv')
+    sofifa_players = pd.read_csv(indir / 'cleaned_sofifa/cleaned_player_stats.csv')
+    sofifa_teams = pd.read_csv(indir / 'cleaned_sofifa/cleaned_team_stats.csv')
     
     ### Create and upload players_general table with one row per player and static info if not already in DB
     players_general = players_general(sofifa_players, engine)
