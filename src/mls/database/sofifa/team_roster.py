@@ -6,6 +6,7 @@ import pandas as pd
 
 def create_snapshot_df(df, engine):
     df = df.copy()
+    df.rename(columns={"id": "player_id"}, inplace=True)
     # access teams table in SQL to get team_id mapping
     teams_df = pd.read_sql("SELECT team_id, team_name FROM teams", engine)
     
