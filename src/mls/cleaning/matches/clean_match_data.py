@@ -63,4 +63,6 @@ def clean_match_data(df):
     df['home_team'] = df['home_team'].replace(team_fullnames_to_short)
     df['away_team'] = df['away_team'].replace(team_fullnames_to_short)
     
+    df = df.rename(columns={'home_team_score': 'home_score', 'away_team_score': 'away_score'})    
+    
     return df
