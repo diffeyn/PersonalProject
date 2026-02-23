@@ -4,7 +4,7 @@ import re
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Set, Tuple
 
 import pandas as pd
 from rapidfuzz import process, fuzz
@@ -20,92 +20,29 @@ def _strip_accents(s: str) -> str:
     return "".join(c for c in s if not unicodedata.combining(c))
 
 def norm_name(s) -> str:
+    """Aggressive normalize: accents off, lowercase, kill punctuation, collapse spaces."""
     if pd.isna(s):
         return ""
     s = str(s).replace("\u200b", "").replace("\xa0", " ").strip()
-    s = _strip_accents(s)
-    s = s.lower()
+    s = _strip_accents(s).lower()
     s = re.sub(r"[^\w\s]", " ", s)
     s = re.sub(r"\s+", " ", s).strip()
     return s
 
-def norm_initial_last(s) -> str:
+def norm_match_player(s) -> str:
+    """
+    Match-feed usually: 'A. Markanich' -> 'a markanich'
+    """
+    s = norm_name(s)
+    s = s.replace(".", " ")
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+def norm_full_name(s) -> str:
+    """
+    players_general likely full names. Keep as normalized tokens.
+    """
     return norm_name(s)
-
-def norm_club(club) -> str:
-    if pd.isna(club):
-        return ""
-    s = str(club).strip()
-    # keep abbreviations as-is
-    return s.upper()
-
-
-# ============================================================
-# SCHEMA INTROSPECTION
-# ============================================================
-
-def _table_columns(engine, table: str) -> set[str]:
-    q = text("""
-        SELECT COLUMN_NAME
-        FROM INFORMATION_SCHEMA.COLUMNS
-        WHERE TABLE_SCHEMA = DATABASE()
-          AND TABLE_NAME = :t
-    """)
-    cols = pd.read_sql(q, engine, params={"t": table})["COLUMN_NAME"].tolist()
-    return set(c.lower() for c in cols)
-
-def _pick(cols: set[str], candidates: list[str]) -> Optional[str]:
-    for c in candidates:
-        if c.lower() in cols:
-            return c
-    return None
-
-
-# ============================================================
-# DB FETCH HELPERS (robust to schema)
-# ============================================================
-
-def fetch_players_general(engine) -> pd.DataFrame:
-    q = text("""
-        SELECT
-            CAST(player_id AS CHAR) AS player_id,
-            name AS name,
-            team_id,
-            COALESCE(club, team, team_abbr) AS club
-        FROM players_general
-        WHERE player_id IS NOT NULL
-    """)
-    return pd.read_sql(q, engine)
-
-
-def fetch_team_roster_ids(engine) -> pd.DataFrame:
-    """
-    team_roster has no names. It's only for player_id + team_id constraints.
-    """
-    cols = _table_columns(engine, "team_roster")
-
-    pid = _pick(cols, ["player_id"])
-    team_id = _pick(cols, ["team_id"])
-    stint_start = _pick(cols, ["stint_start"])
-    stint_end = _pick(cols, ["stint_end"])
-
-    if not pid or not team_id:
-        raise ValueError(f"team_roster missing required columns. Found: {sorted(cols)[:60]}")
-
-    stint_start_expr = f"{stint_start} AS stint_start" if stint_start else "NULL AS stint_start"
-    stint_end_expr = f"{stint_end} AS stint_end" if stint_end else "NULL AS stint_end"
-
-    q = text(f"""
-        SELECT
-            CAST({pid} AS CHAR) AS player_id,
-            {team_id} AS team_id,
-            {stint_start_expr},
-            {stint_end_expr}
-        FROM team_roster
-        WHERE {pid} IS NOT NULL
-          AND {team_id} IS NOT NULL
-    """)
-    return pd.read_sql(q, engine)
 
 
 # ============================================================
@@ -114,89 +51,189 @@ def fetch_team_roster_ids(engine) -> pd.DataFrame:
 
 @dataclass
 class AttachConfig:
-    name_col: str = "player_name"     # in match_player_stats df
-    club_col: str = "club"            # MIN/SKC/etc
-    team_id_col: Optional[str] = "team_id"  # optional in match df
+    # columns in match_player_stats df
+    name_col: str = "player_name"
+    club_col: str = "club"              # optional; used only for logging
+    team_id_col: str = "team_id"        # REQUIRED for this approach
+    match_id_col: str = "match_id"
+
+    # output
     out_col: str = "player_id"
-    threshold: int = 92
+
+    # fuzzy
+    threshold: int = 90                 # lower than before, because initials vs full name
+
+    # logging
     log_path: str = "data/interim/unmatched_match_players.csv"
 
 
 # ============================================================
-# MAIN ATTACH FUNCTION
+# DB FETCH
+# ============================================================
+
+def fetch_players_general(engine) -> pd.DataFrame:
+    """
+    players_general must have: player_id, name
+    """
+    q = text("""
+        SELECT
+            CAST(player_id AS CHAR) AS player_id,
+            name
+        FROM players_general
+        WHERE player_id IS NOT NULL
+          AND name IS NOT NULL
+    """)
+    return pd.read_sql(q, engine)
+
+def fetch_team_roster(engine) -> pd.DataFrame:
+    """
+    team_roster must have: player_id, team_id, stint_start, stint_end
+    """
+    q = text("""
+        SELECT
+            CAST(player_id AS CHAR) AS player_id,
+            team_id,
+            stint_start,
+            stint_end
+        FROM team_roster
+        WHERE player_id IS NOT NULL
+          AND team_id IS NOT NULL
+    """)
+    return pd.read_sql(q, engine)
+
+def fetch_match_dates(engine) -> pd.DataFrame:
+    """
+    Need match_id -> match_date.
+    Adjust table/column names if yours differ.
+    """
+    q = text("""
+        SELECT
+            match_id,
+            match_date
+        FROM matches
+        WHERE match_id IS NOT NULL
+    """)
+    return pd.read_sql(q, engine)
+
+
+# ============================================================
+# ROSTER INDEX: (team_id, match_date) -> set(player_id)
+# ============================================================
+
+def _build_roster_index(team_roster: pd.DataFrame) -> Dict[int, list[Tuple[pd.Timestamp, pd.Timestamp, Set[str]]]]:
+    """
+    Build per-team stint windows:
+      team_id -> list of (start, end, {player_ids active in that stint window})
+    Because multiple stints overlap, we keep it simple: filter row-wise later.
+    """
+    tr = team_roster.copy()
+    tr["stint_start"] = pd.to_datetime(tr["stint_start"], errors="coerce")
+    tr["stint_end"] = pd.to_datetime(tr["stint_end"], errors="coerce")
+
+    # If stint_end is NULL, treat as open-ended far future
+    tr["stint_end"] = tr["stint_end"].fillna(pd.Timestamp("2100-01-01"))
+
+    out: Dict[int, list[Tuple[pd.Timestamp, pd.Timestamp, Set[str]]]] = {}
+    for team_id, g in tr.groupby("team_id"):
+        out[int(team_id)] = [(row.stint_start, row.stint_end, {row.player_id}) for row in g.itertuples(index=False)]
+    return out
+
+def _roster_ids_for(team_index, team_id: int, match_date: pd.Timestamp) -> Set[str]:
+    """
+    Return player_ids where stint_start <= match_date <= stint_end.
+    """
+    stints = team_index.get(int(team_id), [])
+    ids: Set[str] = set()
+    for start, end, pid_set in stints:
+        if pd.isna(start):
+            continue
+        if start <= match_date <= end:
+            ids |= pid_set
+    return ids
+
+
+# ============================================================
+# ATTACH
 # ============================================================
 
 def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig] = None) -> pd.DataFrame:
     cfg = cfg or AttachConfig()
     df = match_df.copy()
 
-    if cfg.name_col not in df.columns:
-        raise ValueError(f"Missing column in match df: {cfg.name_col}")
-    if cfg.club_col not in df.columns:
-        raise ValueError(f"Missing column in match df: {cfg.club_col}")
+    # sanity
+    for c in [cfg.match_id_col, cfg.name_col, cfg.team_id_col]:
+        if c not in df.columns:
+            raise ValueError(f"attach_player_ids: match_df missing required column '{c}'")
 
-    df["_name_norm"] = df[cfg.name_col].map(norm_initial_last)
-    df["_club_norm"] = df[cfg.club_col].map(norm_club)
+    # fetch refs
+    pg = fetch_players_general(engine)
+    tr = fetch_team_roster(engine)
+    md = fetch_match_dates(engine)
 
-    # Reference players
-    players = fetch_players_general(engine)
-    players["_name_norm"] = players["name"].map(norm_initial_last)
-    players["_club_norm"] = players["club"].map(norm_club)
+    # normalize players_general
+    pg = pg.copy()
+    pg["_name_norm"] = pg["name"].map(norm_full_name)
 
-    # Optional constraint by team_roster (if match df has team_id)
-    roster_ids = None
-    if cfg.team_id_col and cfg.team_id_col in df.columns:
-        roster = fetch_team_roster_ids(engine)
-        roster_ids = roster.groupby("team_id")["player_id"].apply(set).to_dict()
+    # match_id -> match_date
+    md = md.copy()
+    md["match_date"] = pd.to_datetime(md["match_date"], errors="coerce")
+    match_date_map = dict(zip(md["match_id"], md["match_date"]))
 
-    def match_row(row):
-        name = row["_name_norm"]
-        club = row["_club_norm"]
+    # roster index
+    team_index = _build_roster_index(tr)
 
-        if not name:
-            return pd.NA, None, None
+    # normalize match names
+    df["_name_norm"] = df[cfg.name_col].map(norm_match_player)
 
-        candidates = players
+    # attach match_date
+    df["_match_date"] = df[cfg.match_id_col].map(match_date_map)
 
-        # constrain by roster if possible
-        if roster_ids and pd.notna(row.get(cfg.team_id_col)):
-            team_id = row[cfg.team_id_col]
-            valid = roster_ids.get(team_id)
-            if valid:
-                candidates = candidates[candidates["player_id"].isin(valid)]
+    # Main matcher
+    def match_one(row) -> Tuple[Optional[str], Optional[str], Optional[int]]:
+        name_norm = row["_name_norm"]
+        team_id = row[cfg.team_id_col]
+        mdate = row["_match_date"]
 
-        # constrain by club if useful
-        club_filtered = candidates[candidates["_club_norm"] == club]
-        if len(club_filtered) > 0:
-            candidates = club_filtered
+        if not name_norm or pd.isna(team_id) or pd.isna(mdate):
+            return None, None, None
 
-        names = candidates["_name_norm"].tolist()
-        ids = candidates["player_id"].tolist()
+        # candidate IDs from roster at that time
+        cand_ids = _roster_ids_for(team_index, int(team_id), pd.Timestamp(mdate))
+        if not cand_ids:
+            return None, "no_roster_candidates", None
 
-        # exact
+        cand = pg[pg["player_id"].isin(cand_ids)]
+        if cand.empty:
+            return None, "no_names_for_roster_ids", None
+
+        names = cand["_name_norm"].tolist()
+        ids = cand["player_id"].tolist()
+
+        # exact match first
         try:
-            j = names.index(name)
+            j = names.index(name_norm)
             return ids[j], "exact", 100
         except ValueError:
             pass
 
-        # fuzzy
-        if names:
-            best = process.extractOne(name, names, scorer=fuzz.token_sort_ratio)
-            if best and best[1] >= cfg.threshold:
-                return ids[best[2]], "fuzzy", int(best[1])
+        # fuzzy within roster candidates
+        best = process.extractOne(name_norm, names, scorer=fuzz.token_sort_ratio)
+        if best and best[1] >= cfg.threshold:
+            return ids[best[2]], "fuzzy", int(best[1])
 
-        return pd.NA, None, None
+        return None, "no_match", None
 
-    res = df.apply(match_row, axis=1, result_type="expand")
+    res = df.apply(match_one, axis=1, result_type="expand")
     df[cfg.out_col] = res[0]
-    df["_match_type"] = res[1]
-    df["_match_score"] = res[2]
+    df["_id_source"] = res[1]
+    df["_id_score"] = res[2]
 
-    # log + drop missing ids (automation friendly)
+    # enforce NOT NULL player_id (log + drop)
     missing = df[cfg.out_col].isna() | (df[cfg.out_col].astype(str).str.strip() == "")
     if missing.any():
-        bad = df.loc[missing, ["match_id", cfg.club_col, cfg.name_col, "_match_type", "_match_score"]].copy()
+        cols = [cfg.match_id_col, cfg.team_id_col, cfg.club_col, cfg.name_col, "_id_source", "_id_score"]
+        cols = [c for c in cols if c in df.columns]
+        bad = df.loc[missing, cols].copy()
 
         Path(cfg.log_path).parent.mkdir(parents=True, exist_ok=True)
         header = not Path(cfg.log_path).exists()
@@ -204,4 +241,4 @@ def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig
 
         df = df.loc[~missing].copy()
 
-    return df.drop(columns=["_name_norm", "_club_norm", "_match_type", "_match_score"], errors="ignore")
+    return df.drop(columns=["_name_norm", "_match_date", "_id_source", "_id_score"], errors="ignore")
