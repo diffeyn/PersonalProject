@@ -37,17 +37,30 @@ team_fullnames_to_short = {
 
 
 def clean_match_data(df):
-    matches = df.copy()
+    df = df.copy()
     
-    if "date" in matches.columns:
-        matches["date"] = matches["date"].astype(str).str.replace(r"^[A-Za-z]+,\s*|^[A-Za-z]+\s+", "", regex=True)
-        # If year missing, assume 2025 (change if you need dynamic behavior)
-        matches["date"] = matches["date"].where(matches["date"].str.contains(r"\b\d{4}\b"), matches["date"] + " 2025")
-        matches["date"] = pd.to_datetime(matches["date"], errors="coerce")
-    else:
-        raise ValueError("No date column found.")
+    # 1) make string + remove venue (anything after •)
+    s = df["date"].astype(str).str.split("•", n=1).str[0].str.strip()
+
+    # 2) remove leading weekday if present (Sunday, Mon, etc.)
+    s = s.str.replace(
+        r"^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+",
+        "",
+        regex=True
+    )
+
+    # 3) optional: collapse multiple spaces
+    s = s.str.replace(r"\s+", " ", regex=True).str.strip()
+
+    # 4) parse dates (handles both "Feb 16 2026" and "10 5 2025")
+    # Try strict known formats first, then fall back to inference.
+    dt = pd.to_datetime(s, format="%b %d %Y", errors="coerce")  # Feb 16 2026
+    dt2 = pd.to_datetime(s, format="%B %d %Y", errors="coerce") # February 16 2026
+    dt3 = pd.to_datetime(s, format="%m %d %Y", errors="coerce") # 10 5 2025
+
+    df["date"] = dt.fillna(dt2).fillna(dt3)
     
-    matches['home_team'] = matches['home_team'].replace(team_fullnames_to_short)
-    matches['away_team'] = matches['away_team'].replace(team_fullnames_to_short)
+    df['home_team'] = df['home_team'].replace(team_fullnames_to_short)
+    df['away_team'] = df['away_team'].replace(team_fullnames_to_short)
     
-    return matches
+    return df
