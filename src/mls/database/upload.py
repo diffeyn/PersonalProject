@@ -1,7 +1,7 @@
 from sqlalchemy import engine
 from mls.utils.database.sql_funct import upload_to_db
 from mls.database.matches.connect_players import attach_player_ids, AttachConfig
-from mls.database.sofifa.players_general import players_general
+from mls.database.sofifa.players_general import players_general as get_players_general
 from mls.database.sofifa.players_finance import get_players_finance
 from mls.database.sofifa.players_stats import get_player_stats
 from mls.database.engine import make_engine
@@ -37,7 +37,7 @@ def upload_to_sql():
     sofifa_teams = pd.read_csv(indir / 'cleaned_sofifa/cleaned_team_stats.csv')
     
     ### Create and upload players_general table with one row per player and static info if not already in DB
-    players_general = players_general(sofifa_players, engine)
+    players_general = get_players_general(sofifa_players, engine)
     
     ### check if new players were added to players_general and only upload if there are new players
     if players_general is not None:
