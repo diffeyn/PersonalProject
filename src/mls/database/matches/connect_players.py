@@ -4,91 +4,60 @@ import re
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Dict, Set, Tuple
+from typing import Optional
 
 import pandas as pd
 from rapidfuzz import process, fuzz
 from sqlalchemy import text
 
 
-# ============================================================
-# NORMALIZATION
-# ============================================================
+# -------------------------
+# config
+# -------------------------
+@dataclass
+class AttachConfig:
+    match_id_col: str = "match_id"
+    club_col: str = "club"              # e.g. "MIN"
+    name_col: str = "player_name"       # e.g. "A. Markanich"
+    out_col: str = "player_id"
 
+    threshold: int = 88                 # initials vs full name: don't be too strict
+    log_path: str = "data/interim/unmatched_match_players.csv"
+
+
+# -------------------------
+# normalization
+# -------------------------
 def _strip_accents(s: str) -> str:
     s = unicodedata.normalize("NFKD", s)
     return "".join(c for c in s if not unicodedata.combining(c))
 
-def norm_name(s) -> str:
-    """Aggressive normalize: accents off, lowercase, kill punctuation, collapse spaces."""
+def norm(s) -> str:
+    """accent-strip, lowercase, kill punctuation, collapse spaces"""
     if pd.isna(s):
         return ""
     s = str(s).replace("\u200b", "").replace("\xa0", " ").strip()
     s = _strip_accents(s).lower()
+    s = s.replace(".", " ")
     s = re.sub(r"[^\w\s]", " ", s)
     s = re.sub(r"\s+", " ", s).strip()
     return s
 
-def norm_match_player(s) -> str:
-    """
-    Match-feed usually: 'A. Markanich' -> 'a markanich'
-    """
-    s = norm_name(s)
-    s = s.replace(".", " ")
-    s = re.sub(r"\s+", " ", s).strip()
-    return s
 
-def norm_full_name(s) -> str:
-    """
-    players_general likely full names. Keep as normalized tokens.
-    """
-    return norm_name(s)
-
-
-# ============================================================
-# CONFIG
-# ============================================================
-
-@dataclass
-class AttachConfig:
-    # columns in match_player_stats df
-    name_col: str = "player_name"
-    club_col: str = "club"              # optional; used only for logging
-    team_id_col: str = "team_id"        # REQUIRED for this approach
-    match_id_col: str = "match_id"
-
-    # output
-    out_col: str = "player_id"
-
-    # fuzzy
-    threshold: int = 90                 # lower than before, because initials vs full name
-
-    # logging
-    log_path: str = "data/interim/unmatched_match_players.csv"
-
-
-# ============================================================
-# DB FETCH
-# ============================================================
-
-def fetch_players_general(engine) -> pd.DataFrame:
-    """
-    players_general must have: player_id, name
-    """
+# -------------------------
+# fetch refs (only what we need)
+# -------------------------
+def _fetch_players_general(engine) -> pd.DataFrame:
+    # players_general: player_id, name
     q = text("""
-        SELECT
-            CAST(player_id AS CHAR) AS player_id,
-            name
+        SELECT CAST(player_id AS CHAR) AS player_id, name
         FROM players_general
-        WHERE player_id IS NOT NULL
-          AND name IS NOT NULL
+        WHERE player_id IS NOT NULL AND name IS NOT NULL
     """)
     return pd.read_sql(q, engine)
 
-def fetch_team_roster(engine) -> pd.DataFrame:
-    """
-    team_roster must have: player_id, team_id, stint_start, stint_end
-    """
+def _fetch_team_roster(engine) -> pd.DataFrame:
+    # team_roster: player_id, team_id, stint_start, stint_end
     q = text("""
         SELECT
             CAST(player_id AS CHAR) AS player_id,
@@ -96,144 +65,139 @@ def fetch_team_roster(engine) -> pd.DataFrame:
             stint_start,
             stint_end
         FROM team_roster
-        WHERE player_id IS NOT NULL
-          AND team_id IS NOT NULL
+        WHERE player_id IS NOT NULL AND team_id IS NOT NULL
     """)
     return pd.read_sql(q, engine)
 
-def fetch_match_dates(engine) -> pd.DataFrame:
-    """
-    Need match_id -> match_date.
-    Adjust table/column names if yours differ.
-    """
+def _fetch_match_team_map(engine) -> pd.DataFrame:
+    # match_team_stats: match_id, club, team_id
     q = text("""
-        SELECT
-            match_id,
-            match_date
-        FROM matches
-        WHERE match_id IS NOT NULL
+        SELECT match_id, club, team_id
+        FROM match_team_stats
+        WHERE match_id IS NOT NULL AND club IS NOT NULL AND team_id IS NOT NULL
     """)
-    return pd.read_sql(q, engine)
+    df = pd.read_sql(q, engine)
+    df["club"] = df["club"].astype(str).str.upper().str.strip()
+    return df[["match_id", "club", "team_id"]]
+
+def _fetch_match_dates(engine) -> pd.DataFrame:
+    # matches: match_id, match_date
+    q = text("""
+        SELECT match_id, match_date
+        FROM matches
+        WHERE match_id IS NOT NULL AND match_date IS NOT NULL
+    """)
+    df = pd.read_sql(q, engine)
+    df["match_date"] = pd.to_datetime(df["match_date"], errors="coerce")
+    return df[["match_id", "match_date"]]
 
 
-# ============================================================
-# ROSTER INDEX: (team_id, match_date) -> set(player_id)
-# ============================================================
-
-def _build_roster_index(team_roster: pd.DataFrame) -> Dict[int, list[Tuple[pd.Timestamp, pd.Timestamp, Set[str]]]]:
-    """
-    Build per-team stint windows:
-      team_id -> list of (start, end, {player_ids active in that stint window})
-    Because multiple stints overlap, we keep it simple: filter row-wise later.
-    """
-    tr = team_roster.copy()
-    tr["stint_start"] = pd.to_datetime(tr["stint_start"], errors="coerce")
-    tr["stint_end"] = pd.to_datetime(tr["stint_end"], errors="coerce")
-
-    # If stint_end is NULL, treat as open-ended far future
-    tr["stint_end"] = tr["stint_end"].fillna(pd.Timestamp("2100-01-01"))
-
-    out: Dict[int, list[Tuple[pd.Timestamp, pd.Timestamp, Set[str]]]] = {}
-    for team_id, g in tr.groupby("team_id"):
-        out[int(team_id)] = [(row.stint_start, row.stint_end, {row.player_id}) for row in g.itertuples(index=False)]
-    return out
-
-def _roster_ids_for(team_index, team_id: int, match_date: pd.Timestamp) -> Set[str]:
-    """
-    Return player_ids where stint_start <= match_date <= stint_end.
-    """
-    stints = team_index.get(int(team_id), [])
-    ids: Set[str] = set()
-    for start, end, pid_set in stints:
-        if pd.isna(start):
-            continue
-        if start <= match_date <= end:
-            ids |= pid_set
-    return ids
-
-
-# ============================================================
-# ATTACH
-# ============================================================
-
+# -------------------------
+# main
+# -------------------------
 def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig] = None) -> pd.DataFrame:
+    """
+    Attach player_id to match player stats.
+
+    Requirements:
+      - match_df has: match_id, club (abbr), player_name
+      - DB has: match_team_stats(match_id, club, team_id),
+               matches(match_id, match_date),
+               team_roster(player_id, team_id, stint_start, stint_end),
+               players_general(player_id, name)
+
+    Behavior:
+      - Uses roster-window constrained fuzzy matching only (safe).
+      - Logs + drops unmatched rows (so inserts won't fail).
+    """
     cfg = cfg or AttachConfig()
     df = match_df.copy()
 
-    # sanity
-    for c in [cfg.match_id_col, cfg.name_col, cfg.team_id_col]:
+    # Validate inputs
+    for c in [cfg.match_id_col, cfg.club_col, cfg.name_col]:
         if c not in df.columns:
             raise ValueError(f"attach_player_ids: match_df missing required column '{c}'")
 
-    # fetch refs
-    pg = fetch_players_general(engine)
-    tr = fetch_team_roster(engine)
-    md = fetch_match_dates(engine)
+    # Normalize inputs
+    df["_club"] = df[cfg.club_col].astype(str).str.upper().str.strip()
+    df["_name_norm"] = df[cfg.name_col].map(norm)
 
-    # normalize players_general
-    pg = pg.copy()
-    pg["_name_norm"] = pg["name"].map(norm_full_name)
+    # Bring in team_id (match_id + club -> team_id)
+    team_map = _fetch_match_team_map(engine)
+    df = df.merge(
+        team_map,
+        left_on=[cfg.match_id_col, "_club"],
+        right_on=["match_id", "club"],
+        how="left",
+    ).drop(columns=["match_id", "club"], errors="ignore")
 
-    # match_id -> match_date
-    md = md.copy()
-    md["match_date"] = pd.to_datetime(md["match_date"], errors="coerce")
-    match_date_map = dict(zip(md["match_id"], md["match_date"]))
+    # Bring in match_date (match_id -> match_date)
+    md = _fetch_match_dates(engine)
+    df = df.merge(md, left_on=cfg.match_id_col, right_on="match_id", how="left").drop(columns=["match_id"], errors="ignore")
 
-    # roster index
-    team_index = _build_roster_index(tr)
+    # Load refs
+    pg = _fetch_players_general(engine)
+    pg["_name_norm"] = pg["name"].map(norm)
 
-    # normalize match names
-    df["_name_norm"] = df[cfg.name_col].map(norm_match_player)
+    tr = _fetch_team_roster(engine)
+    tr["stint_start"] = pd.to_datetime(tr["stint_start"], errors="coerce")
+    tr["stint_end"] = pd.to_datetime(tr["stint_end"], errors="coerce")
+    tr["stint_end"] = tr["stint_end"].fillna(pd.Timestamp("2100-01-01"))
 
-    # attach match_date
-    df["_match_date"] = df[cfg.match_id_col].map(match_date_map)
+    # Pre-group roster by team for speed
+    roster_by_team = {tid: g for tid, g in tr.groupby("team_id")}
 
-    # Main matcher
-    def match_one(row) -> Tuple[Optional[str], Optional[str], Optional[int]]:
-        name_norm = row["_name_norm"]
-        team_id = row[cfg.team_id_col]
-        mdate = row["_match_date"]
+    def match_row(r):
+        team_id = r.get("team_id", None)
+        mdate = r.get("match_date", pd.NaT)
+        pname = r["_name_norm"]
 
-        if not name_norm or pd.isna(team_id) or pd.isna(mdate):
-            return None, None, None
+        if not pname or pd.isna(team_id) or pd.isna(mdate):
+            return pd.NA, "missing_team_or_date", None
 
-        # candidate IDs from roster at that time
-        cand_ids = _roster_ids_for(team_index, int(team_id), pd.Timestamp(mdate))
-        if not cand_ids:
-            return None, "no_roster_candidates", None
+        team_id = int(team_id)
+        g = roster_by_team.get(team_id)
+        if g is None or g.empty:
+            return pd.NA, "no_roster_for_team", None
 
+        # roster candidates active on match date
+        active = g[(g["stint_start"].notna()) & (g["stint_start"] <= mdate) & (mdate <= g["stint_end"])]
+        if active.empty:
+            return pd.NA, "no_active_roster_on_date", None
+
+        cand_ids = set(active["player_id"].astype(str).tolist())
         cand = pg[pg["player_id"].isin(cand_ids)]
         if cand.empty:
-            return None, "no_names_for_roster_ids", None
+            return pd.NA, "no_names_for_candidate_ids", None
 
         names = cand["_name_norm"].tolist()
         ids = cand["player_id"].tolist()
 
-        # exact match first
+        # Exact first
         try:
-            j = names.index(name_norm)
+            j = names.index(pname)
             return ids[j], "exact", 100
         except ValueError:
             pass
 
-        # fuzzy within roster candidates
-        best = process.extractOne(name_norm, names, scorer=fuzz.token_sort_ratio)
+        # Fuzzy within candidates
+        best = process.extractOne(pname, names, scorer=fuzz.token_sort_ratio)
         if best and best[1] >= cfg.threshold:
             return ids[best[2]], "fuzzy", int(best[1])
 
-        return None, "no_match", None
+        return pd.NA, "no_match", int(best[1]) if best else None
 
-    res = df.apply(match_one, axis=1, result_type="expand")
-    df[cfg.out_col] = res[0]
-    df["_id_source"] = res[1]
-    df["_id_score"] = res[2]
+    out = df.apply(match_row, axis=1, result_type="expand")
+    df[cfg.out_col] = out[0]
+    df["_id_source"] = out[1]
+    df["_id_score"] = out[2]
 
-    # enforce NOT NULL player_id (log + drop)
+    # Enforce NOT NULL player_id: log + drop
     missing = df[cfg.out_col].isna() | (df[cfg.out_col].astype(str).str.strip() == "")
     if missing.any():
-        cols = [cfg.match_id_col, cfg.team_id_col, cfg.club_col, cfg.name_col, "_id_source", "_id_score"]
-        cols = [c for c in cols if c in df.columns]
-        bad = df.loc[missing, cols].copy()
+        log_cols = [cfg.match_id_col, cfg.club_col, "team_id", "match_date", cfg.name_col, "_id_source", "_id_score"]
+        log_cols = [c for c in log_cols if c in df.columns]
+        bad = df.loc[missing, log_cols].copy()
 
         Path(cfg.log_path).parent.mkdir(parents=True, exist_ok=True)
         header = not Path(cfg.log_path).exists()
@@ -241,4 +205,5 @@ def attach_player_ids(match_df: pd.DataFrame, engine, cfg: Optional[AttachConfig
 
         df = df.loc[~missing].copy()
 
-    return df.drop(columns=["_name_norm", "_match_date", "_id_source", "_id_score"], errors="ignore")
+    # Cleanup helper cols
+    return df.drop(columns=["_club", "_name_norm", "_id_source", "_id_score"], errors="ignore")

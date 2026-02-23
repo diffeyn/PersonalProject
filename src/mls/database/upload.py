@@ -21,12 +21,11 @@ def upload_to_sql():
     matches = pd.read_csv(indir / 'cleaned_matches/cleaned_match_data.csv')
     
     cfg = AttachConfig(
-        name_col="player_name",
-        club_col="club",
-        team_id_col="team_id",
         match_id_col="match_id",
-        threshold=90,  # initials vs full name, don't be strict
-        log_path="data/interim/unmatched_match_players.csv"
+        club_col="club",
+        name_col="player_name",
+        out_col="player_id",
+        threshold=88,
     )
 
     mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cfg)
