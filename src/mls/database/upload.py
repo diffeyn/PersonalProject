@@ -23,11 +23,12 @@ def upload_to_sql():
     cfg = AttachConfig(
         name_col="player_name",
         club_col="club",
-        threshold=92,
-        log_path="data/interim/unmatched_match_players.csv",
+        team_id_col="team_id",  # remove if not present
+        threshold=92
     )
 
-    mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cfg)    
+    mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cfg)
+
     mls_match_player_stats = mls_match_player_stats.drop(columns=['team_id'])
             
     ### Upload match data to SQL
