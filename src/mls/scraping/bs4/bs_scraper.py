@@ -1,5 +1,6 @@
 import os
-import re
+import time
+import random
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -11,16 +12,46 @@ api_key = os.getenv("SECRET_API_KEY")
 # This file contains functions to scrape data from the web using BeautifulSoup and the scraping.narf.ai API. It includes functions to get the HTML content of a page, parse tables, and extract player stats from match pages.
 
 # Function to get the HTML content of a page using the scraping.narf.ai API
-def get_soup(url):
-    # Use the API to fetch the page content
+
+def get_soup(url, tries=3, timeout=30):
     payload = {
         "api_key": api_key,
         "url": url,
     }
 
-    response = requests.get("https://scraping.narf.ai/api/v1/", params=payload)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    return soup
+    last_err = None
+
+    for attempt in range(1, tries + 1):
+        try:
+            response = requests.get(
+                "https://scraping.narf.ai/api/v1/",
+                params=payload,
+                timeout=timeout
+            )
+
+            response.raise_for_status()
+
+            if not response.text or len(response.text) < 500:
+                raise RuntimeError("Empty or suspiciously short HTML")
+
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            if soup.find("table") is None:
+                raise RuntimeError("Expected table not found (partial or blocked page)")
+
+            return soup
+
+        except Exception as e:
+            last_err = e
+
+            if attempt == tries:
+                break
+
+            sleep_s = (2 ** (attempt - 1)) + random.uniform(0, 0.5)
+            print(f"[retry {attempt}/{tries}] Failed: {url} | {e} | sleeping {sleep_s:.2f}s")
+            time.sleep(sleep_s)
+
+    raise RuntimeError(f"Failed after {tries} tries: {url}") from last_err
 
 #----MLS-SPECIFIC SCRAPING FUNCTIONS----#
 
@@ -103,10 +134,6 @@ def parse_player_stats_from_html(html, match_id=None):
 
     return pd.DataFrame(all_rows)
 
-    
-    
-#----SOFIFA SCRAPING FUNCTIONS----#
-
 
 
 # function to parse team stats from the HTML content of team pages, extracting relevant information such as team names, stats, and linking with date for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
@@ -155,6 +182,8 @@ def scrape_team_table(soup):
     return teams_df, team_links
     
     
+#----SOFIFA SCRAPING FUNCTIONS----#
+
     
 ## column names to filter results on SOFIFA.com to get more detailed player stats, these are the same columns that are available on the website when you click "show more" on the player stats table, we can add or remove columns from this list as needed to get the desired level of detail in our dataset without overwhelming it with too many columns that may not be relevant for analysis. The add_columns_to_url function will append these columns as query parameters to the team URLs before scraping to ensure we get all the detailed stats for each player.
 
@@ -191,8 +220,16 @@ def extract_players(team_links):
         team_url = add_columns_to_url(team_url, COLS)
         
         ## get soup for team page and extract player stats from the page
-        soup = get_soup(team_url)
+        failed_urls = []
+
+        try:
+            soup = get_soup(team_url)
+        except Exception as e:
+            print("FAILED:", team_url, e)
+            failed_urls.append(team_url)
+            continue
         
+                
         ## extract team name
         h1 = soup.select_one("header h1")
         team = h1.get_text(strip=True) if h1 else None
