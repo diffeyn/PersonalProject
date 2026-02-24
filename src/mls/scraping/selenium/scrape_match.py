@@ -30,10 +30,7 @@ def scrape_matches():
     button_calendar = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'mls-o-buttons__two-way')))
         
     #### press button to navigate to previous week of matches as scrapehappens monday morning for the previous week's matches    
-    button_prev = button_calendar.find_element(By.XPATH, ".//button[@value='prev']")
-    
-    button_prev.click()
-    
+    button_prev = button_calendar.find_element(By.XPATH, ".//button[@value='prev']")    
     
     ## scrape match links from schedule page
     match_links = selenium_helpers.extract_match_links(driver)
