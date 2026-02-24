@@ -63,7 +63,6 @@ def extract_players(driver, match_id, date):
     html = driver.page_source
     player_stats= bs.parse_player_stats_from_html(html, match_id)
     
-    print(player_stats.columns.tolist())
     
     return player_stats
 

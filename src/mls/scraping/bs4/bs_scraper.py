@@ -111,7 +111,6 @@ def parse_player_stats_from_html(html, match_id=None):
 
 # function to parse team stats from the HTML content of team pages, extracting relevant information such as team names, stats, and linking with date for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
 def scrape_team_table(soup):
-    print("Scraping team stats table...")
     teams_table = soup.find('table')
     if teams_table is None:
         raise ValueError("No table found in the scraped HTML.")
@@ -153,7 +152,6 @@ def scrape_team_table(soup):
         if a:
             team_links.append(a['href'])
             
-    print(f"Found {len(team_links)} team links for player extraction.")
     return teams_df, team_links
     
     
@@ -183,7 +181,6 @@ def extract_players(team_links):
     count = 1
 
     for link in team_links:
-        print(f"Processing team {count}/{len(team_links)}: {link}")
         
         count += 1
         

@@ -12,11 +12,6 @@ def scrape_sofifa():
     ### extract team stats and links to team pages for further scraping of player data
     sofifa_teams_df, team_links = bscraper.scrape_team_table(soup)
     
-    ### --- TEMPORARY --- ###
-    # keep first 2 teams for testing
-    team_links = team_links[:2]
-    ### --- TEMPORARY --- ###
-    
     ### extract player stats from team pages using the links extracted from the teams page, this will give us a dataframe with player stats for all players in the teams we scraped, and we can link this with the team stats using the team name and date for context in our dataset.
     sofifa_players_df = bscraper.extract_players(team_links)
     

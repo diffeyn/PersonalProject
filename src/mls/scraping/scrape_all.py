@@ -12,7 +12,6 @@ def scrape_all():
     # Scrape match stats and feed
  
     try:
-        print("Starting to scrape matches...")
         match_team_stats, match_player_stats, match_feed, match_data = scrape_matches()
         
         outputs = {
@@ -41,7 +40,6 @@ def scrape_all():
     # Scrape updated player and team data from SoFIFA
     
     try:
-        print("Scraping updated player and team data...")
         teams, players = scrape_sofifa()
         write_csv(players, outdir / "sofifa/sofifa_player_stats.csv")
         write_csv(teams, outdir / "sofifa/sofifa_team_stats.csv")

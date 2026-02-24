@@ -82,6 +82,5 @@ def clean_match_team(df):
     df.rename(columns={'general_shots_on_target_home': 'general_shots_on_goal_home',
                        'general_shots_on_target_away': 'general_shots_on_goal_away'}, inplace=True)
     
-    print('columns after cleaning match team stats:', df.columns)
     return df
 

@@ -14,7 +14,6 @@ from mls.utils.scraping import hashing
 def scrape_matches():
     
     driver = selenium_helpers.set_up_driver()
-    print("Driver set up successfully.")
     wait = WebDriverWait(driver, 10)
     
     ## navigate to most recent schedule page (weekly))
@@ -33,18 +32,11 @@ def scrape_matches():
     #### press button to navigate to previous week of matches as scrapehappens monday morning for the previous week's matches    
     button_prev = button_calendar.find_element(By.XPATH, ".//button[@value='prev']")
     
-    ##### TEMPORARY ######
-    ## Click prev button 19 times
+    button_prev.click()
     
-    for i in range(19):
-        button_prev.click()
-        
-        
-    ##### TEMPORRARY #####
     
     ## scrape match links from schedule page
     match_links = selenium_helpers.extract_match_links(driver)
-    print(f"Extracted {len(match_links)} match links.")
     
     if match_links is None or len(match_links) == 0:
         print("No match links found. Exiting.")
@@ -61,10 +53,6 @@ def scrape_matches():
     ### loop through match links and extract data for each match
     count = 1
     
-    ##### TEMPORARY ####
-    
-    ## k33p first match for testing
-    match_links = [match_links[0]]
     
     for link in match_links:        
         ### create match_id from link for use as unique identifier across datasets using hashlib
@@ -74,9 +62,7 @@ def scrape_matches():
         driver.get(link)
         
         wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        
-        print(f"Processing match: {match_id} ({count}/{len(match_links)})")
-                
+                        
         ### extract match team stats, match player stats, and match feed data for the match with error handling to continue to next match if any step fails
         try:
             match_team_data, date, home_team, away_team, home_team_score, away_team_score = extract_team_stats(driver, match_id)
@@ -115,8 +101,6 @@ def scrape_matches():
             traceback.print_exc()
             raise
         
-        print(f"Finished processing match: {match_id} ({count}/{len(match_links)})")
-        count += 1
         
     ### close driver after processing all matches
     driver.quit()
