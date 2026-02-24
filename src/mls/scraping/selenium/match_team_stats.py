@@ -45,12 +45,7 @@ def extract_team_stats(driver, match_id):
         away_score = scores[1].text.strip() if len(scores) > 1 else None
         date = hub.find_element(By.XPATH, "//div[contains(@class, 'mls-c-blockheader__subtitle')]").text.strip()
         
-        # ---- date parsing (robust) ----#
-        # break string at ' + ' and keep first part 
-        if date != None:
-            date = date.split(' + ')[0].strip()
-        else:
-            raise ValueError("No date column found.")
+        date = selenium_helpers.clean_mls_date(date, 2026)
 
     except Exception as e:
         print(f"[ERR] extract_feed failed for match {match_id}: {type(e).__name__}: {e}")
@@ -222,28 +217,6 @@ def extract_team_stats(driver, match_id):
     all_stats['date'] = date
     all_stats['home_team'] = home_team
     all_stats['away_team'] = away_team
-    
-    
-    # 1) make string + remove venue (anything after •)
-    s = all_stats["date"].astype(str).str.split("•", n=1).str[0].str.strip()
-
-    # 2) remove leading weekday if present (Sunday, Mon, etc.)
-    s = s.str.replace(
-        r"^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+",
-        "",
-        regex=True
-    )
-
-    # 3) optional: collapse multiple spaces
-    s = s.str.replace(r"\s+", " ", regex=True).str.strip()
-
-    # 4) parse dates (handles both "Feb 16 2026" and "10 5 2025")
-    # Try strict known formats first, then fall back to inference.
-    dt = pd.to_datetime(s, format="%b %d %Y", errors="coerce")  # Feb 16 2026
-    dt2 = pd.to_datetime(s, format="%B %d %Y", errors="coerce") # February 16 2026
-    dt3 = pd.to_datetime(s, format="%m %d %Y", errors="coerce") # 10 5 2025
-
-    all_stats["date"] = dt.fillna(dt2).fillna(dt3)
     
     
     return all_stats, date, home_team, away_team, home_score, away_score

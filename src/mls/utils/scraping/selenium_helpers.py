@@ -261,3 +261,28 @@ def _text(el) -> Optional[str]:
         return None
     t = el.get_text(" ", strip=True)
     return t if t else None
+
+import re
+import pandas as pd
+
+def clean_mls_date(raw_date: str, season_year: int):
+    # Remove venue
+    s = raw_date.split("•")[0].strip()
+
+    # Remove weekday
+    s = re.sub(
+        r"^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+",
+        "",
+        s
+    )
+
+    # Add season year
+    s = f"{s} {season_year}"
+
+    # Parse
+    dt = pd.to_datetime(s, format="%B %d %Y", errors="coerce")
+
+    if pd.isna(dt):
+        raise ValueError(f"Failed to parse date: {raw_date}")
+
+    return dt.date()

@@ -71,7 +71,7 @@ def scrape_matches():
         
         match_data = pd.DataFrame([{
             "match_id": match_id,
-            "date": match_team_data["date"],
+            "date": date,
             "home_team": home_team,
             "away_team": away_team,
             "home_team_score": home_team_score,
