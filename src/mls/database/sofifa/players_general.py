@@ -2,7 +2,7 @@ import pandas as pd
 
 def players_general(df, engine):
     df = df.copy()
-    df.rename(columns={"ID": "player_id"}, inplace=True)
+    df.rename(columns={"id": "player_id"}, inplace=True)
     df = df[['player_id', 'name', 'height_cm', 'foot']]
     
     ### Check existing player_ids in DB to avoid duplicates
