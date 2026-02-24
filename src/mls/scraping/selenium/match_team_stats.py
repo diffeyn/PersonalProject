@@ -223,6 +223,7 @@ def extract_team_stats(driver, match_id):
     all_stats['home_team'] = home_team
     all_stats['away_team'] = away_team
     
+       
     
     
     return all_stats, date, home_team, away_team, home_score, away_score
