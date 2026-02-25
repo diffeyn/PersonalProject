@@ -1,7 +1,11 @@
-from __future__ import annotations
-import traceback
-from mls.utils.scraping import selenium_helpers
+import time
+import random
 import pandas as pd
+import traceback
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from __future__ import annotations
+from mls.utils.scraping import selenium_helpers
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -50,57 +54,72 @@ def scrape_matches():
     ### loop through match links and extract data for each match
     count = 1
     
-    
-    for link in match_links:        
-        ### create match_id from link for use as unique identifier across datasets using hashlib
-        match_id = hashing.make_match_id(link)
-        
-        ## navigate to match page
-        driver.get(link)
-        
-        wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-                        
-        ### extract match team stats, match player stats, and match feed data for the match with error handling to continue to next match if any step fails
-        try:
-            match_team_data, date, home_team, away_team, home_team_score, away_team_score = extract_team_stats(driver, match_id)
-            combined_team_stats = pd.concat([combined_team_stats, match_team_data], ignore_index=True)
-        except Exception as e:
-            print(f"Error extracting team stats for {match_id}: {e}")
-            traceback.print_exc()
-            raise            
-        
-        match_data = pd.DataFrame([{
-            "match_id": match_id,
-            "date": date,
-            "home_team": home_team,
-            "away_team": away_team,
-            "home_team_score": home_team_score,
-            "away_team_score": away_team_score}])
-        
-        
-        combined_match_data = pd.concat([combined_match_data, match_data], ignore_index=True)
-                                          
-        try:
-            match_player_data = extract_players(driver, match_id, date)
-            combined_player_stats = pd.concat([combined_player_stats, match_player_data], ignore_index=True)
-        except Exception as e:
-            print(f"Error extracting player stats for {match_id}: {e}")
-            traceback.print_exc()
-            raise
-        
-        
-        try:
-            match_feed_data = extract_feed(driver, match_id, date)
-            match_feed_data['home_team'] = home_team
-            match_feed_data['away_team'] = away_team
-            combined_feed = pd.concat([combined_feed, match_feed_data], ignore_index=True)
-        except Exception as e:
-            print(f"Error extracting match feed for {match_id}: {e}")
-            traceback.print_exc()
-            raise
-        
-        
-    ### close driver after processing all matches
+
+    MAX_ROUNDS = 3
+    COOLDOWN_SECONDS = 30  # "retry later" delay between rounds
+
+
+    remaining_links = list(match_links)
+    failed = []  # keep records of failures
+
+    for round_num in range(1, MAX_ROUNDS + 1):
+        print(f"\n=== Match scrape round {round_num}/{MAX_ROUNDS} | {len(remaining_links)} matches ===")
+
+        next_remaining = []
+
+        for link in remaining_links:
+            match_id = hashing.make_match_id(link)
+
+            try:
+                driver.get(link)
+                wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+
+                # --- team stats + match meta ---
+                match_team_data, date, home_team, away_team, home_team_score, away_team_score = extract_team_stats(driver, match_id)
+                combined_team_stats = pd.concat([combined_team_stats, match_team_data], ignore_index=True)
+
+                match_data = pd.DataFrame([{
+                    "match_id": match_id,
+                    "date": date,
+                    "home_team": home_team,
+                    "away_team": away_team,
+                    "home_team_score": home_team_score,
+                    "away_team_score": away_team_score
+                }])
+                combined_match_data = pd.concat([combined_match_data, match_data], ignore_index=True)
+
+                # --- player stats ---
+                match_player_data = extract_players(driver, match_id, date)
+                combined_player_stats = pd.concat([combined_player_stats, match_player_data], ignore_index=True)
+
+                # --- feed ---
+                match_feed_data = extract_feed(driver, match_id, date)
+                match_feed_data["home_team"] = home_team
+                match_feed_data["away_team"] = away_team
+                combined_feed = pd.concat([combined_feed, match_feed_data], ignore_index=True)
+
+            except Exception as e:
+                print(f"[FAILED] match_id={match_id} | url={link} | {e}")
+                traceback.print_exc()
+                failed.append({"round": round_num, "match_id": match_id, "url": link, "error": str(e)})
+                next_remaining.append(link)
+                continue
+
+        if not next_remaining:
+            print("All matches scraped successfully.")
+            break
+
+        remaining_links = next_remaining
+
+        if round_num < MAX_ROUNDS:
+            sleep_time = COOLDOWN_SECONDS + random.random() * 10
+            print(f"Cooling down {sleep_time:.1f}s before retrying failed matches...")
+            time.sleep(sleep_time)
+
+    # close driver after processing
     driver.quit()
+
+    # optional: save failed list somewhere
+    # pd.DataFrame(failed).to_csv("data/raw/match_scrape_failures.csv", index=False)
 
     return combined_team_stats, combined_player_stats, combined_feed, combined_match_data

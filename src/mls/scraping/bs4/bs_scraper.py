@@ -206,35 +206,37 @@ def add_columns_to_url(u: str, cols) -> str:
 ### function to scrape team stats from the HTML content of a match page, extracting relevant information such as team names, stats, and linking with match_id and date for context in the dataset. It handles the main team stats table and extracts links to team pages for further scraping of player data.
 def extract_players(team_links):
     all_players = []
-    
-    count = 1
+    failed_links = []
+
+    def get_soup_with_retry(url, tries=8, base_sleep=2, max_sleep=60):
+        last_err = None
+        for attempt in range(1, tries + 1):
+            try:
+                return get_soup(url)
+            except Exception as e:
+                last_err = e
+                sleep = min(max_sleep, base_sleep * (2 ** (attempt - 1))) + random.random()
+                print(f"[retry {attempt}/{tries}] FAILED {url} | sleeping {sleep:.2f}s")
+                time.sleep(sleep)
+        raise RuntimeError(f"Failed after {tries} tries") from last_err
 
     for link in team_links:
-        
-        count += 1
-        
-        ### construct team URL and get soup for the team page
+
         team_url = f"https://sofifa.com{link}"
-        
-        ### add query parameters to team URL to specify which columns we want to scrape for player stats, this allows us to get more detailed stats without having to scrape the entire page and then filter, which can be more efficient and reduce the amount of data we need to process while still getting all the relevant stats for our analysis.
         team_url = add_columns_to_url(team_url, COLS)
-        
-        ## get soup for team page and extract player stats from the page
-        failed_urls = []
 
         try:
-            soup = get_soup(team_url)
+            soup = get_soup_with_retry(team_url)
         except Exception as e:
-            print("FAILED:", team_url, e)
-            failed_urls.append(team_url)
+            print("FINAL FAIL:", team_url, e)
+            failed_links.append(link)
             continue
-        
-                
-        ## extract team name
+
+        # --- team name ---
         h1 = soup.select_one("header h1")
         team = h1.get_text(strip=True) if h1 else None
-        
-        ### extract date from the team page using roster date
+
+        # --- roster date ---
         date_elem = soup.find('select', {'name': 'roster'})
         selected_option = None
 
@@ -249,9 +251,8 @@ def extract_players(team_links):
             safe_date = date.replace("/", "-").replace(":", "-").strip()
         else:
             safe_date = datetime.now().strftime("%Y-%m-%d")
-            
-            
-        ## find table within html
+
+        # --- player table ---
         players_table = soup.find("table")
         if players_table is None:
             print(f"No table found for team URL: {team_url}")
@@ -259,7 +260,7 @@ def extract_players(team_links):
 
         rows = players_table.find_all("tr")
         if not rows or not rows[0].find_all("th"):
-            print(f"No header row found in the table for team URL: {team_url}")
+            print(f"No header row found for team URL: {team_url}")
             continue
 
         headers = [th.get_text(strip=True) for th in rows[0].find_all("th")]
@@ -270,10 +271,11 @@ def extract_players(team_links):
                 continue
 
             cols = []
+            extracted_position = None
+
             for i, td in enumerate(tds):
                 header = headers[i] if i < len(headers) else f"col_{i}"
 
-                # The "Name" cell contains both name + position in nested tags
                 if header.lower() == "name":
                     name_a = td.select_one('a[href^="/player/"]')
                     pos_span = td.select_one("span.pos")
@@ -282,20 +284,88 @@ def extract_players(team_links):
                     pos = pos_span.get_text(strip=True) if pos_span else None
 
                     cols.append(name)
-
-                    # also stash position as its own field (not part of cols)
                     extracted_position = pos
                 else:
                     cols.append(td.get_text(strip=True))
 
             player_data = dict(zip(headers, cols))
-
-            # add extracted position as a new column
-            
             player_data["position"] = extracted_position
             player_data["date"] = safe_date
             player_data["team"] = team
+
             all_players.append(player_data)
 
+    # --- second pass retry after cooldown ---
+    if failed_links:
+        print(f"\nCooling down before second pass ({len(failed_links)} failed)...")
+        time.sleep(90)
+
+        for link in failed_links:
+            team_url = f"https://sofifa.com{link}"
+            team_url = add_columns_to_url(team_url, COLS)
+
+            try:
+                soup = get_soup_with_retry(team_url, tries=6)
+            except Exception as e:
+                print("FAILED AGAIN:", team_url, e)
+                continue
+
+            h1 = soup.select_one("header h1")
+            team = h1.get_text(strip=True) if h1 else None
+
+            date_elem = soup.find('select', {'name': 'roster'})
+            selected_option = None
+
+            if date_elem:
+                selected_option = (
+                    date_elem.find('option', selected=True)
+                    or date_elem.find('option')
+                )
+
+            if selected_option:
+                date = selected_option.text.strip()
+                safe_date = date.replace("/", "-").replace(":", "-").strip()
+            else:
+                safe_date = datetime.now().strftime("%Y-%m-%d")
+
+            players_table = soup.find("table")
+            if players_table is None:
+                continue
+
+            rows = players_table.find_all("tr")
+            if not rows or not rows[0].find_all("th"):
+                continue
+
+            headers = [th.get_text(strip=True) for th in rows[0].find_all("th")]
+
+            for row in rows[1:]:
+                tds = row.find_all("td")
+                if not tds:
+                    continue
+
+                cols = []
+                extracted_position = None
+
+                for i, td in enumerate(tds):
+                    header = headers[i] if i < len(headers) else f"col_{i}"
+
+                    if header.lower() == "name":
+                        name_a = td.select_one('a[href^="/player/"]')
+                        pos_span = td.select_one("span.pos")
+
+                        name = name_a.get_text(strip=True) if name_a else td.get_text(" ", strip=True)
+                        pos = pos_span.get_text(strip=True) if pos_span else None
+
+                        cols.append(name)
+                        extracted_position = pos
+                    else:
+                        cols.append(td.get_text(strip=True))
+
+                player_data = dict(zip(headers, cols))
+                player_data["position"] = extracted_position
+                player_data["date"] = safe_date
+                player_data["team"] = team
+
+                all_players.append(player_data)
 
     return pd.DataFrame(all_players)

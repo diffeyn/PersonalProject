@@ -23,8 +23,8 @@ def upload_to_sql():
     cfg = AttachConfig(date_col="match_date", threshold=88)  # or "match_date"
     mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cfg)
     
-    mls_match_player_stats = mls_match_player_stats.drop(columns=['team_id'])
-            
+    mls_match_player_stats = mls_match_player_stats.drop(columns=['team_id', 'player_name', 'club', 'side'])
+    
     ### Upload match data to SQL
     upload_to_db(mls_match_team_stats, "match_team_stats", engine)
     upload_to_db(mls_match_player_stats, "match_player_stats", engine)

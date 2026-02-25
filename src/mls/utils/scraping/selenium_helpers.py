@@ -9,6 +9,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException,
 from typing import List, Dict, Optional
 import time
 import re
+import pandas as pd
 
 
 ### SETUP AND UTILITY FUNCTIONS FOR SELENIUM ###
