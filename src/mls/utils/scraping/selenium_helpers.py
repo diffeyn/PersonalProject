@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
 from typing import List, Dict, Optional
 import time
+import re
 
 
 ### SETUP AND UTILITY FUNCTIONS FOR SELENIUM ###
@@ -262,8 +263,6 @@ def _text(el) -> Optional[str]:
     t = el.get_text(" ", strip=True)
     return t if t else None
 
-import re
-import pandas as pd
 
 def clean_mls_date(raw_date: str, season_year: int):
     # Remove venue

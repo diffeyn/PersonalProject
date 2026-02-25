@@ -137,6 +137,8 @@ def clean_match_players(df: pd.DataFrame) -> pd.DataFrame:
         "CC": "corners_conceded",
     })
     
+    df.drop(columns=['player_name', 'club', 'side'], inplace=True, errors='ignore')
+    
     return df
 
 
