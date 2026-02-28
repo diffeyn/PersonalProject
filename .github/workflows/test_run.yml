@@ -45,7 +45,7 @@ jobs:
 
           # DB settings: pick ONE approach:
           # A) Single DB_URL string (recommended)
-          DB_TEST_STRING: ${{ secrets.DB_TEST_STRING }}
+          DB_STRING: ${{ secrets.DB_STRING }}
         run: |
           python -m scripts.run_all
 
