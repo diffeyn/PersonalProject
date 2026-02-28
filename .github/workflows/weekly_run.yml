@@ -42,6 +42,6 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}/src
           SECRET_API_KEY: ${{ secrets.SECRET_API_KEY }}
-          DB_TEST_STRING: ${{ secrets.DB_STRING }}
+          DB_STRING: ${{ secrets.DB_STRING }}
         run: |
           python -m scripts.run_all
