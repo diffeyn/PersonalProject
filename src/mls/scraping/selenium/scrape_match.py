@@ -1,10 +1,10 @@
+from __future__ import annotations
 import time
 import random
 import pandas as pd
 import traceback
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from __future__ import annotations
 from mls.utils.scraping import selenium_helpers
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
