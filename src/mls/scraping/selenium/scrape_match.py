@@ -1,4 +1,5 @@
 from __future__ import annotations
+from concurrent.futures import wait
 import time
 import random
 import pandas as pd
@@ -30,11 +31,7 @@ def scrape_matches():
 
     wait = WebDriverWait(driver, 3)
     
-    ### calendar button for navigating to previous weeks of matches
-    button_calendar = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'mls-o-buttons__two-way')))
-        
-    #### press button to navigate to previous week of matches as scrapehappens monday morning for the previous week's matches    
-    button_prev = button_calendar.find_element(By.XPATH, ".//button[@value='prev']")    
+    wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))   
     
     ## scrape match links from schedule page
     match_links = selenium_helpers.extract_match_links(driver)
