@@ -175,7 +175,7 @@ def extract_match_links(driver):
     ### find last week's matches
     all_links = set()
 
-
+ 
     try:
         # Locate the "Previous results" button
         previous_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Previous results']"))) 

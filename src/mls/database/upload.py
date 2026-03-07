@@ -20,17 +20,16 @@ def upload_to_sql():
     match_events = pd.read_csv(indir / 'cleaned_matches/cleaned_match_feed.csv')
     matches = pd.read_csv(indir / 'cleaned_matches/cleaned_match_data.csv')
     
-    cfg = AttachConfig(date_col="match_date", threshold=88)  # or "match_date"
+    cfg = AttachConfig(date_col="match_date", threshold=88)  
     mls_match_player_stats = attach_player_ids(mls_match_player_stats, engine, cfg)
     
     mls_match_player_stats = mls_match_player_stats.drop(columns=['team_id', 'player_name', 'club', 'side'])
     
     ### Upload match data to SQL
-    upload_to_db(mls_match_team_stats, "match_team_stats", engine)
-    upload_to_db(mls_match_player_stats, "match_player_stats", engine)
-    upload_to_db(match_events, "match_events", engine)
-    upload_to_db(matches, "matches", engine)
-    
+    upload_to_db(mls_match_team_stats, "match_team_stats", engine, method='ignore')
+    upload_to_db(mls_match_player_stats, "match_player_stats", engine, method='ignore')
+    upload_to_db(match_events, "match_events", engine, method='ignore')
+    upload_to_db(matches, "matches", engine, method='ignore')
     
     ### Read in latest cleaned SoFIFA data
     sofifa_players = pd.read_csv(indir / 'cleaned_sofifa/cleaned_player_stats.csv')
