@@ -39,7 +39,7 @@ def scrape_matches():
     if match_links is None or len(match_links) == 0:
         print("No match links found. Exiting.")
         driver.quit()
-        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
+        return pd.DataFrame()
     
     
     ### initialize empty dataframes to hold combined data across matches
@@ -65,7 +65,7 @@ def scrape_matches():
         next_remaining = []
 
         for link in remaining_links:
-            match_id = hashing.make_match_id(link)
+            match_id = hashing.make_match_id(link.str())
 
             try:
                 driver.get(link)
