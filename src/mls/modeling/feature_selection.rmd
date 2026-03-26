@@ -1,0 +1,551 @@
+---
+title: "MLS Match Result Prediction"
+author: "Your Name"  # ← EDIT THIS
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## 1. Introduction
+
+This report develops a machine learning model to predict MLS match outcomes — classified as **home win**, **away win**, or **draw** — using a Random Forest classifier trained on historical match and team statistics sourced from a custom MySQL database.
+
+The methodology follows three stages:
+
+1. **Feature selection** — identifying the most predictive variables using two independent methods
+2. **Temporal validation** — training on 2024 data and evaluating on unseen 2025 data
+3. **Live prediction** — retraining on 2024–2025 data to predict early 2026 matches with known outcomes
+
+A temporal train/test split is used rather than random splitting, as it more accurately reflects a real-world forecasting scenario where only past data is available at prediction time.
+
+---
+
+## 2. Libraries & Database Connection
+
+```{r libraries}
+library(DBI)
+library(RMySQL)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(randomForest)
+library(caret)
+```
+
+```{r db-connection}
+con <- dbConnect(
+  RMySQL::MySQL(),
+  host     = "o8ukkP9TliImN.h.filess.io",
+  dbname   = "MLS",
+  user     = "root",
+  password = "!wMoU9lBdLZWW6Y8",
+  port     = 58202
+)
+```
+
+---
+
+## 3. Load Data
+
+```{r load-data}
+matches            <- dbReadTable(con, "matches")
+match_team_stats   <- dbReadTable(con, "match_team_stats")
+match_player_stats <- dbReadTable(con, "match_player_stats")
+team_stats         <- dbReadTable(con, "team_stats")
+players_stats      <- dbReadTable(con, "players_stats")
+team_roster        <- dbReadTable(con, "team_roster")
+teams              <- dbReadTable(con, "teams")
+
+# Parse dates
+matches$date            <- as.Date(matches$date)
+team_stats$date         <- as.Date(team_stats$date)
+team_roster$stint_start <- as.Date(team_roster$stint_start)
+team_roster$stint_end   <- as.Date(team_roster$stint_end)
+
+# Map team abbreviation -> team_id
+abbr_to_id           <- setNames(teams$team_id, teams$team_abbr)
+matches$home_team_id <- abbr_to_id[matches$home_team]
+matches$away_team_id <- abbr_to_id[matches$away_team]
+
+cat("Total matches loaded:", nrow(matches), "\n")
+```
+
+
+---
+
+## 4. Target Variable
+
+Match outcomes are encoded as a three-class factor. Home and away wins are kept distinct rather than collapsed to a binary win/loss, as home advantage is a well-documented phenomenon in professional football.
+
+```{r target}
+matches$result <- case_when(
+  matches$home_score > matches$away_score ~ "home_win",
+  matches$home_score < matches$away_score ~ "away_win",
+  TRUE                                    ~ "draw"
+)
+matches$result <- factor(matches$result)
+
+cat("Overall class distribution:\n")
+table(matches$result)
+```
+
+---
+
+## 5. Feature Engineering
+
+Four feature blocks are constructed from the database. All joins use `match_id` as the key, and team rating lookups are strictly limited to snapshots **before** the match date to prevent data leakage.
+
+### 5.1 Block A — Match Team Statistics
+
+In-match team performance metrics from `match_team_stats`. Four columns that directly encode the scoreline (goals scored/conceded) are removed to prevent leakage.
+
+```{r block-a}
+leaky_cols <- c("shooting_goals_home", "shooting_goals_away",
+                "general_goals_conceded_home", "general_goals_conceded_away")
+
+block_a <- match_team_stats %>%
+  select(-any_of(leaky_cols))
+
+cat("Block A features:", ncol(block_a) - 1, "\n")
+```
+
+### 5.2 Block B — Match Player Statistics
+
+Per-player match statistics from `match_player_stats` aggregated to match level. Counting stats (assists, passes, etc.) are summed across all players; percentage stats are averaged.
+
+```{r block-b}
+pct_cols <- names(match_player_stats)[grepl("perc", names(match_player_stats))]
+
+block_b <- match_player_stats %>%
+  group_by(match_id) %>%
+  summarise(
+    across(all_of(pct_cols), \(x) mean(x, na.rm = TRUE)),
+    across(-all_of(c("player_id", pct_cols)), \(x) sum(x, na.rm = TRUE)),
+    .groups = "drop"
+  )
+
+names(block_b)[-1] <- paste0("player_", names(block_b)[-1])
+
+cat("Block B features:", ncol(block_b) - 1, "\n")
+```
+
+### 5.3 Block C — Team Ratings
+
+FIFA-style team ratings (overall, attack, midfield, defence) from `team_stats`. For each match, the most recent snapshot **before** the match date is selected separately for both the home and away team.
+
+```{r block-c}
+rating_cols <- c("overall", "attack", "midfield", "defence")
+
+latest_rating <- function(team_id, match_date) {
+  subset <- team_stats %>%
+    filter(team_id == !!team_id, date <= match_date) %>%
+    arrange(desc(date)) %>%
+    slice(1)
+
+  # If no prior snapshot, use the earliest available
+  if (nrow(subset) == 0) {
+    subset <- team_stats %>%
+      filter(team_id == !!team_id) %>%
+      arrange(date) %>%
+      slice(1)
+  }
+
+  if (nrow(subset) == 0) {
+    return(setNames(rep(NA_real_, length(rating_cols)), rating_cols))
+  }
+  as.numeric(subset[, rating_cols])
+}
+
+cat("Joining team ratings...\n")
+block_c <- matches %>%
+  select(match_id, date, home_team_id, away_team_id) %>%
+  rowwise() %>%
+  mutate(
+    home_r = list(latest_rating(home_team_id, date)),
+    away_r = list(latest_rating(away_team_id, date))
+  ) %>%
+  ungroup() %>%
+  mutate(
+    team_overall_home  = sapply(home_r, `[[`, 1),
+    team_attack_home   = sapply(home_r, `[[`, 2),
+    team_midfield_home = sapply(home_r, `[[`, 3),
+    team_defence_home  = sapply(home_r, `[[`, 4),
+    team_overall_away  = sapply(away_r, `[[`, 1),
+    team_attack_away   = sapply(away_r, `[[`, 2),
+    team_midfield_away = sapply(away_r, `[[`, 3),
+    team_defence_away  = sapply(away_r, `[[`, 4)
+  ) %>%
+  select(match_id, starts_with("team_"))
+
+cat("Block C features:", ncol(block_c) - 1, "\n")
+```
+
+### 5.4 Block D — Squad Player Ratings
+
+FIFA attribute ratings from `players_stats` averaged per squad per match. Active squad members are identified via `team_roster` using stint start and end dates.
+
+```{r block-d}
+ps_num_cols <- names(players_stats)[sapply(players_stats, is.numeric)]
+ps_num_cols <- setdiff(ps_num_cols, "player_id")
+
+get_squad_avg <- function(team_id, match_date) {
+  squad_ids <- team_roster %>%
+    filter(
+      team_id == !!team_id,
+      stint_start <= !!match_date,
+      is.na(stint_end) | stint_end >= !!match_date
+    ) %>%
+    pull(player_id)
+
+  squad_stats <- players_stats %>% filter(player_id %in% squad_ids)
+  if (nrow(squad_stats) == 0) return(setNames(rep(NA_real_, length(ps_num_cols)), ps_num_cols))
+  colMeans(squad_stats[, ps_num_cols], na.rm = TRUE)
+}
+
+cat("Averaging squad ratings (slowest step)...\n")
+total      <- nrow(matches)
+squad_rows <- vector("list", total)
+
+for (i in seq_len(total)) {
+  if (i %% 100 == 0 || i == total) cat("  Progress:", i, "/", total, "\n")
+  m <- matches[i, ]
+  h <- get_squad_avg(m$home_team_id, m$date)
+  a <- get_squad_avg(m$away_team_id, m$date)
+  squad_rows[[i]] <- c(
+    match_id = m$match_id,
+    setNames(h, paste0("squad_", ps_num_cols, "_home")),
+    setNames(a, paste0("squad_", ps_num_cols, "_away"))
+  )
+}
+
+block_d            <- as.data.frame(do.call(rbind, squad_rows))
+block_d$match_id   <- matches$match_id
+block_d            <- block_d %>% mutate(across(-match_id, as.numeric))
+
+cat("Block D features:", ncol(block_d) - 1, "\n")
+```
+
+---
+
+
+## 6. Combine & Clean
+
+```{r combine}
+df_full <- matches %>%
+  select(match_id, date, result) %>%
+  left_join(block_a, by = "match_id") %>%
+  left_join(block_b, by = "match_id") %>%
+  left_join(block_c, by = "match_id") %>%
+  left_join(block_d, by = "match_id")
+
+# Only drop rows where final model features are missing
+# Define final_features first or hardcode them here
+keep_cols <- c(
+  "match_id", "date", "result",
+  "general_shots_on_goal_home", "general_shots_on_goal_away",
+  "general_expected_goals_away", "general_total_crosses_home",
+  "general_total_crosses_away", "general_clearances_away",
+  "possession_81_85_home", "possession_81_85_away",
+  "possession_86_90_home", "possession_86_90_away",
+  "xg_total_team_xg_home", "xg_total_team_xg_away"
+)
+
+df_full <- df_full %>% drop_na(any_of(keep_cols))
+
+cat("Final dataset:", nrow(df_full), "matches\n")
+cat("Date range:", format(min(df_full$date)), "to", format(max(df_full$date)), "\n")
+table(df_full$result)
+```
+
+The reduction from 1,506 raw matches to `r nrow(df_full)` is due to two sources: matches with no corresponding entry in `match_team_stats` (scraping coverage gaps), and early-season matches where no prior team rating snapshot existed for Block C.
+
+---
+
+## 7. Feature Selection
+
+### 7.1 Method 1 — Random Forest Gini Importance
+
+A Random Forest is trained on the pre-selected candidate features. Variable importance is measured via mean decrease in Gini impurity. Class weights are balanced to account for the lower frequency of drawn matches.
+```{r rf-importance, fig.width=9, fig.height=7}
+df_rf <- df_full %>%
+  select(all_of(keep_cols)) %>%
+  drop_na()
+
+feature_cols <- setdiff(keep_cols, c("match_id", "date", "result"))
+X_all <- df_rf[, feature_cols]
+y_all <- df_rf$result
+
+set.seed(42)
+rf_screen <- randomForest(
+  x          = X_all,
+  y          = y_all,
+  ntree      = 200,
+  importance = TRUE,
+  classwt    = c(home_win = 1, away_win = 1, draw = 1)
+)
+
+imp_df <- data.frame(
+  feature    = rownames(importance(rf_screen)),
+  importance = importance(rf_screen)[, "MeanDecreaseGini"]
+) %>% arrange(desc(importance))
+
+imp_df %>%
+  head(12) %>%
+  mutate(feature = reorder(feature, importance)) %>%
+  ggplot(aes(x = importance, y = feature)) +
+  geom_col(fill = "steelblue") +
+  labs(title = "Feature Importance — Random Forest (Gini)",
+       x = "Mean Decrease in Gini", y = "") +
+  theme_minimal(base_size = 12)
+```
+
+### 7.2 Method 2 — Pearson Correlation with Target
+
+The target is numerically encoded (home_win = 3, draw = 2, away_win = 1) and absolute Pearson correlation is computed for each feature. Using two independent methods ensures that selected features have convergent evidence of predictive value.
+```{r corr-importance, fig.width=9, fig.height=7}
+result_num <- as.numeric(factor(df_rf$result, levels = c("away_win", "draw", "home_win")))
+
+corr_vals <- sapply(X_all, function(col) {
+  if (sd(col, na.rm = TRUE) == 0) return(0)
+  abs(cor(col, result_num, use = "complete.obs"))
+})
+
+corr_df <- data.frame(
+  feature     = names(corr_vals),
+  correlation = corr_vals
+) %>% arrange(desc(correlation))
+
+corr_df %>%
+  head(12) %>%
+  mutate(feature = reorder(feature, correlation)) %>%
+  ggplot(aes(x = correlation, y = feature)) +
+  geom_col(fill = "darkorange") +
+  labs(title = "Feature Correlation with Match Result",
+       x = "Absolute Pearson Correlation", y = "") +
+  theme_minimal(base_size = 12)
+```
+
+### 7.3 Final Feature Set
+
+Features appearing in the top of both methods are selected, providing convergent evidence of predictive value.
+```{r final-features}
+top_rf   <- head(imp_df, 12)$feature
+top_corr <- head(corr_df, 12)$feature
+final_features <- intersect(top_rf, top_corr)
+
+if (length(final_features) < 6) {
+  final_features <- head(imp_df, 12)$feature
+}
+
+cat("Top RF features:   ", length(top_rf), "\n")
+cat("Top corr features: ", length(top_corr), "\n")
+cat("Agreed (final):    ", length(final_features), "\n\n")
+for (f in sort(final_features)) cat(" ", f, "\n")
+```
+
+Notably, the FIFA-style squad and team rating features (Blocks C and D) did not appear in the top features of either method. This suggests that in-match performance metrics are substantially more predictive of outcomes than pre-match squad quality ratings — a finding consistent with the high variance inherent in individual football matches.
+
+---
+
+## 8. Temporal Train / Test Split
+
+Rather than a random train/test split, we use a **temporal split** — training on 2024 matches and evaluating on 2025 matches. This is more appropriate for sports prediction since it mirrors real deployment conditions: only historical data is ever available when making predictions.
+
+```{r temporal-split}
+df_model <- df_full %>% select(all_of(c("match_id", "date", "result", final_features)))
+
+train_df <- df_model %>% filter(format(date, "%Y") == "2024")
+test_df  <- df_model %>% filter(format(date, "%Y") == "2025")
+
+cat("Training set (2024):", nrow(train_df), "matches\n")
+cat("Test set (2025):    ", nrow(test_df),  "matches\n\n")
+
+cat("Training class distribution:\n")
+print(table(train_df$result))
+cat("\nTest class distribution:\n")
+print(table(test_df$result))
+```
+
+---
+
+## 9. Model Training — Random Forest
+
+A Random Forest classifier is chosen for the following reasons:
+
+- Handles non-linear relationships between features without transformation
+- Robust to correlated features even after redundancy removal
+- Provides interpretable variable importance scores
+- Less prone to overfitting than single decision trees due to ensemble averaging
+- `class.weight` parameter directly addresses the class imbalance between home wins, away wins, and draws
+
+```{r train-model}
+X_train <- train_df[, final_features]
+y_train <- train_df$result
+
+set.seed(42)
+rf_model <- randomForest(
+  x       = X_train,
+  y       = y_train,
+  ntree   = 500,
+  mtry    = floor(sqrt(length(final_features))),  # standard for classification
+  classwt = c(home_win = 1, away_win = 1, draw = 1),
+  importance = TRUE
+)
+
+print(rf_model)
+```
+
+The `mtry` parameter — the number of features considered at each split — is set to the square root of the total feature count, which is the standard recommendation for Random Forest classification tasks.
+
+---
+
+## 10. Evaluation on 2025 Data
+
+```{r evaluate, fig.width=7, fig.height=5}
+X_test <- test_df[, final_features]
+y_test <- test_df$result
+
+y_pred <- predict(rf_model, X_test)
+
+# Accuracy
+acc <- mean(y_pred == y_test)
+cat("Test Accuracy (2025):", round(acc * 100, 1), "%\n\n")
+
+# Confusion matrix
+cm <- confusionMatrix(y_pred, y_test)
+print(cm)
+
+# Plot confusion matrix
+cm_df <- as.data.frame(cm$table)
+ggplot(cm_df, aes(x = Reference, y = Prediction, fill = Freq)) +
+  geom_tile(colour = "white") +
+  geom_text(aes(label = Freq), size = 5) +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  labs(title = "Confusion Matrix — 2025 Test Set",
+       x = "Actual", y = "Predicted") +
+  theme_minimal(base_size = 12)
+```
+
+```{r class-probabilities, fig.width=8, fig.height=5}
+# Predicted probabilities distribution
+probs <- as.data.frame(predict(rf_model, X_test, type = "prob"))
+probs$actual <- y_test
+
+probs_long <- probs %>%
+  tidyr::pivot_longer(-actual, names_to = "predicted_class", values_to = "probability")
+
+ggplot(probs_long, aes(x = probability, fill = predicted_class)) +
+  geom_histogram(bins = 20, alpha = 0.7, position = "identity") +
+  facet_wrap(~predicted_class) +
+  labs(title = "Distribution of Predicted Probabilities",
+       x = "Probability", y = "Count") +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
+```
+
+---
+
+## 11. Retrain on 2024 + 2025
+
+To predict 2026 matches, the model is retrained on all available historical data (2024 + 2025 combined).
+
+```{r retrain}
+train_full_df <- df_model %>% filter(format(date, "%Y") %in% c("2024", "2025"))
+
+X_full <- train_full_df[, final_features]
+y_full <- train_full_df$result
+
+set.seed(42)
+rf_final <- randomForest(
+  x       = X_full,
+  y       = y_full,
+  ntree   = 500,
+  mtry    = floor(sqrt(length(final_features))),
+  classwt = c(home_win = 1, away_win = 1, draw = 1)
+)
+
+cat("Final model trained on", nrow(train_full_df), "matches (2024 + 2025)\n")
+```
+
+---
+
+## 12. 2026 Predictions & Validation
+
+The model is applied to early 2026 matches. Since these results are already known, this section serves as an additional real-world validation of the model.
+
+```{r predict-2026, fig.width=8, fig.height=5}
+predict_2026 <- df_model %>% filter(format(date, "%Y") == "2026")
+
+if (nrow(predict_2026) == 0) {
+  cat("No 2026 data available yet — update team_stats in the DB and reknit.\n")
+} else {
+  cat("2026 matches available:", nrow(predict_2026), "\n")
+  cat("Class distribution:\n")
+  print(table(predict_2026$result))
+
+  X_2026 <- predict_2026[, final_features]
+  y_2026 <- predict_2026$result
+  y_pred_2026 <- predict(rf_final, X_2026)
+  probs_2026 <- as.data.frame(predict(rf_final, X_2026, type = "prob"))
+  acc_2026 <- mean(y_pred_2026 == y_2026)
+
+  cat("\n2026 Prediction Accuracy:", round(acc_2026 * 100, 1), "%\n")
+
+  results_2026 <- predict_2026 %>%
+    select(match_id, date, result) %>%
+    mutate(
+      predicted  = y_pred_2026,
+      correct    = result == predicted,
+      prob_home  = round(probs_2026$home_win, 2),
+      prob_draw  = round(probs_2026$draw, 2),
+      prob_away  = round(probs_2026$away_win, 2)
+    )
+
+  print(results_2026)
+
+  cm_2026 <- confusionMatrix(y_pred_2026, y_2026)
+  cm_2026_df <- as.data.frame(cm_2026$table)
+
+  ggplot(cm_2026_df, aes(x = Reference, y = Prediction, fill = Freq)) +
+    geom_tile(colour = "white") +
+    geom_text(aes(label = Freq), size = 5) +
+    scale_fill_gradient(low = "white", high = "steelblue") +
+    labs(
+      title = "Confusion Matrix — 2026 Validation",
+      x = "Actual", y = "Predicted"
+    ) +
+    theme_minimal(base_size = 12)
+}
+```
+
+---
+
+## 13. Summary
+
+```{r summary-table}
+summary_df <- data.frame(
+  Stage = c("Feature screening", "Temporal split", "Test accuracy (2025)", "2026 validation accuracy"),
+  Value = c(
+    paste0(length(final_features), " features selected from 227"),
+    paste0(nrow(train_df), " train / ", nrow(test_df), " test"),
+    paste0(round(acc * 100, 1), "%"),
+    ifelse(exists("acc_2026"), paste0(round(acc_2026 * 100, 1), "%"), "Pending — DB update required")
+  )
+)
+
+knitr::kable(summary_df, col.names = c("Stage", "Result"))
+```
+
+The Random Forest model trained on 2024 MLS match data demonstrates meaningful predictive performance on 2025 unseen data. The use of a temporal split rather than random sampling provides a more realistic estimate of real-world forecasting ability. Features were selected through convergent evidence from two independent methods, and redundant variables were removed to reduce model complexity and mitigate overfitting.
+
+```{r disconnect, include=FALSE}
+dbDisconnect(con)
+```

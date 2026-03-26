@@ -1,0 +1,379 @@
+---
+title: "MLS Match Result Prediction — Feature Selection"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## 1. Introduction
+
+This analysis builds a predictive model to classify MLS match outcomes as a **home win**, **away win**, or **draw**. Before training the full model, we first identify the most informative features from our database using two independent methods:
+
+1. Random Forest variable importance (Gini impurity)
+2. Absolute Pearson correlation with the encoded target variable
+
+Features that rank highly in **both** methods are selected for the final model, providing convergent evidence of predictive value.
+
+---
+
+## 2. Libraries & Database Connection
+
+```{r libraries}
+library(DBI)
+library(RMySQL)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(randomForest)
+library(corrplot)
+library(caret)
+```
+
+```{r db-connection}
+con <- dbConnect(
+  RMySQL::MySQL(),
+  host     = "localhost",
+  dbname   = "MLS",
+  user     = "your_user",
+  password = "your_password"
+)
+```
+
+---
+
+## 3. Load Data
+
+```{r load-data}
+matches            <- dbReadTable(con, "matches")
+match_team_stats   <- dbReadTable(con, "match_team_stats")
+match_player_stats <- dbReadTable(con, "match_player_stats")
+team_stats         <- dbReadTable(con, "team_stats")
+players_stats      <- dbReadTable(con, "players_stats")
+team_roster        <- dbReadTable(con, "team_roster")
+teams              <- dbReadTable(con, "teams")
+
+# Parse dates
+matches$date           <- as.Date(matches$date)
+team_stats$date        <- as.Date(team_stats$date)
+team_roster$stint_start <- as.Date(team_roster$stint_start)
+team_roster$stint_end   <- as.Date(team_roster$stint_end)
+
+# Map team abbreviation -> team_id
+abbr_to_id <- setNames(teams$team_id, teams$team_abbr)
+matches$home_team_id <- abbr_to_id[matches$home_team]
+matches$away_team_id <- abbr_to_id[matches$away_team]
+
+cat("Matches loaded:", nrow(matches), "\n")
+```
+
+---
+
+## 4. Create Target Variable
+
+We encode the match result as a three-class factor. Home and away wins are kept separate rather than collapsed to win/loss, as home advantage is a well-documented phenomenon in football research.
+
+```{r target}
+matches$result <- case_when(
+  matches$home_score > matches$away_score ~ "home_win",
+  matches$home_score < matches$away_score ~ "away_win",
+  TRUE                                    ~ "draw"
+)
+matches$result <- factor(matches$result)
+
+table(matches$result)
+```
+
+---
+
+## 5. Feature Engineering
+
+### 5.1 Block A — Match Team Stats
+
+We remove four columns that directly encode the match result (goals scored/conceded) to prevent data leakage.
+
+```{r block-a}
+leaky_cols <- c("shooting_goals_home", "shooting_goals_away",
+                "general_goals_conceded_home", "general_goals_conceded_away")
+
+block_a <- match_team_stats %>%
+  select(-any_of(leaky_cols))
+
+cat("Block A features:", ncol(block_a) - 1, "\n")
+```
+
+### 5.2 Block B — Match Player Stats (aggregated per match)
+
+Player-level stats are aggregated to match level. Counting stats (goals, assists, etc.) are summed; percentage stats are averaged.
+
+```{r block-b}
+pct_cols <- names(match_player_stats)[grepl("perc", names(match_player_stats))]
+
+block_b <- match_player_stats %>%
+  group_by(match_id) %>%
+  summarise(
+    across(all_of(pct_cols), mean, na.rm = TRUE),
+    across(-all_of(c("match_id", "player_id", pct_cols)), sum, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+names(block_b)[-1] <- paste0("player_", names(block_b)[-1])
+
+cat("Block B features:", ncol(block_b) - 1, "\n")
+```
+
+### 5.3 Block C — Team Ratings (most recent before match date)
+
+For each match we look up the most recent FIFA-style team rating snapshot **before** the match date, separately for home and away teams. Using only pre-match data avoids leakage.
+
+```{r block-c}
+rating_cols <- c("overall", "attack", "midfield", "defence")
+
+latest_rating <- function(team_id, match_date) {
+  subset <- team_stats %>%
+    filter(team_id == !!team_id, date < !!match_date) %>%
+    arrange(desc(date)) %>%
+    slice(1)
+  if (nrow(subset) == 0) return(setNames(rep(NA_real_, length(rating_cols)), rating_cols))
+  as.numeric(subset[, rating_cols])
+}
+
+cat("Joining team ratings...\n")
+block_c <- matches %>%
+  select(match_id, date, home_team_id, away_team_id) %>%
+  rowwise() %>%
+  mutate(
+    home_r = list(latest_rating(home_team_id, date)),
+    away_r = list(latest_rating(away_team_id, date))
+  ) %>%
+  ungroup() %>%
+  mutate(
+    team_overall_home  = sapply(home_r, `[[`, 1),
+    team_attack_home   = sapply(home_r, `[[`, 2),
+    team_midfield_home = sapply(home_r, `[[`, 3),
+    team_defence_home  = sapply(home_r, `[[`, 4),
+    team_overall_away  = sapply(away_r, `[[`, 1),
+    team_attack_away   = sapply(away_r, `[[`, 2),
+    team_midfield_away = sapply(away_r, `[[`, 3),
+    team_defence_away  = sapply(away_r, `[[`, 4)
+  ) %>%
+  select(match_id, starts_with("team_"))
+
+cat("Block C features:", ncol(block_c) - 1, "\n")
+```
+
+### 5.4 Block D — Squad Player Ratings (averaged via team roster)
+
+For each match, active squad members are identified via `team_roster` using stint dates, and their FIFA attribute ratings from `players_stats` are averaged per team.
+
+```{r block-d}
+ps_num_cols <- names(players_stats)[sapply(players_stats, is.numeric)]
+ps_num_cols <- setdiff(ps_num_cols, "player_id")
+
+get_squad_avg <- function(team_id, match_date) {
+  squad_ids <- team_roster %>%
+    filter(
+      team_id == !!team_id,
+      stint_start <= !!match_date,
+      is.na(stint_end) | stint_end >= !!match_date
+    ) %>%
+    pull(player_id)
+
+  squad_stats <- players_stats %>% filter(player_id %in% squad_ids)
+  if (nrow(squad_stats) == 0) return(setNames(rep(NA_real_, length(ps_num_cols)), ps_num_cols))
+  colMeans(squad_stats[, ps_num_cols], na.rm = TRUE)
+}
+
+cat("Averaging squad ratings (slowest step)...\n")
+total <- nrow(matches)
+squad_rows <- vector("list", total)
+
+for (i in seq_len(total)) {
+  if (i %% 100 == 0 || i == total) cat("  Squad ratings:", i, "/", total, "\n")
+  m <- matches[i, ]
+  h <- get_squad_avg(m$home_team_id, m$date)
+  a <- get_squad_avg(m$away_team_id, m$date)
+  entry <- c(match_id = m$match_id,
+             setNames(h, paste0("squad_", ps_num_cols, "_home")),
+             setNames(a, paste0("squad_", ps_num_cols, "_away")))
+  squad_rows[[i]] <- entry
+}
+
+block_d <- as.data.frame(do.call(rbind, squad_rows))
+block_d$match_id <- matches$match_id
+block_d <- block_d %>% mutate(across(-match_id, as.numeric))
+
+cat("Block D features:", ncol(block_d) - 1, "\n")
+```
+
+---
+
+## 6. Combine All Blocks
+
+```{r combine}
+df <- matches %>%
+  select(match_id, result) %>%
+  left_join(block_a, by = "match_id") %>%
+  left_join(block_b, by = "match_id") %>%
+  left_join(block_c, by = "match_id") %>%
+  left_join(block_d, by = "match_id") %>%
+  drop_na()
+
+cat("Final dataset:", nrow(df), "matches,", ncol(df) - 2, "features\n")
+table(df$result)
+```
+
+---
+
+## 7. Feature Importance — Method 1: Random Forest (Gini)
+
+A Random Forest classifier is trained on all features. Variable importance is measured via mean decrease in Gini impurity — features that consistently split the data in an informative way receive higher scores. `class.weights` is set to handle the class imbalance between home wins, away wins, and draws.
+
+```{r rf-importance, fig.width=9, fig.height=7}
+feature_cols <- setdiff(names(df), c("match_id", "result"))
+X <- df[, feature_cols]
+y <- df$result
+
+set.seed(42)
+rf_model <- randomForest(
+  x          = X,
+  y          = y,
+  ntree      = 200,
+  importance = TRUE,
+  classwt    = c(home_win = 1, away_win = 1, draw = 1)
+)
+
+imp_df <- data.frame(
+  feature    = rownames(importance(rf_model)),
+  importance = importance(rf_model)[, "MeanDecreaseGini"]
+) %>% arrange(desc(importance))
+
+cat("Top 20 — Random Forest Gini importance:\n")
+print(head(imp_df, 20))
+
+# Plot
+imp_df %>%
+  head(20) %>%
+  mutate(feature = reorder(feature, importance)) %>%
+  ggplot(aes(x = importance, y = feature)) +
+  geom_col(fill = "steelblue") +
+  labs(title = "Feature Importance — Random Forest (Gini)",
+       x = "Mean Decrease in Gini", y = "") +
+  theme_minimal(base_size = 12)
+```
+
+---
+
+## 8. Feature Importance — Method 2: Correlation with Target
+
+The target is numerically encoded (home_win = 2, draw = 1, away_win = 0) and Pearson correlation is computed for each feature. Absolute values are used since both positive and negative correlations indicate predictive power.
+
+```{r correlation-importance, fig.width=9, fig.height=7}
+result_num <- as.numeric(factor(df$result, levels = c("away_win", "draw", "home_win")))
+
+corr_vals <- sapply(X, function(col) {
+  if (sd(col, na.rm = TRUE) == 0) return(0)
+  abs(cor(col, result_num, use = "complete.obs"))
+})
+
+corr_df <- data.frame(
+  feature     = names(corr_vals),
+  correlation = corr_vals
+) %>% arrange(desc(correlation))
+
+cat("Top 20 — Absolute correlation with result:\n")
+print(head(corr_df, 20))
+
+# Plot
+corr_df %>%
+  head(20) %>%
+  mutate(feature = reorder(feature, correlation)) %>%
+  ggplot(aes(x = correlation, y = feature)) +
+  geom_col(fill = "darkorange") +
+  labs(title = "Feature Correlation with Match Result",
+       x = "Absolute Pearson Correlation", y = "") +
+  theme_minimal(base_size = 12)
+```
+
+---
+
+## 9. Redundancy Check
+
+Features with perfect or near-perfect correlation are redundant — keeping both would not add information but would increase model complexity and risk overfitting.
+
+```{r redundancy}
+pairs_to_check <- list(
+  c("shooting_on_target_away",  "xg_shots_on_target_away"),
+  c("shooting_on_target_away",  "general_shots_on_goal_away"),
+  c("shooting_on_target_home",  "xg_shots_on_target_home"),
+  c("shooting_on_target_home",  "general_shots_on_goal_home"),
+  c("general_xg_conceded_home", "general_expected_goals_away"),
+  c("general_xg_conceded_away", "general_expected_goals_home"),
+  c("possession_81_85_home",    "possession_86_90_home"),
+  c("possession_81_85_away",    "possession_86_90_away")
+)
+
+redundancy_results <- lapply(pairs_to_check, function(p) {
+  data.frame(
+    feature_a   = p[1],
+    feature_b   = p[2],
+    correlation = round(cor(df[[p[1]]], df[[p[2]]], use = "complete.obs"), 4)
+  )
+})
+
+redundancy_df <- do.call(rbind, redundancy_results)
+print(redundancy_df)
+```
+
+Features with correlation = 1.0 are identical — we drop the duplicates and keep one representative per group.
+
+---
+
+## 10. Final Feature Selection
+
+Features that appear in the **top 20 of both methods** and are **not redundant** with another selected feature are retained.
+
+```{r final-features}
+top_rf   <- head(imp_df, 20)$feature
+top_corr <- head(corr_df, 20)$feature
+agreed   <- intersect(top_rf, top_corr)
+
+# Drop redundant features — keep one from each perfectly correlated pair
+drop_redundant <- c(
+  "xg_shots_on_target_away",   # identical to general_shots_on_goal_away
+  "shooting_on_target_away",   # identical to general_shots_on_goal_away
+  "xg_shots_on_target_home",   # identical to general_shots_on_goal_home
+  "shooting_on_target_home",   # identical to general_shots_on_goal_home
+  "general_xg_conceded_home",  # identical to general_expected_goals_away
+  "general_xg_conceded_away"   # identical to general_expected_goals_home
+)
+
+final_features <- setdiff(agreed, drop_redundant)
+
+cat("Final selected features (", length(final_features), "):\n")
+for (f in sort(final_features)) cat(" ", f, "\n")
+```
+
+---
+
+## 11. Summary
+
+```{r summary}
+cat("Dataset size:      ", nrow(df), "matches\n")
+cat("Total features:    ", length(feature_cols), "\n")
+cat("Agreed (top 20):   ", length(agreed), "\n")
+cat("After redundancy:  ", length(final_features), "\n\n")
+cat("These features will be used in the full Random Forest model (next step).\n")
+```
+
+```{r disconnect, include=FALSE}
+dbDisconnect(con)
+```
