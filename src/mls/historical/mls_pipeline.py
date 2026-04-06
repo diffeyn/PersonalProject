@@ -426,8 +426,8 @@ def clean_match_team(df):
     mask = df["tip_id"].astype(str).str.match(r"^\d{1,2}-\d{1,2}$", na=False)
     h_pct = df.loc[mask, "home_possession"].astype(str).str.extract(r"(\d+(?:\.\d+)?)")[0].astype(float)
     a_pct = df.loc[mask, "away_possession"].astype(str).str.extract(r"(\d+(?:\.\d+)?)")[0].astype(float)
-    df.loc[mask, "home_value"] = h_pct.values 
-    df.loc[mask, "away_value"] = a_pct.values
+    df.loc[mask, "home_value"] = h_pct.astype(str).values 
+    df.loc[mask, "away_value"] = a_pct.astype(str).values
     df.loc[mask, "stat"] = "possession_" + df.loc[mask, "tip_id"].str.replace("-", "_", regex=False)
     df = df.drop(columns=['tip_id', 'home_possession', 'away_possession'])
     df = df[['match_id', 'stat', 'home_value', 'away_value']]
