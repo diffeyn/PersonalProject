@@ -121,18 +121,23 @@ def parse_player_stats_from_html(html, match_id=None):
         gk_table   = tables[1] if len(tables) > 1 else None
 
         for row in parse_stat_table(main_table):
-            row.update({"club": team, "side": side})
+            row.update({"club": team, "side": side, "is_gk": 0})
             if match_id is not None:
                 row["match_id"] = match_id
             all_rows.append(row)
 
         for row in parse_stat_table(gk_table):
-            row.update({"club": team, "side": side})
+            row.update({"club": team, "side": side, "is_gk": 1})
             if match_id is not None:
                 row["match_id"] = match_id
             all_rows.append(row)
-
-    return pd.DataFrame(all_rows)
+            
+        df = pd.DataFrame(all_rows)
+        df_outfield = df[df["is_gk"] == 0].drop(columns=["is_gk"])
+        df_gk = df[df["is_gk"] == 1].drop(columns=["is_gk"])
+        
+        
+    return df_outfield, df_gk
 
 
 

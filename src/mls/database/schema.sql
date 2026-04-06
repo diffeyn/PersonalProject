@@ -1,6 +1,6 @@
 USE MLS;
 
-DROp TABLE players_general;
+DROP TABLE players_general;
 
 CREATE TABLE players_general (
     player_id INT NOT NULL PRIMARY KEY,
@@ -29,9 +29,10 @@ CREATE TABLE matches (
     away_score INT
 );
 
-drop table matches_stats;
+drop table match_team_stats;
 
-CREATE TABLE matches_stats (
+
+CREATE TABLE match_team_stats (
     match_id VARCHAR(15) NOT NULL PRIMARY KEY,
     general_possession_pct_home FLOAT(6,3),
     general_possession_pct_away FLOAT(6,3),
@@ -41,8 +42,6 @@ CREATE TABLE matches_stats (
     general_shots_on_goal_away INT,
     general_blocked_shots_home INT,
     general_blocked_shots_away INT,
-    general_blocked_home INT,
-    general_blocked_away INT,
     general_total_passes_home INT,
     general_total_passes_away INT,
     general_passing_accuracy_pct_home FLOAT(6,3),
@@ -152,7 +151,8 @@ CREATE TABLE match_events (
     match_id VARCHAR(15) NOT NULL,
     event_minute VARCHAR(10),
     event_type VARCHAR(20),
-    event_comment VARCHAR(300)
+    event_comment VARCHAR(300),
+    PRIMARY KEY (event_id, match_id)
 );
 
 DROP TABLE match_player_stats;
@@ -160,9 +160,6 @@ DROP TABLE match_player_stats;
 CREATE TABLE match_player_stats (
     match_id VARCHAR(15) NOT NULL,
     player_id INT NOT NULL,
-    player_name VARCHAR(30),
-    club VARCHAR(5),
-    side VARCHAR(5),
     minutes INT,
     goals INT,
     expected_goals FLOAT(6, 3),
@@ -191,22 +188,22 @@ CREATE TABLE match_player_stats (
     GK INT,
     corners_conceded INT,
     PRIMARY KEY (match_id, player_id) 
-)
+);
 
 
-DROP TABLE player_finance;
+DROP TABLE players_finance;
 
-CREATE TABLE player_finance (
+CREATE TABLE players_finance (
     date DATE NOT NULL,
     player_id int NOT NULL,
     wage_eur INT,
     value_eur INT,
     PRIMARY KEY (date, player_id)
-)
+);
 
-DROP TABLE player_stats;
+DROP TABLE players_stats;
 
-CREATE TABLE player_stats (
+CREATE TABLE players_stats (
     date DATE NOT NULL,
     player_id int NOT NULL,
     age INT,
@@ -254,10 +251,6 @@ CREATE TABLE player_stats (
     gk_kicking INT,
     gk_positioning INT,
     gk_reflexes INT,
-    marking INT,
-    tactical_awareness INT,
-    positioning INT,
-    tackling INT,
     PRIMARY KEY(date, player_id)
 )
 
@@ -272,14 +265,27 @@ CREATE TABLE team_roster (
     days_observed INT,
     obs_count INT,
     PRIMARY KEY (player_id, stint_id)
-)
+);
+
+DROP TABLE roster_snapshots;
+
+CREATE TABLE roster_snapshots (
+    snap_date DATE NOT NULL,
+    team_id INT NOT NULL,
+    player_id INT NOT NULL,
+    PRIMARY KEY (snap_date, team_id, player_id)
+);
+
+DROP TABLE team_roster_stage;
+
+CREATE TABLE team_roster_stage LIKE team_roster;
+
 
 DROP TABLE team_stats;
 
 CREATE TABLE team_stats (
     date date NOT NULL,
     team_id INT NOT NULL,
-    name VARCHAR(50),
     formation_base VARCHAR(15),
     formation_style VARCHAR(15),
     overall INT,

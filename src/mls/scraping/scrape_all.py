@@ -12,23 +12,25 @@ def scrape_all():
     # Scrape match stats and feed
  
     try:
-        match_team_stats, match_player_stats, match_feed, match_data = scrape_matches()
+        match_team_stats, match_outfield_stats, match_gk_stats, match_feed, match_data = scrape_matches()
         
         outputs = {
             "team_stats": match_team_stats,
-            "player_stats": match_player_stats,
+            "outfield_stats": match_outfield_stats,
+            "gk_stats": match_gk_stats,
             "feed": match_feed,
             "match_data": match_data,
         }
-
-        failed = [k for k, v in outputs.items() if v is None]
-
+        
+        failed = [k for k, v in outputs.items() if v is None or (hasattr(v, 'empty') and v.empty)]
+        
         if failed:
             print(f"Scraping failed for: {failed}")
             return
 
         write_csv(match_team_stats, outdir / "matches/match_team_stats.csv")
-        write_csv(match_player_stats, outdir / "matches/match_player_stats.csv")
+        write_csv(match_outfield_stats, outdir / "matches/match_outfield_stats.csv")
+        write_csv(match_gk_stats, outdir / "matches/match_gk_stats.csv")
         write_csv(match_feed, outdir / "matches/match_feed.csv")
         write_csv(match_data, outdir / "matches/match_data.csv")
     except Exception as e:

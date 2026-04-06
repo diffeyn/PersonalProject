@@ -44,7 +44,8 @@ def scrape_matches():
     
     ### initialize empty dataframes to hold combined data across matches
     combined_team_stats = pd.DataFrame()
-    combined_player_stats = pd.DataFrame()
+    combined_outfield_stats = pd.DataFrame()
+    combined_gk_stats = pd.DataFrame()
     combined_feed = pd.DataFrame()
     combined_match_data = pd.DataFrame()
     
@@ -86,8 +87,10 @@ def scrape_matches():
                 combined_match_data = pd.concat([combined_match_data, match_data], ignore_index=True)
 
                 # --- player stats ---
-                match_player_data = extract_players(driver, match_id, date)
-                combined_player_stats = pd.concat([combined_player_stats, match_player_data], ignore_index=True)
+                df_outfield, df_gk = extract_players(driver, match_id, date)
+                if df_outfield is not None and df_gk is not None:
+                    combined_outfield_stats = pd.concat([combined_outfield_stats, df_outfield], ignore_index=True)
+                    combined_gk_stats = pd.concat([combined_gk_stats, df_gk], ignore_index=True)
 
                 # --- feed ---
                 match_feed_data = extract_feed(driver, match_id, date)
@@ -119,4 +122,4 @@ def scrape_matches():
     # optional: save failed list somewhere
     # pd.DataFrame(failed).to_csv("data/raw/match_scrape_failures.csv", index=False)
 
-    return combined_team_stats, combined_player_stats, combined_feed, combined_match_data
+    return combined_team_stats, combined_outfield_stats, combined_gk_stats, combined_feed, combined_match_data
