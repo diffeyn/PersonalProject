@@ -4,4 +4,4 @@ __pycache__/
 !data/github_actions/**/*
 !data/github_actions/
 *.png
-*.drawio
+*.drawio*.log
