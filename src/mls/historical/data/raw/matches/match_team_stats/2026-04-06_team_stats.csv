@@ -1,0 +1,175 @@
+stat_name,home_value,away_value,category,tip_id,home_possession,home_advantage,away_possession,away_advantage,match_id,date,home_team,away_team
+Possession %,46.7,53.3,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Shots,14,7,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Shots on Target,4,3,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Blocked Shots,3,3,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Total Passes,425,521,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Passing Accuracy %,82.6,84.5,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Corners,7,8,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Total Crosses,5,7,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Offsides,1,5,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Aerial Duels Won,19,11,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Expected Goals,1.8,1.1,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Goalkeeper Saves,1,1,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Clearances,6,5,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Fouls,20,12,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Yellow Cards,4,6,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Red Cards,0,0,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Overall %,82.6,84.5,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Open Play Pass %,82.5,84.5,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Set Piece Cross %,16.7,33.3,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Open Play Cross %,40,0,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Goals,2,2,general,,,,,,3794403e,2024-06-01,Portland,Houston
+On Target,4,3,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Off Target,12,5,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Blocked,3,3,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Goals Conceded,2,2,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Shots Against,14,7,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Clean Sheets,0,0,general,,,,,,3794403e,2024-06-01,Portland,Houston
+XG Conceded,1.1,1.8,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Interceptions,2,2,general,,,,,,3794403e,2024-06-01,Portland,Houston
+Goals,2,2,shooting,,,,,,3794403e,2024-06-01,Portland,Houston
+On Target,4,3,shooting,,,,,,3794403e,2024-06-01,Portland,Houston
+Off Target,6,1,shooting,,,,,,3794403e,2024-06-01,Portland,Houston
+Blocked,3,3,shooting,,,,,,3794403e,2024-06-01,Portland,Houston
+Overall %,82.6,84.5,passing,,,,,,3794403e,2024-06-01,Portland,Houston
+Open Play Pass %,82.5,84.5,passing,,,,,,3794403e,2024-06-01,Portland,Houston
+Set Piece Cross %,16.7,33.3,passing,,,,,,3794403e,2024-06-01,Portland,Houston
+Open Play Cross %,40,0,passing,,,,,,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_0,Home Possession: 21.42%,Home Advantage: N/A,Away Possession: 78.58%,Away Advantage: 57.16%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_1,Home Possession: 62.67%,Home Advantage: 25.34%,Away Possession: 37.33%,Away Advantage: N/A,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2,Home Possession: 57.18%,Home Advantage: 14.36%,Away Possession: 42.82%,Away Advantage: N/A,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_3,Home Possession: 60.84%,Home Advantage: 21.68%,Away Possession: 39.16%,Away Advantage: N/A,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_4,Home Possession: 39.64%,Home Advantage: N/A,Away Possession: 60.36%,Away Advantage: 20.72%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_5,Home Possession: 41.04%,Home Advantage: N/A,Away Possession: 58.96%,Away Advantage: 17.92%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_6,Home Possession: 61.33%,Home Advantage: 22.66%,Away Possession: 38.67%,Away Advantage: N/A,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_7,Home Possession: 45.73%,Home Advantage: N/A,Away Possession: 54.27%,Away Advantage: 8.54%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_8,Home Possession: 53.95%,Home Advantage: 7.9%,Away Possession: 46.05%,Away Advantage: N/A,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_0,Home Possession: 44.82%,Home Advantage: N/A,Away Possession: 55.18%,Away Advantage: 10.36%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_1,Home Possession: 63.47%,Home Advantage: 26.94%,Away Possession: 36.53%,Away Advantage: N/A,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_2,Home Possession: 49.46%,Home Advantage: N/A,Away Possession: 50.54%,Away Advantage: 1.08%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_3,Home Possession: 28.24%,Home Advantage: N/A,Away Possession: 71.76%,Away Advantage: 43.52%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_4,Home Possession: 14.58%,Home Advantage: N/A,Away Possession: 85.42%,Away Advantage: 70.84%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_5,Home Possession: 38.06%,Home Advantage: N/A,Away Possession: 61.94%,Away Advantage: 23.88%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_6,Home Possession: 25.07%,Home Advantage: N/A,Away Possession: 74.93%,Away Advantage: 49.86%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_7,Home Possession: 39.31%,Home Advantage: N/A,Away Possession: 60.69%,Away Advantage: 21.38%,3794403e,2024-06-01,Portland,Houston
+,,,possession,bar_2_8,Home Possession: 47.46%,Home Advantage: N/A,Away Possession: 52.54%,Away Advantage: 5.08%,3794403e,2024-06-01,Portland,Houston
+Total Team XG,1.8,1.1,xg,,,,,,3794403e,2024-06-01,Portland,Houston
+Shots,14,7,xg,,,,,,3794403e,2024-06-01,Portland,Houston
+Shots On Target,4,3,xg,,,,,,3794403e,2024-06-01,Portland,Houston
+Possession %,53.5,46.5,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Shots,17,13,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Shots on Target,3,4,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Blocked Shots,9,1,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Total Passes,476,385,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Passing Accuracy %,85.9,85.2,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Corners,8,0,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Total Crosses,16,7,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Offsides,2,2,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Aerial Duels Won,9,8,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Expected Goals,1.5,1.5,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Goalkeeper Saves,2,2,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Clearances,3,13,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Fouls,11,12,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Yellow Cards,2,1,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Red Cards,0,0,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Overall %,85.9,85.2,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Open Play Pass %,85.2,86,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Set Piece Cross %,20,0,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Open Play Cross %,25,42.9,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Goals,0,2,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+On Target,3,4,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Off Target,17,11,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Blocked,9,1,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Goals Conceded,2,0,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Shots Against,17,13,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Clean Sheets,0,0,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+XG Conceded,1.5,1.5,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Interceptions,1,2,general,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Goals,0,2,shooting,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+On Target,3,4,shooting,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Off Target,5,8,shooting,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Blocked,9,1,shooting,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Overall %,85.9,85.2,passing,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Open Play Pass %,85.2,86,passing,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Set Piece Cross %,20,0,passing,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Open Play Cross %,25,42.9,passing,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_0,Home Possession: 49.62%,Home Advantage: N/A,Away Possession: 50.38%,Away Advantage: 0.76%,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_1,Home Possession: 50.12%,Home Advantage: 0.24%,Away Possession: 49.88%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2,Home Possession: 50.34%,Home Advantage: 0.68%,Away Possession: 49.66%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_3,Home Possession: 18.84%,Home Advantage: N/A,Away Possession: 81.16%,Away Advantage: 62.32%,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_4,Home Possession: 53.12%,Home Advantage: 6.24%,Away Possession: 46.88%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_5,Home Possession: 31.66%,Home Advantage: N/A,Away Possession: 68.34%,Away Advantage: 36.68%,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_6,Home Possession: 69.77%,Home Advantage: 39.54%,Away Possession: 30.23%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_7,Home Possession: 73.65%,Home Advantage: 47.3%,Away Possession: 26.35%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_8,Home Possession: 39.08%,Home Advantage: N/A,Away Possession: 60.92%,Away Advantage: 21.84%,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_0,Home Possession: 50.1%,Home Advantage: 0.2%,Away Possession: 49.9%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_1,Home Possession: 40.73%,Home Advantage: N/A,Away Possession: 59.27%,Away Advantage: 18.54%,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_2,Home Possession: 59.38%,Home Advantage: 18.76%,Away Possession: 40.62%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_3,Home Possession: 77.48%,Home Advantage: 54.96%,Away Possession: 22.52%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_4,Home Possession: 45.82%,Home Advantage: N/A,Away Possession: 54.18%,Away Advantage: 8.36%,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_5,Home Possession: 64.04%,Home Advantage: 28.08%,Away Possession: 35.96%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_6,Home Possession: 86.38%,Home Advantage: 72.76%,Away Possession: 13.62%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_7,Home Possession: 50.16%,Home Advantage: 0.32%,Away Possession: 49.84%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+,,,possession,bar_2_8,Home Possession: 68.66%,Home Advantage: 37.32%,Away Possession: 31.34%,Away Advantage: N/A,f2387249,2025-09-13,Montréal,St. Louis
+Total Team XG,1.5,1.5,xg,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Shots,17,13,xg,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Shots On Target,3,4,xg,,,,,,f2387249,2025-09-13,Montréal,St. Louis
+Possession %,57.4,42.6,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Shots,18,9,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Shots on Target,12,2,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Blocked Shots,5,3,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Total Passes,649,481,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Passing Accuracy %,91.4,87.5,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Corners,9,3,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Total Crosses,4,5,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Offsides,1,3,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Aerial Duels Won,5,8,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Expected Goals,3.8,1.8,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Goalkeeper Saves,0,7,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Clearances,3,9,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Fouls,10,7,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Yellow Cards,2,0,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Red Cards,0,0,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Overall %,91.4,87.5,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Open Play Pass %,91.5,87.3,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Set Piece Cross %,12.5,66.7,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Open Play Cross %,50,0,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Goals,4,2,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+On Target,12,2,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Off Target,14,7,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Blocked,5,3,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Goals Conceded,2,4,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Shots Against,18,9,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Clean Sheets,0,0,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+XG Conceded,1.8,3.8,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Interceptions,1,0,general,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Goals,4,2,shooting,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+On Target,12,2,shooting,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Off Target,2,3,shooting,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Blocked,5,3,shooting,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Overall %,91.4,87.5,passing,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Open Play Pass %,91.5,87.3,passing,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Set Piece Cross %,12.5,66.7,passing,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Open Play Cross %,50,0,passing,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_0,Home Possession: 78.52%,Home Advantage: 57.04%,Away Possession: 21.48%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_1,Home Possession: 65.6%,Home Advantage: 31.2%,Away Possession: 34.4%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2,Home Possession: 45.53%,Home Advantage: N/A,Away Possession: 54.47%,Away Advantage: 8.94%,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_3,Home Possession: 51.82%,Home Advantage: 3.64%,Away Possession: 48.18%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_4,Home Possession: 68.58%,Home Advantage: 37.16%,Away Possession: 31.42%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_5,Home Possession: 41.33%,Home Advantage: N/A,Away Possession: 58.67%,Away Advantage: 17.34%,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_6,Home Possession: 43.29%,Home Advantage: N/A,Away Possession: 56.71%,Away Advantage: 13.42%,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_7,Home Possession: 57.09%,Home Advantage: 14.18%,Away Possession: 42.91%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_8,Home Possession: 50.45%,Home Advantage: 0.9%,Away Possession: 49.55%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_0,Home Possession: 78.16%,Home Advantage: 56.32%,Away Possession: 21.84%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_1,Home Possession: 88.13%,Home Advantage: 76.26%,Away Possession: 11.87%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_2,Home Possession: 73.13%,Home Advantage: 46.26%,Away Possession: 26.87%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_3,Home Possession: 43.37%,Home Advantage: N/A,Away Possession: 56.63%,Away Advantage: 13.26%,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_4,Home Possession: 72.84%,Home Advantage: 45.68%,Away Possession: 27.16%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_5,Home Possession: 53.39%,Home Advantage: 6.78%,Away Possession: 46.61%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_6,Home Possession: 72.24%,Home Advantage: 44.48%,Away Possession: 27.76%,Away Advantage: N/A,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_7,Home Possession: 38.72%,Home Advantage: N/A,Away Possession: 61.28%,Away Advantage: 22.56%,5e99205e,2025-05-03,Columbus,Charlotte
+,,,possession,bar_2_8,Home Possession: 26.97%,Home Advantage: N/A,Away Possession: 73.03%,Away Advantage: 46.06%,5e99205e,2025-05-03,Columbus,Charlotte
+Total Team XG,3.8,1.8,xg,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Shots,18,9,xg,,,,,,5e99205e,2025-05-03,Columbus,Charlotte
+Shots On Target,12,2,xg,,,,,,5e99205e,2025-05-03,Columbus,Charlotte

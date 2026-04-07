@@ -1,0 +1,59 @@
+stat_name,home_value,away_value,category,tip_id,home_possession,home_advantage,away_possession,away_advantage,match_id,date,home_team,away_team
+Possession %,38.9,61.1,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Shots,16,20,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Shots on Target,6,5,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Blocked Shots,4,9,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Total Passes,312,575,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Passing Accuracy %,76.9,88.2,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Corners,4,10,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Total Crosses,2,8,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Offsides,0,2,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Aerial Duels Won,13,17,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Expected Goals,2.8,1.5,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Goalkeeper Saves,4,4,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Clearances,18,4,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Fouls,12,15,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Yellow Cards,1,1,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Red Cards,0,0,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Overall %,76.9,88.2,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Open Play Pass %,76.1,88.1,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Set Piece Cross %,50,30,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Open Play Cross %,50,12.5,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Goals,2,1,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+On Target,6,5,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Off Target,14,19,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Blocked,4,9,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Goals Conceded,1,2,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Shots Against,16,20,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Clean Sheets,0,0,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+XG Conceded,1.5,2.8,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Interceptions,2,0,general,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Goals,2,1,shooting,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+On Target,6,5,shooting,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Off Target,3,3,shooting,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Blocked,4,9,shooting,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Overall %,76.9,88.2,passing,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Open Play Pass %,76.1,88.1,passing,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Set Piece Cross %,50,30,passing,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Open Play Cross %,50,12.5,passing,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_0,Home Possession: 54.71%,Home Advantage: 9.42%,Away Possession: 45.29%,Away Advantage: N/A,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_1,Home Possession: 53.27%,Home Advantage: 6.54%,Away Possession: 46.73%,Away Advantage: N/A,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2,Home Possession: 40.27%,Home Advantage: N/A,Away Possession: 59.73%,Away Advantage: 19.46%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_3,Home Possession: 48.51%,Home Advantage: N/A,Away Possession: 51.49%,Away Advantage: 2.98%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_4,Home Possession: 38.47%,Home Advantage: N/A,Away Possession: 61.53%,Away Advantage: 23.06%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_5,Home Possession: 46.6%,Home Advantage: N/A,Away Possession: 53.4%,Away Advantage: 6.8%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_6,Home Possession: 38.97%,Home Advantage: N/A,Away Possession: 61.03%,Away Advantage: 22.06%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_7,Home Possession: 28.95%,Home Advantage: N/A,Away Possession: 71.05%,Away Advantage: 42.1%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_8,Home Possession: 24.03%,Home Advantage: N/A,Away Possession: 75.97%,Away Advantage: 51.94%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_0,Home Possession: 41.59%,Home Advantage: N/A,Away Possession: 58.41%,Away Advantage: 16.82%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_1,Home Possession: 36.11%,Home Advantage: N/A,Away Possession: 63.89%,Away Advantage: 27.78%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_2,Home Possession: 28.88%,Home Advantage: N/A,Away Possession: 71.12%,Away Advantage: 42.24%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_3,Home Possession: 47.63%,Home Advantage: N/A,Away Possession: 52.37%,Away Advantage: 4.74%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_4,Home Possession: 29.01%,Home Advantage: N/A,Away Possession: 70.99%,Away Advantage: 41.98%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_5,Home Possession: 28.53%,Home Advantage: N/A,Away Possession: 71.47%,Away Advantage: 42.94%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_6,Home Possession: 27.38%,Home Advantage: N/A,Away Possession: 72.62%,Away Advantage: 45.24%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_7,Home Possession: 40.84%,Home Advantage: N/A,Away Possession: 59.16%,Away Advantage: 18.32%,97641fa7,2025-03-14,Orlando,Montréal
+,,,possession,bar_2_8,Home Possession: 34.61%,Home Advantage: N/A,Away Possession: 65.39%,Away Advantage: 30.78%,97641fa7,2025-03-14,Orlando,Montréal
+Total Team XG,2.8,1.5,xg,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Shots,16,20,xg,,,,,,97641fa7,2025-03-14,Orlando,Montréal
+Shots On Target,6,5,xg,,,,,,97641fa7,2025-03-14,Orlando,Montréal

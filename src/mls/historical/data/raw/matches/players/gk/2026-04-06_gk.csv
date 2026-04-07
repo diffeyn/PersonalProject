@@ -1,0 +1,7 @@
+player,mins_played,saves,goals_conceded,expected_goals_conceded,successful_passes,accurate_pass_per_match_hub,keeper_throws,total_long_balls,total_launches,goal_kicks,fouls,was_fouled,yellow_card,total_red_card,lost_corners,punches,assists,goals,total_scoring_att,club,side,match_id
+M. Crépeau,90,1,2,0,25,80.7,0,12,0,0,0,0,0,0,0,0,0,0,0,POR,home,3794403e
+A. Tarbell,90,1,2,0,22,64.7,0,10,0,0,0,0,0,0,0,1,0,0,0,HOU,away,3794403e
+J. Sirois,90,2,2,0,26,92.9,0,5,0,0,0,1,0,0,0,0,0,0,0,MTL,home,f2387249
+R. Bürki,90,2,0,0,26,61.9,0,11,0,0,0,0,0,0,0,1,0,0,0,STL,away,f2387249
+P. Schulte,90,0,2,0,25,83.3,0,5,0,0,0,0,0,0,0,0,0,0,0,CLB,home,5e99205e
+K. Kahlina,90,7,4,0,21,91.3,0,4,0,0,0,0,0,0,0,0,0,0,0,CLT,away,5e99205e

@@ -1,0 +1,3 @@
+player,mins_played,saves,goals_conceded,expected_goals_conceded,successful_passes,accurate_pass_per_match_hub,keeper_throws,total_long_balls,total_launches,goal_kicks,fouls,was_fouled,yellow_card,total_red_card,lost_corners,punches,assists,goals,total_scoring_att,club,side,match_id
+J. Otero,90,4,1,0,17,65.4,0,8,0,0,0,2,0,0,0,1,0,0,0,ORL,home,97641fa7
+T. Gillier,90,4,2,0,23,82.1,0,6,0,0,0,0,0,0,0,0,0,0,0,MTL,away,97641fa7
