@@ -1,0 +1,34 @@
+nohup: ignoring input
+  [COOKIES] dismissed via DOM removal
+
+[DONE] Pipeline complete.
+Traceback (most recent call last):
+  File "/home/nate/mls-analytics/src/mls/historical/mls_pipeline.py", line 1050, in <module>
+    run(mode="historical", url_list=args.url_list, batch_size=args.batch_size)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nate/mls-analytics/src/mls/historical/mls_pipeline.py", line 991, in run
+    df_urls = pd.read_csv(path)
+  File "/home/nate/mls-analytics/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/nate/mls-analytics/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/nate/mls-analytics/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/nate/mls-analytics/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1904, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/nate/mls-analytics/venv/lib/python3.13/site-packages/pandas/io/common.py", line 926, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'src/mls/historical/match_urls.csv'
