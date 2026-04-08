@@ -269,7 +269,7 @@ def extract_feed(driver, match_id, date):
 
         # Click Feed tab (safe click)
         feed_button = wait.until(
-    		EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'mls-c-sub-nav__item-link') and .//span[normalize-space(.)='Feed']]"))
+    		EC.element_to_be_clickable((By.XPATH, "//a[contains(@href,'feed')] | //button[normalize-space(.)='Feed']"))
 		)
         driver.execute_script("arguments[0].click();", feed_button)
 
