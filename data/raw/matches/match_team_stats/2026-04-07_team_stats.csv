@@ -1,0 +1,349 @@
+stat_name,home_value,away_value,category,tip_id,home_possession,home_advantage,away_possession,away_advantage,match_id,date,home_team,away_team
+Possession %,64.1,35.9,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Shots,25,5,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Shots on Target,12,1,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Blocked Shots,9,0,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Total Passes,644,252,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Passing Accuracy %,91.3,77.4,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Corners,12,3,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Total Crosses,15,7,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Offsides,0,1,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Aerial Duels Won,7,11,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Expected Goals,3.2,0.2,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Goalkeeper Saves,1,9,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Clearances,2,15,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Fouls,9,12,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Yellow Cards,2,1,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Red Cards,0,1,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Overall %,91.3,77.4,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Open Play Pass %,91.1,79.5,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Set Piece Cross %,25,0,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Open Play Cross %,26.7,14.3,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Goals,3,1,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+On Target,12,1,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Off Target,22,5,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Blocked,9,0,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Goals Conceded,1,3,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Shots Against,25,5,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Clean Sheets,0,0,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+XG Conceded,0.2,3.2,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Interceptions,3,0,general,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Goals,3,1,shooting,,,,,,942230ce,2025-03-07,Charlotte,Austin
+On Target,12,1,shooting,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Off Target,2,4,shooting,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Blocked,9,0,shooting,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Overall %,91.3,77.4,passing,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Open Play Pass %,91.1,79.5,passing,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Set Piece Cross %,25,0,passing,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Open Play Cross %,26.7,14.3,passing,,,,,,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_0,Home Possession: 44.8%,Home Advantage: N/A,Away Possession: 55.2%,Away Advantage: 10.4%,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_1,Home Possession: 55.27%,Home Advantage: 10.54%,Away Possession: 44.73%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2,Home Possession: 47.85%,Home Advantage: N/A,Away Possession: 52.15%,Away Advantage: 4.3%,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_3,Home Possession: 31.26%,Home Advantage: N/A,Away Possession: 68.74%,Away Advantage: 37.48%,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_4,Home Possession: 49.66%,Home Advantage: N/A,Away Possession: 50.34%,Away Advantage: 0.68%,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_5,Home Possession: 81.33%,Home Advantage: 62.66%,Away Possession: 18.67%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_6,Home Possession: 74.02%,Home Advantage: 48.04%,Away Possession: 25.98%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_7,Home Possession: 51.85%,Home Advantage: 3.7%,Away Possession: 48.15%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_8,Home Possession: 65.32%,Home Advantage: 30.64%,Away Possession: 34.68%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_0,Home Possession: 84.69%,Home Advantage: 69.38%,Away Possession: 15.31%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_1,Home Possession: 62.29%,Home Advantage: 24.58%,Away Possession: 37.71%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_2,Home Possession: 59.36%,Home Advantage: 18.72%,Away Possession: 40.64%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_3,Home Possession: 70.91%,Home Advantage: 41.82%,Away Possession: 29.09%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_4,Home Possession: 84.22%,Home Advantage: 68.44%,Away Possession: 15.78%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_5,Home Possession: 87.94%,Home Advantage: 75.88%,Away Possession: 12.06%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_6,Home Possession: 83.17%,Home Advantage: 66.34%,Away Possession: 16.83%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_7,Home Possession: 49.5%,Home Advantage: N/A,Away Possession: 50.5%,Away Advantage: 1%,942230ce,2025-03-07,Charlotte,Austin
+,,,possession,bar_2_8,Home Possession: 59.22%,Home Advantage: 18.44%,Away Possession: 40.78%,Away Advantage: N/A,942230ce,2025-03-07,Charlotte,Austin
+Total Team XG,3.2,0.2,xg,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Shots,25,5,xg,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Shots On Target,12,1,xg,,,,,,942230ce,2025-03-07,Charlotte,Austin
+Possession %,37.6,62.4,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Shots,9,20,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Shots on Target,3,7,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Blocked Shots,2,11,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Total Passes,377,697,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Passing Accuracy %,81.7,89.2,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Corners,2,9,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Total Crosses,5,9,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Offsides,1,4,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Aerial Duels Won,7,3,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Expected Goals,1,2.1,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Goalkeeper Saves,6,2,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Clearances,12,9,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Fouls,11,14,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Yellow Cards,3,1,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Red Cards,1,0,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Overall %,81.7,89.2,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Open Play Pass %,82.5,89.3,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Set Piece Cross %,50,28.6,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Open Play Cross %,40,0,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Goals,1,1,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+On Target,3,7,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Off Target,8,19,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Blocked,2,11,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Goals Conceded,1,1,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Shots Against,9,20,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Clean Sheets,0,0,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+XG Conceded,2.1,1,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Interceptions,4,0,general,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Goals,1,1,shooting,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+On Target,3,7,shooting,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Off Target,3,2,shooting,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Blocked,2,11,shooting,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Overall %,81.7,89.2,passing,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Open Play Pass %,82.5,89.3,passing,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Set Piece Cross %,50,28.6,passing,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Open Play Cross %,40,0,passing,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_0,Home Possession: 51.59%,Home Advantage: 3.18%,Away Possession: 48.41%,Away Advantage: N/A,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_1,Home Possession: 57.36%,Home Advantage: 14.72%,Away Possession: 42.64%,Away Advantage: N/A,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2,Home Possession: 46.11%,Home Advantage: N/A,Away Possession: 53.89%,Away Advantage: 7.78%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_3,Home Possession: 78.1%,Home Advantage: 56.2%,Away Possession: 21.9%,Away Advantage: N/A,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_4,Home Possession: 8.03%,Home Advantage: N/A,Away Possession: 91.97%,Away Advantage: 83.94%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_5,Home Possession: 48.03%,Home Advantage: N/A,Away Possession: 51.97%,Away Advantage: 3.94%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_6,Home Possession: 53.84%,Home Advantage: 7.68%,Away Possession: 46.16%,Away Advantage: N/A,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_7,Home Possession: 37.12%,Home Advantage: N/A,Away Possession: 62.88%,Away Advantage: 25.76%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_8,Home Possession: 15.04%,Home Advantage: N/A,Away Possession: 84.96%,Away Advantage: 69.92%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_0,Home Possession: 49.99%,Home Advantage: N/A,Away Possession: 50.01%,Away Advantage: 0.02%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_1,Home Possession: 25.72%,Home Advantage: N/A,Away Possession: 74.28%,Away Advantage: 48.56%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_2,Home Possession: 29.62%,Home Advantage: N/A,Away Possession: 70.38%,Away Advantage: 40.76%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_3,Home Possession: 30.35%,Home Advantage: N/A,Away Possession: 69.65%,Away Advantage: 39.3%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_4,Home Possession: 23.67%,Home Advantage: N/A,Away Possession: 76.33%,Away Advantage: 52.66%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_5,Home Possession: 39.79%,Home Advantage: N/A,Away Possession: 60.21%,Away Advantage: 20.42%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_6,Home Possession: 34.97%,Home Advantage: N/A,Away Possession: 65.03%,Away Advantage: 30.06%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_7,Home Possession: 23.19%,Home Advantage: N/A,Away Possession: 76.81%,Away Advantage: 53.62%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+,,,possession,bar_2_8,Home Possession: 24.66%,Home Advantage: N/A,Away Possession: 75.34%,Away Advantage: 50.68%,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Total Team XG,1,2.1,xg,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Shots,9,20,xg,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Shots On Target,3,7,xg,,,,,,72a9d0bd,2025-03-22,Portland,LA Galaxy
+Possession %,46.4,53.6,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Shots,11,9,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Shots on Target,4,3,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Blocked Shots,2,2,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Total Passes,448,554,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Passing Accuracy %,88.8,88.1,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Corners,3,5,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Total Crosses,8,7,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Offsides,0,2,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Aerial Duels Won,5,4,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Expected Goals,1.4,1.3,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Goalkeeper Saves,3,4,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Clearances,5,4,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Fouls,12,17,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Yellow Cards,3,2,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Red Cards,0,0,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Overall %,88.8,88.1,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Open Play Pass %,88.2,88,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Set Piece Cross %,0,75,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Open Play Cross %,12.5,57.1,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Goals,0,0,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+On Target,4,3,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Off Target,11,9,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Blocked,2,2,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Goals Conceded,0,0,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Shots Against,11,9,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Clean Sheets,0,0,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+XG Conceded,1.3,1.4,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Interceptions,0,1,general,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Goals,0,0,shooting,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+On Target,4,3,shooting,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Off Target,5,3,shooting,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Blocked,2,2,shooting,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Overall %,88.8,88.1,passing,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Open Play Pass %,88.2,88,passing,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Set Piece Cross %,0,75,passing,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Open Play Cross %,12.5,57.1,passing,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_0,Home Possession: 16.09%,Home Advantage: N/A,Away Possession: 83.91%,Away Advantage: 67.82%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_1,Home Possession: 46.73%,Home Advantage: N/A,Away Possession: 53.27%,Away Advantage: 6.54%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2,Home Possession: 60.4%,Home Advantage: 20.8%,Away Possession: 39.6%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_3,Home Possession: 66.57%,Home Advantage: 33.14%,Away Possession: 33.43%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_4,Home Possession: 38.15%,Home Advantage: N/A,Away Possession: 61.85%,Away Advantage: 23.7%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_5,Home Possession: 34.26%,Home Advantage: N/A,Away Possession: 65.74%,Away Advantage: 31.48%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_6,Home Possession: 64.23%,Home Advantage: 28.46%,Away Possession: 35.77%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_7,Home Possession: 51.2%,Home Advantage: 2.4%,Away Possession: 48.8%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_8,Home Possession: 69.46%,Home Advantage: 38.92%,Away Possession: 30.54%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_0,Home Possession: 30%,Home Advantage: N/A,Away Possession: 70%,Away Advantage: 40%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_1,Home Possession: 39.11%,Home Advantage: N/A,Away Possession: 60.89%,Away Advantage: 21.78%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_2,Home Possession: 60.37%,Home Advantage: 20.74%,Away Possession: 39.63%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_3,Home Possession: 58.89%,Home Advantage: 17.78%,Away Possession: 41.11%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_4,Home Possession: 27%,Home Advantage: N/A,Away Possession: 73%,Away Advantage: 46%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_5,Home Possession: 38.87%,Home Advantage: N/A,Away Possession: 61.13%,Away Advantage: 22.26%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_6,Home Possession: 30.61%,Home Advantage: N/A,Away Possession: 69.39%,Away Advantage: 38.78%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_7,Home Possession: 47.51%,Home Advantage: N/A,Away Possession: 52.49%,Away Advantage: 4.98%,803d7da8,2025-03-14,Charlotte,Miami
+,,,possession,bar_2_8,Home Possession: 60.75%,Home Advantage: 21.5%,Away Possession: 39.25%,Away Advantage: N/A,803d7da8,2025-03-14,Charlotte,Miami
+Total Team XG,1.4,1.2,xg,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Shots,11,9,xg,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Shots On Target,4,3,xg,,,,,,803d7da8,2025-03-14,Charlotte,Miami
+Possession %,35,65,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Shots,6,11,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Shots on Target,2,2,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Blocked Shots,2,5,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Total Passes,320,685,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Passing Accuracy %,79.7,90.7,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Corners,4,7,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Total Crosses,9,14,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Offsides,1,0,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Aerial Duels Won,10,9,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Expected Goals,0.8,1,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Goalkeeper Saves,2,2,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Clearances,1,10,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Fouls,9,13,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Yellow Cards,1,3,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Red Cards,0,0,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Overall %,79.7,90.7,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Open Play Pass %,79.5,90.7,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Set Piece Cross %,25,20,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Open Play Cross %,22.2,14.3,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Goals,0,0,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+On Target,2,2,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Off Target,6,11,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Blocked,2,5,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Goals Conceded,0,0,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Shots Against,6,11,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Clean Sheets,0,0,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+XG Conceded,1,0.8,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Interceptions,1,0,general,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Goals,0,0,shooting,,,,,,409330af,2025-03-22,Minnesota,Seattle
+On Target,2,2,shooting,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Off Target,2,4,shooting,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Blocked,2,5,shooting,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Overall %,79.7,90.7,passing,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Open Play Pass %,79.5,90.7,passing,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Set Piece Cross %,25,20,passing,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Open Play Cross %,22.2,14.3,passing,,,,,,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_0,Home Possession: 15.76%,Home Advantage: N/A,Away Possession: 84.24%,Away Advantage: 68.48%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_1,Home Possession: 32.66%,Home Advantage: N/A,Away Possession: 67.34%,Away Advantage: 34.68%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2,Home Possession: 26.56%,Home Advantage: N/A,Away Possession: 73.44%,Away Advantage: 46.88%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_3,Home Possession: 31.92%,Home Advantage: N/A,Away Possession: 68.08%,Away Advantage: 36.16%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_4,Home Possession: 58.9%,Home Advantage: 17.8%,Away Possession: 41.1%,Away Advantage: N/A,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_5,Home Possession: 36.31%,Home Advantage: N/A,Away Possession: 63.69%,Away Advantage: 27.38%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_6,Home Possession: 38.33%,Home Advantage: N/A,Away Possession: 61.67%,Away Advantage: 23.34%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_7,Home Possession: 34.35%,Home Advantage: N/A,Away Possession: 65.65%,Away Advantage: 31.3%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_8,Home Possession: 25.51%,Home Advantage: N/A,Away Possession: 74.49%,Away Advantage: 48.98%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_0,Home Possession: 28.93%,Home Advantage: N/A,Away Possession: 71.07%,Away Advantage: 42.14%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_1,Home Possession: 29.31%,Home Advantage: N/A,Away Possession: 70.69%,Away Advantage: 41.38%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_2,Home Possession: 38.2%,Home Advantage: N/A,Away Possession: 61.8%,Away Advantage: 23.6%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_3,Home Possession: 14.18%,Home Advantage: N/A,Away Possession: 85.82%,Away Advantage: 71.64%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_4,Home Possession: 37.98%,Home Advantage: N/A,Away Possession: 62.02%,Away Advantage: 24.04%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_5,Home Possession: 36.43%,Home Advantage: N/A,Away Possession: 63.57%,Away Advantage: 27.14%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_6,Home Possession: 59.15%,Home Advantage: 18.3%,Away Possession: 40.85%,Away Advantage: N/A,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_7,Home Possession: 32.38%,Home Advantage: N/A,Away Possession: 67.62%,Away Advantage: 35.24%,409330af,2025-03-22,Minnesota,Seattle
+,,,possession,bar_2_8,Home Possession: 40.21%,Home Advantage: N/A,Away Possession: 59.79%,Away Advantage: 19.58%,409330af,2025-03-22,Minnesota,Seattle
+Total Team XG,0.8,1,xg,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Shots,6,11,xg,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Shots On Target,2,2,xg,,,,,,409330af,2025-03-22,Minnesota,Seattle
+Possession %,50.5,49.5,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Shots,11,16,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Shots on Target,3,8,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Blocked Shots,4,5,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Total Passes,435,453,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Passing Accuracy %,79.5,78.6,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Corners,6,3,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Total Crosses,14,7,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Offsides,1,0,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Aerial Duels Won,10,17,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Expected Goals,1.1,2.5,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Goalkeeper Saves,3,3,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Clearances,8,4,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Fouls,15,11,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Yellow Cards,2,1,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Red Cards,0,0,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Overall %,79.5,78.6,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Open Play Pass %,80.2,79.6,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Set Piece Cross %,50,0,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Open Play Cross %,21.4,42.9,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Goals,0,4,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+On Target,3,8,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Off Target,11,12,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Blocked,4,5,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Goals Conceded,4,0,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Shots Against,11,16,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Clean Sheets,0,0,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+XG Conceded,2.5,1.1,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Interceptions,1,3,general,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Goals,0,4,shooting,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+On Target,3,8,shooting,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Off Target,2,3,shooting,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Blocked,4,5,shooting,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Overall %,79.5,78.6,passing,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Open Play Pass %,80.2,79.6,passing,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Set Piece Cross %,50,0,passing,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Open Play Cross %,21.4,42.9,passing,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_0,Home Possession: 31.64%,Home Advantage: N/A,Away Possession: 68.36%,Away Advantage: 36.72%,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_1,Home Possession: 44.63%,Home Advantage: N/A,Away Possession: 55.37%,Away Advantage: 10.74%,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2,Home Possession: 31.15%,Home Advantage: N/A,Away Possession: 68.85%,Away Advantage: 37.7%,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_3,Home Possession: 28.32%,Home Advantage: N/A,Away Possession: 71.68%,Away Advantage: 43.36%,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_4,Home Possession: 71.36%,Home Advantage: 42.72%,Away Possession: 28.64%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_5,Home Possession: 55.31%,Home Advantage: 10.62%,Away Possession: 44.69%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_6,Home Possession: 60.6%,Home Advantage: 21.2%,Away Possession: 39.4%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_7,Home Possession: 53.26%,Home Advantage: 6.52%,Away Possession: 46.74%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_8,Home Possession: 22.9%,Home Advantage: N/A,Away Possession: 77.1%,Away Advantage: 54.2%,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_0,Home Possession: 56.51%,Home Advantage: 13.02%,Away Possession: 43.49%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_1,Home Possession: 65.57%,Home Advantage: 31.14%,Away Possession: 34.43%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_2,Home Possession: 64.36%,Home Advantage: 28.72%,Away Possession: 35.64%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_3,Home Possession: 65.73%,Home Advantage: 31.46%,Away Possession: 34.27%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_4,Home Possession: 65.85%,Home Advantage: 31.7%,Away Possession: 34.15%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_5,Home Possession: 51.03%,Home Advantage: 2.06%,Away Possession: 48.97%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_6,Home Possession: 45.12%,Home Advantage: N/A,Away Possession: 54.88%,Away Advantage: 9.76%,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_7,Home Possession: 55.1%,Home Advantage: 10.2%,Away Possession: 44.9%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+,,,possession,bar_2_8,Home Possession: 58.59%,Home Advantage: 17.18%,Away Possession: 41.41%,Away Advantage: N/A,57cd4eac,2025-04-04,D.C. United,Dallas
+Total Team XG,1.1,2.5,xg,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Shots,11,16,xg,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Shots On Target,3,8,xg,,,,,,57cd4eac,2025-04-04,D.C. United,Dallas
+Possession %,65.9,34.1,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Shots,9,4,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Shots on Target,2,1,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Blocked Shots,2,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Total Passes,782,298,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Passing Accuracy %,89.4,78.5,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Corners,3,4,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Total Crosses,11,5,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Offsides,2,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Aerial Duels Won,11,17,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Expected Goals,0.5,0.2,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Goalkeeper Saves,1,2,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Clearances,3,9,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Fouls,7,10,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Yellow Cards,1,1,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Red Cards,0,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Overall %,89.4,78.5,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Open Play Pass %,89.1,78.7,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Set Piece Cross %,50,33.3,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Open Play Cross %,18.2,20,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Goals,0,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+On Target,2,1,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Off Target,9,4,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Blocked,2,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Goals Conceded,0,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Shots Against,9,4,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Clean Sheets,0,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+XG Conceded,0.2,0.5,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Interceptions,1,0,general,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Goals,0,0,shooting,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+On Target,2,1,shooting,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Off Target,4,1,shooting,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Blocked,2,0,shooting,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Overall %,89.4,78.5,passing,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Open Play Pass %,89.1,78.7,passing,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Set Piece Cross %,50,33.3,passing,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Open Play Cross %,18.2,20,passing,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_0,Home Possession: 86.81%,Home Advantage: 73.62%,Away Possession: 13.19%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_1,Home Possession: 48.6%,Home Advantage: N/A,Away Possession: 51.4%,Away Advantage: 2.8%,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2,Home Possession: 75.26%,Home Advantage: 50.52%,Away Possession: 24.74%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_3,Home Possession: 60.79%,Home Advantage: 21.58%,Away Possession: 39.21%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_4,Home Possession: 66.88%,Home Advantage: 33.76%,Away Possession: 33.12%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_5,Home Possession: 49.36%,Home Advantage: N/A,Away Possession: 50.64%,Away Advantage: 1.28%,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_6,Home Possession: 59.71%,Home Advantage: 19.42%,Away Possession: 40.29%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_7,Home Possession: 43.82%,Home Advantage: N/A,Away Possession: 56.18%,Away Advantage: 12.36%,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_8,Home Possession: 58.96%,Home Advantage: 17.92%,Away Possession: 41.04%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_0,Home Possession: 63.23%,Home Advantage: 26.46%,Away Possession: 36.77%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_1,Home Possession: 73.67%,Home Advantage: 47.34%,Away Possession: 26.33%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_2,Home Possession: 77.51%,Home Advantage: 55.02%,Away Possession: 22.49%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_3,Home Possession: 81.7%,Home Advantage: 63.4%,Away Possession: 18.3%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_4,Home Possession: 45.33%,Home Advantage: N/A,Away Possession: 54.67%,Away Advantage: 9.34%,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_5,Home Possession: 81.25%,Home Advantage: 62.5%,Away Possession: 18.75%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_6,Home Possession: 83.56%,Home Advantage: 67.12%,Away Possession: 16.44%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_7,Home Possession: 77.99%,Home Advantage: 55.98%,Away Possession: 22.01%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+,,,possession,bar_2_8,Home Possession: 57.45%,Home Advantage: 14.9%,Away Possession: 42.55%,Away Advantage: N/A,65eeb526,2025-03-21,Atlanta,D.C. United
+Total Team XG,0.5,0.2,xg,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Shots,9,4,xg,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United
+Shots On Target,2,1,xg,,,,,,65eeb526,2025-03-21,Atlanta,D.C. United

@@ -1,0 +1,1921 @@
+round,match_id,url,error
+1,bb7391b6,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/cinvstor-03-08-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,844e1c6b,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nycvscol-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,72cf9f3c,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dcvsmia-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,c9bf218e,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nshvsorl-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,5ba741bf,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lafcvsdal-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,e7714b30,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/sdvsmin-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,aaa8173e,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lafcvsorl-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,ea951d82,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/miavsatx-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,d0116848,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nshvsmin-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,2f477f1f,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/cltvsnsh-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,1535e399,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/colvshou-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,a26228d1,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/colvsla-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,069d96c2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/atlvsphi-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,042e6589,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/torvsclb-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,224d4a28,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvspor-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,9355d8fd,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/stlvsne-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,453db29c,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsmin-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,9dea9f3d,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvstor-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,6840d375,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dalvssd-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,0b4521e8,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/rbnyvscin-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,b47d7fa9,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsmtl-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,7985f7e1,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/minvscin-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,51dab5c2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvsnyc-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,e314090d,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsnsh-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,a87ad02f,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/sdvsrsl-03-22-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,79f7b7d2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsclt-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,ca966373,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/porvslafc-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,bc951dce,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsdc-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,5cbb5d7a,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsskc-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,2d227e16,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/torvsrbny-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,698208f2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dalvsnsh-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+1,97641fa7,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/orlvsmtl-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,bb7391b6,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/cinvstor-03-08-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,844e1c6b,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nycvscol-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,72cf9f3c,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dcvsmia-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,c9bf218e,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nshvsorl-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,5ba741bf,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lafcvsdal-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,e7714b30,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/sdvsmin-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,aaa8173e,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lafcvsorl-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,ea951d82,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/miavsatx-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,d0116848,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nshvsmin-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,2f477f1f,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/cltvsnsh-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,1535e399,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/colvshou-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,a26228d1,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/colvsla-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,069d96c2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/atlvsphi-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,042e6589,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/torvsclb-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,224d4a28,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvspor-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,9355d8fd,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/stlvsne-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,453db29c,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsmin-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,9dea9f3d,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvstor-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,6840d375,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dalvssd-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,0b4521e8,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/rbnyvscin-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,b47d7fa9,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsmtl-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,7985f7e1,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/minvscin-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,51dab5c2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvsnyc-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,e314090d,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsnsh-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,a87ad02f,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/sdvsrsl-03-22-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,79f7b7d2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsclt-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,ca966373,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/porvslafc-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,bc951dce,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsdc-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,5cbb5d7a,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsskc-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,2d227e16,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/torvsrbny-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,698208f2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dalvsnsh-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+2,97641fa7,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/orlvsmtl-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,bb7391b6,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/cinvstor-03-08-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,844e1c6b,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nycvscol-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,72cf9f3c,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dcvsmia-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,c9bf218e,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nshvsorl-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,5ba741bf,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lafcvsdal-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,e7714b30,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/sdvsmin-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,aaa8173e,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lafcvsorl-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,ea951d82,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/miavsatx-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,d0116848,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/nshvsmin-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,2f477f1f,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/cltvsnsh-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,1535e399,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/colvshou-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,a26228d1,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/colvsla-03-07-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,069d96c2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/atlvsphi-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,042e6589,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/torvsclb-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,224d4a28,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvspor-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,9355d8fd,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/stlvsne-03-21-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,453db29c,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsmin-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,9dea9f3d,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvstor-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,6840d375,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dalvssd-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,0b4521e8,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/rbnyvscin-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,b47d7fa9,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsmtl-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,7985f7e1,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/minvscin-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,51dab5c2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/vanvsnyc-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,e314090d,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsnsh-04-04-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,a87ad02f,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/sdvsrsl-03-22-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,79f7b7d2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsclt-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,ca966373,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/porvslafc-04-11-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,bc951dce,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/chivsdc-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,5cbb5d7a,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/lavsskc-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,2d227e16,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/torvsrbny-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,698208f2,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/dalvsnsh-02-28-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"
+3,97641fa7,https://www.mlssoccer.com/competitions/mls-regular-season/2026/matches/orlvsmtl-03-14-2026,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x55c5a6778252 <unknown>
+#1 0x55c5a6147f96 <unknown>
+#2 0x55c5a618c718 <unknown>
+#3 0x55c5a61bf0fa <unknown>
+#4 0x55c5a61b98df <unknown>
+#5 0x55c5a61b8f14 <unknown>
+#6 0x55c5a6110d4f <unknown>
+#7 0x55c5a673bee4 <unknown>
+#8 0x55c5a673f236 <unknown>
+#9 0x55c5a673ecee <unknown>
+#10 0x55c5a673f6a9 <unknown>
+#11 0x55c5a672b6ea <unknown>
+#12 0x55c5a673fa2a <unknown>
+#13 0x55c5a6714359 <unknown>
+#14 0x55c5a610ebd8 <unknown>
+#15 0x55c5a610e1a5 <unknown>
+#16 0x7ffb09289ca8 <unknown>
+"

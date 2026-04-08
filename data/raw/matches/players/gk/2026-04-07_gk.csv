@@ -1,0 +1,13 @@
+player,mins_played,saves,goals_conceded,expected_goals_conceded,successful_passes,accurate_pass_per_match_hub,keeper_throws,total_long_balls,total_launches,goal_kicks,fouls,was_fouled,yellow_card,total_red_card,lost_corners,punches,assists,goals,total_scoring_att,club,side,match_id
+K. Kahlina,90,1,1,0,16,88.9,0,3,0,0,0,0,0,0,0,1,0,0,0,CLT,home,942230ce
+B. Stuver,90,9,3,0,18,56.3,0,9,0,0,0,0,0,0,0,0,0,0,0,ATX,away,942230ce
+J. Pantemis,90,6,1,0,20,62.5,0,11,0,0,0,0,0,0,0,2,0,0,0,POR,home,72a9d0bd
+J. Marcinkowski,90,2,1,0,11,78.6,0,3,0,0,0,0,0,0,0,0,0,0,0,LA,away,72a9d0bd
+K. Kahlina,90,3,0,0,35,85.4,0,7,0,0,0,0,0,0,0,0,0,0,0,CLT,home,803d7da8
+R. Ríos Novo,90,4,0,0,41,95.3,0,3,0,0,0,0,0,0,0,0,0,0,0,MIA,away,803d7da8
+D. Callender,90,2,0,0,6,40,0,8,0,0,0,0,0,0,0,1,0,0,0,MIN,home,409330af
+A. Thomas,90,2,0,0,18,90,0,0,0,0,0,1,0,0,0,0,0,0,0,SEA,away,409330af
+S. Johnson,90,3,4,0,12,57.1,0,7,0,0,0,0,0,0,0,0,0,0,0,DC,home,57cd4eac
+M. Collodi,90,3,0,0,14,56,0,7,0,0,0,0,0,0,0,2,0,0,0,DAL,away,57cd4eac
+L. Hoyos,90,1,0,0,41,95.3,0,2,0,0,0,0,0,0,0,0,0,0,0,ATL,home,65eeb526
+S. Johnson,90,2,0,0,20,74.1,0,7,0,0,0,0,0,0,0,0,0,0,0,DC,away,65eeb526

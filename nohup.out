@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/home/nate/mls-analytics/src/mls/historical/mls_pipeline.py", line 269, in extract_feed
+    feed_button = wait.until(
+        EC.element_to_be_clickable((By.XPATH, "//button[normalize-space(.)='Feed'] | //a[normalize-space(.)='Feed']"))
+    )
+  File "/home/nate/mls-analytics/venv/lib/python3.13/site-packages/selenium/webdriver/support/wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x55a0afeab252 <unknown>
+#1 0x55a0af87b226 <unknown>
+#2 0x55a0af8ccc2c <unknown>
+#3 0x55a0af8cce45 <unknown>
+#4 0x55a0af916f98 <unknown>
+#5 0x55a0af8f2231 <unknown>
+#6 0x55a0af9147d1 <unknown>
+#7 0x55a0af8f1fa7 <unknown>
+#8 0x55a0af8bfde2 <unknown>
+#9 0x55a0af8c0c55 <unknown>
+#10 0x55a0afe6eee4 <unknown>
+#11 0x55a0afe72236 <unknown>
+#12 0x55a0afe71cee <unknown>
+#13 0x55a0afe726a9 <unknown>
+#14 0x55a0afe5e6ea <unknown>
+#15 0x55a0afe72a2a <unknown>
+#16 0x55a0afe47359 <unknown>
+#17 0x55a0afe97f79 <unknown>
+#18 0x55a0afe9816d <unknown>
+#19 0x55a0afea9c8e <unknown>
+#20 0x7fa4a6470b7b <unknown>
+

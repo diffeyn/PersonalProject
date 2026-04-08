@@ -83,7 +83,9 @@ def extract_team_stats(driver, match_id):
     try:
         try:
             ### navigate to stats tab for the match to access team stats data
-            stats_bttn = main_body.find_element(By.LINK_TEXT, 'Stats')
+            stats_bttn = wait.until(EC.element_to_be_clickable(
+    		(By.XPATH, "//*[contains(@class,'mls-c-sub-nav__item-text') and normalize-space(.)='Stats']/..")
+		))
 
             stats_bttn.click()
             
@@ -267,8 +269,8 @@ def extract_feed(driver, match_id, date):
 
         # Click Feed tab (safe click)
         feed_button = wait.until(
-            EC.element_to_be_clickable((By.XPATH, "//button[normalize-space(.)='Feed'] | //a[normalize-space(.)='Feed']"))
-        )
+    		EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'mls-c-sub-nav__item-link') and .//span[normalize-space(.)='Feed']]"))
+		)
         driver.execute_script("arguments[0].click();", feed_button)
 
         # Wait until feed container exists before scrolling/loading
