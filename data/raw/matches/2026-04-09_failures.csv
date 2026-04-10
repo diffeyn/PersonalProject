@@ -1,0 +1,126 @@
+round,match_id,url,error
+1,647538f0,https://www.mlssoccer.com/competitions/mls-regular-season/2024/matches/phivsmtl-06-01-2024,"Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=146.0.7680.177); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x5646b116d252 <unknown>
+#1 0x5646b0b3d226 <unknown>
+#2 0x5646b0b25522 <unknown>
+#3 0x5646b0b4c5f7 <unknown>
+#4 0x5646b0bbd1df <unknown>
+#5 0x5646b0bd5ea2 <unknown>
+#6 0x5646b0bb3fa7 <unknown>
+#7 0x5646b0b81de2 <unknown>
+#8 0x5646b0b82c55 <unknown>
+#9 0x5646b1130ee4 <unknown>
+#10 0x5646b1134236 <unknown>
+#11 0x5646b1133cee <unknown>
+#12 0x5646b11346a9 <unknown>
+#13 0x5646b11206ea <unknown>
+#14 0x5646b1134a2a <unknown>
+#15 0x5646b1109359 <unknown>
+#16 0x5646b1159f79 <unknown>
+#17 0x5646b115a16d <unknown>
+#18 0x5646b116bc8e <unknown>
+#19 0x7f28db475b7b <unknown>
+"
+1,ddaa4e60,https://www.mlssoccer.com/competitions/mls-regular-season/undefined/matches/stlvsdal-09-06-2025,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x5646b116d252 <unknown>
+#1 0x5646b0b3cf96 <unknown>
+#2 0x5646b0b81718 <unknown>
+#3 0x5646b0bb40fa <unknown>
+#4 0x5646b0bae8df <unknown>
+#5 0x5646b0badf14 <unknown>
+#6 0x5646b0b05d4f <unknown>
+#7 0x5646b1130ee4 <unknown>
+#8 0x5646b1134236 <unknown>
+#9 0x5646b1133cee <unknown>
+#10 0x5646b11346a9 <unknown>
+#11 0x5646b11206ea <unknown>
+#12 0x5646b1134a2a <unknown>
+#13 0x5646b1109359 <unknown>
+#14 0x5646b0b03bd8 <unknown>
+#15 0x5646b0b031a5 <unknown>
+#16 0x7f28db40cca8 <unknown>
+"
+2,647538f0,https://www.mlssoccer.com/competitions/mls-regular-season/2024/matches/phivsmtl-06-01-2024,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x5646b116d252 <unknown>
+#1 0x5646b0b3cf96 <unknown>
+#2 0x5646b0b81718 <unknown>
+#3 0x5646b0bb40fa <unknown>
+#4 0x5646b0bae8df <unknown>
+#5 0x5646b0badf14 <unknown>
+#6 0x5646b0b05d4f <unknown>
+#7 0x5646b1130ee4 <unknown>
+#8 0x5646b1134236 <unknown>
+#9 0x5646b1133cee <unknown>
+#10 0x5646b11346a9 <unknown>
+#11 0x5646b11206ea <unknown>
+#12 0x5646b1134a2a <unknown>
+#13 0x5646b1109359 <unknown>
+#14 0x5646b0b03bd8 <unknown>
+#15 0x5646b0b031a5 <unknown>
+#16 0x7f28db40cca8 <unknown>
+"
+2,ddaa4e60,https://www.mlssoccer.com/competitions/mls-regular-season/undefined/matches/stlvsdal-09-06-2025,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x5646b116d252 <unknown>
+#1 0x5646b0b3cf96 <unknown>
+#2 0x5646b0b81718 <unknown>
+#3 0x5646b0bb40fa <unknown>
+#4 0x5646b0bae8df <unknown>
+#5 0x5646b0badf14 <unknown>
+#6 0x5646b0b05d4f <unknown>
+#7 0x5646b1130ee4 <unknown>
+#8 0x5646b1134236 <unknown>
+#9 0x5646b1133cee <unknown>
+#10 0x5646b11346a9 <unknown>
+#11 0x5646b11206ea <unknown>
+#12 0x5646b1134a2a <unknown>
+#13 0x5646b1109359 <unknown>
+#14 0x5646b0b03bd8 <unknown>
+#15 0x5646b0b031a5 <unknown>
+#16 0x7f28db40cca8 <unknown>
+"
+3,647538f0,https://www.mlssoccer.com/competitions/mls-regular-season/2024/matches/phivsmtl-06-01-2024,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x5646b116d252 <unknown>
+#1 0x5646b0b3cf96 <unknown>
+#2 0x5646b0b81718 <unknown>
+#3 0x5646b0bb40fa <unknown>
+#4 0x5646b0bae8df <unknown>
+#5 0x5646b0badf14 <unknown>
+#6 0x5646b0b05d4f <unknown>
+#7 0x5646b1130ee4 <unknown>
+#8 0x5646b1134236 <unknown>
+#9 0x5646b1133cee <unknown>
+#10 0x5646b11346a9 <unknown>
+#11 0x5646b11206ea <unknown>
+#12 0x5646b1134a2a <unknown>
+#13 0x5646b1109359 <unknown>
+#14 0x5646b0b03bd8 <unknown>
+#15 0x5646b0b031a5 <unknown>
+#16 0x7f28db40cca8 <unknown>
+"
+3,ddaa4e60,https://www.mlssoccer.com/competitions/mls-regular-season/undefined/matches/stlvsdal-09-06-2025,"Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+#0 0x5646b116d252 <unknown>
+#1 0x5646b0b3cf96 <unknown>
+#2 0x5646b0b81718 <unknown>
+#3 0x5646b0bb40fa <unknown>
+#4 0x5646b0bae8df <unknown>
+#5 0x5646b0badf14 <unknown>
+#6 0x5646b0b05d4f <unknown>
+#7 0x5646b1130ee4 <unknown>
+#8 0x5646b1134236 <unknown>
+#9 0x5646b1133cee <unknown>
+#10 0x5646b11346a9 <unknown>
+#11 0x5646b11206ea <unknown>
+#12 0x5646b1134a2a <unknown>
+#13 0x5646b1109359 <unknown>
+#14 0x5646b0b03bd8 <unknown>
+#15 0x5646b0b031a5 <unknown>
+#16 0x7f28db40cca8 <unknown>
+"

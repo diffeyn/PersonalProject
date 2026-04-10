@@ -1,0 +1,15 @@
+player,mins_played,saves,goals_conceded,expected_goals_conceded,successful_passes,accurate_pass_per_match_hub,keeper_throws,total_long_balls,total_launches,goal_kicks,fouls,was_fouled,yellow_card,total_red_card,lost_corners,punches,assists,goals,total_scoring_att,club,side,match_id
+C. Brady,90,4,0,0,18,62.1,0,6,0,0,0,0,0,0,0,0,0,0,0,CHI,home,e314090d
+B. Schwake,90,2,1,0,13,61.9,0,8,0,0,0,0,0,0,0,0,0,0,0,NSH,away,e314090d
+D. Ferree,90,4,2,0,40,85.1,0,7,0,0,0,0,0,0,0,0,0,0,0,SD,home,a87ad02f
+R. Cabral,90,3,2,0,34,87.2,0,6,0,0,0,0,0,0,0,0,0,0,0,RSL,away,a87ad02f
+N. Micovic,90,1,0,0,28,90.3,0,5,0,0,0,1,0,0,0,0,0,0,0,LA,home,79f7b7d2
+K. Kahlina,90,9,3,0,15,93.8,0,5,0,0,0,0,0,0,0,0,0,0,0,CLT,away,79f7b7d2
+C. Brady,90,1,2,0,25,80.7,0,6,0,0,0,1,0,0,0,1,0,0,0,CHI,home,bc951dce
+S. Johnson,90,1,1,0,14,50,0,5,0,0,0,0,0,0,0,0,0,0,0,DC,away,bc951dce
+N. Micovic,90,2,2,0,18,81.8,0,6,0,0,0,0,0,0,0,0,0,0,0,LA,home,5cbb5d7a
+J. Pulskamp,90,4,1,0,22,62.9,0,14,0,0,0,1,0,0,0,0,0,0,0,SKC,away,5cbb5d7a
+L. Gavran,90,5,1,0,14,53.9,0,5,0,0,0,0,0,0,0,1,0,0,0,TOR,home,2d227e16
+E. Horvath,90,5,1,0,23,92,0,1,0,0,0,0,0,0,0,0,0,0,0,RBNY,away,2d227e16
+M. Collodi,90,1,0,0,20,71.4,0,5,0,0,0,0,0,0,0,0,0,0,0,DAL,home,698208f2
+B. Schwake,90,2,0,0,32,82,0,7,0,0,0,0,0,0,0,1,0,0,0,NSH,away,698208f2

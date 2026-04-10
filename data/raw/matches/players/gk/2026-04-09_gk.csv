@@ -1,0 +1,21 @@
+player,mins_played,saves,goals_conceded,expected_goals_conceded,successful_passes,accurate_pass_per_match_hub,keeper_throws,total_long_balls,total_launches,goal_kicks,fouls,was_fouled,yellow_card,total_red_card,lost_corners,punches,assists,goals,total_scoring_att,club,side,match_id
+T. Melia,90,3,3,0,18,62.1,0,11,0,0,0,0,0,0,0,0,0,0,0,SKC,home,bac85cf2
+D. Callender,90,1,2,0,23,74.2,0,8,0,0,0,0,0,0,0,0,0,0,0,MIA,away,bac85cf2
+S. Frei,90,4,0,0,22,75.9,0,7,0,0,0,0,0,0,0,0,0,0,0,SEA,home,d19065bb
+A. Ivacic,90,5,2,0,20,76.9,0,8,0,0,0,0,0,0,0,1,0,0,0,NE,away,d19065bb
+P. Gallese,90,3,2,0,9,52.9,0,7,0,0,0,0,0,0,0,0,0,0,0,ORL,home,2fece7e3
+M. Freese,90,6,1,0,24,88.9,0,5,0,0,0,0,0,0,0,0,0,0,0,NYC,away,2fece7e3
+Z. Steffen,90,2,0,0,19,61.3,0,12,0,0,0,1,0,0,0,1,0,0,0,COL,home,c8fa0997
+Y. Takaoka,90,3,3,0,19,86.4,0,3,0,0,0,0,0,0,0,0,0,0,0,VAN,away,c8fa0997
+J. McCarthy,90,2,1,0,11,55,0,6,0,0,0,0,0,0,0,0,0,0,0,LA,home,673356d5
+B. Gillingham,90,1,1,0,15,88.2,0,4,0,0,0,0,0,0,0,1,0,0,0,HOU,away,673356d5
+J. Willis,90,3,1,0,11,64.7,0,3,0,0,0,0,0,0,0,1,0,0,0,NSH,home,28d3f298
+W. Yarbrough,90,4,1,0,14,63.6,0,4,0,0,0,0,0,0,0,1,0,0,0,SJ,away,28d3f298
+J. Sirois,90,3,1,0,16,66.7,0,7,0,0,0,0,0,0,0,0,0,0,0,MTL,home,8e29fa31
+A. Kann,90,2,2,0,16,76.2,0,5,0,0,0,0,0,0,0,0,0,0,0,CIN,away,8e29fa31
+M. Turner,90,5,2,0,21,51.2,0,11,0,0,0,0,0,0,0,0,0,0,0,NE,home,4358c7d6
+C. Brady,90,2,2,0,17,77.3,0,3,0,0,0,0,0,0,0,0,0,0,0,CHI,away,4358c7d6
+P. Schulte,90,3,3,0,29,82.9,0,6,0,0,0,0,0,0,0,0,0,0,0,CLB,home,2aa1eccc
+P. Gallese,90,6,1,0,13,61.9,0,7,0,0,0,0,0,0,0,0,0,0,0,ORL,away,2aa1eccc
+B. Stuver,90,5,2,0,38,84.4,0,11,0,0,0,0,0,0,0,0,0,0,0,ATX,home,4599bff3
+A. Beaudry,90,2,3,0,11,57.9,0,7,0,0,0,0,0,0,0,0,0,0,0,COL,away,4599bff3

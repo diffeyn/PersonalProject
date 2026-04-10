@@ -1,0 +1,581 @@
+stat_name,home_value,away_value,category,tip_id,home_possession,home_advantage,away_possession,away_advantage,match_id,date,home_team,away_team
+Possession %,40.6,59.4,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Shots,10,10,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Shots on Target,3,6,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Blocked Shots,4,1,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Total Passes,388,633,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Passing Accuracy %,81.4,87.8,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Corners,5,1,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Total Crosses,6,4,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Offsides,1,1,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Aerial Duels Won,7,11,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Expected Goals,1.1,1.5,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Goalkeeper Saves,3,1,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Clearances,5,10,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Fouls,14,9,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Yellow Cards,3,2,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Red Cards,0,0,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Overall %,81.4,87.8,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Open Play Pass %,81.2,88,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Set Piece Cross %,0,0,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Open Play Cross %,16.7,25,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Goals,2,3,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+On Target,3,6,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Off Target,8,7,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Blocked,4,1,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Goals Conceded,3,2,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Shots Against,10,10,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Clean Sheets,0,0,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+XG Conceded,1.5,1.1,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Interceptions,0,1,general,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Goals,2,3,shooting,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+On Target,3,6,shooting,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Off Target,3,2,shooting,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Blocked,4,1,shooting,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Overall %,81.4,87.8,passing,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Open Play Pass %,81.2,88,passing,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Set Piece Cross %,0,0,passing,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Open Play Cross %,16.7,25,passing,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_0,Home Possession: 71.43%,Home Advantage: 42.86%,Away Possession: 28.57%,Away Advantage: N/A,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_1,Home Possession: 34.68%,Home Advantage: N/A,Away Possession: 65.32%,Away Advantage: 30.64%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2,Home Possession: 40.75%,Home Advantage: N/A,Away Possession: 59.25%,Away Advantage: 18.5%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_3,Home Possession: 48.58%,Home Advantage: N/A,Away Possession: 51.42%,Away Advantage: 2.84%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_4,Home Possession: 49.39%,Home Advantage: N/A,Away Possession: 50.61%,Away Advantage: 1.22%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_5,Home Possession: 42.57%,Home Advantage: N/A,Away Possession: 57.43%,Away Advantage: 14.86%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_6,Home Possession: 38.55%,Home Advantage: N/A,Away Possession: 61.45%,Away Advantage: 22.9%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_7,Home Possession: 31.76%,Home Advantage: N/A,Away Possession: 68.24%,Away Advantage: 36.48%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_8,Home Possession: 39.76%,Home Advantage: N/A,Away Possession: 60.24%,Away Advantage: 20.48%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_0,Home Possession: 30.44%,Home Advantage: N/A,Away Possession: 69.56%,Away Advantage: 39.12%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_1,Home Possession: 34.53%,Home Advantage: N/A,Away Possession: 65.47%,Away Advantage: 30.94%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_2,Home Possession: 62.1%,Home Advantage: 24.2%,Away Possession: 37.9%,Away Advantage: N/A,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_3,Home Possession: 44.13%,Home Advantage: N/A,Away Possession: 55.87%,Away Advantage: 11.74%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_4,Home Possession: 18.91%,Home Advantage: N/A,Away Possession: 81.09%,Away Advantage: 62.18%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_5,Home Possession: 37.79%,Home Advantage: N/A,Away Possession: 62.21%,Away Advantage: 24.42%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_6,Home Possession: 36.95%,Home Advantage: N/A,Away Possession: 63.05%,Away Advantage: 26.1%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_7,Home Possession: 18.58%,Home Advantage: N/A,Away Possession: 81.42%,Away Advantage: 62.84%,bac85cf2,2024-04-13,Kansas City,Miami
+,,,possession,bar_2_8,Home Possession: 42.91%,Home Advantage: N/A,Away Possession: 57.09%,Away Advantage: 14.18%,bac85cf2,2024-04-13,Kansas City,Miami
+Total Team XG,1.1,1.5,xg,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Shots,10,10,xg,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Shots On Target,3,6,xg,,,,,,bac85cf2,2024-04-13,Kansas City,Miami
+Possession %,56.3,43.7,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Shots,15,11,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Shots on Target,7,4,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Blocked Shots,3,3,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Total Passes,563,463,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Passing Accuracy %,89.9,86.6,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Corners,9,8,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Total Crosses,7,8,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Offsides,1,0,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Aerial Duels Won,4,4,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Expected Goals,1.2,0.9,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Goalkeeper Saves,4,5,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Clearances,15,16,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Fouls,5,7,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Yellow Cards,1,2,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Red Cards,0,0,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Overall %,89.9,86.6,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Open Play Pass %,89.9,86.5,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Set Piece Cross %,33.3,42.9,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Open Play Cross %,28.6,12.5,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Goals,2,0,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+On Target,7,4,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Off Target,13,11,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Blocked,3,3,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Goals Conceded,0,2,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Shots Against,15,11,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Clean Sheets,0,0,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+XG Conceded,0.9,1.2,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Interceptions,1,1,general,,,,,,d19065bb,2024-07-06,Seattle,New England
+Goals,2,0,shooting,,,,,,d19065bb,2024-07-06,Seattle,New England
+On Target,7,4,shooting,,,,,,d19065bb,2024-07-06,Seattle,New England
+Off Target,5,4,shooting,,,,,,d19065bb,2024-07-06,Seattle,New England
+Blocked,3,3,shooting,,,,,,d19065bb,2024-07-06,Seattle,New England
+Overall %,89.9,86.6,passing,,,,,,d19065bb,2024-07-06,Seattle,New England
+Open Play Pass %,89.9,86.5,passing,,,,,,d19065bb,2024-07-06,Seattle,New England
+Set Piece Cross %,33.3,42.9,passing,,,,,,d19065bb,2024-07-06,Seattle,New England
+Open Play Cross %,28.6,12.5,passing,,,,,,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_0,Home Possession: 57.65%,Home Advantage: 15.3%,Away Possession: 42.35%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_1,Home Possession: 75.39%,Home Advantage: 50.78%,Away Possession: 24.61%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2,Home Possession: 33.74%,Home Advantage: N/A,Away Possession: 66.26%,Away Advantage: 32.52%,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_3,Home Possession: 53.47%,Home Advantage: 6.94%,Away Possession: 46.53%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_4,Home Possession: 50.94%,Home Advantage: 1.88%,Away Possession: 49.06%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_5,Home Possession: 67.73%,Home Advantage: 35.46%,Away Possession: 32.27%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_6,Home Possession: 54.43%,Home Advantage: 8.86%,Away Possession: 45.57%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_7,Home Possession: 75.22%,Home Advantage: 50.44%,Away Possession: 24.78%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_8,Home Possession: 69.57%,Home Advantage: 39.14%,Away Possession: 30.43%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_0,Home Possession: 44.42%,Home Advantage: N/A,Away Possession: 55.58%,Away Advantage: 11.16%,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_1,Home Possession: 51.18%,Home Advantage: 2.36%,Away Possession: 48.82%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_2,Home Possession: 67.46%,Home Advantage: 34.92%,Away Possession: 32.54%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_3,Home Possession: 55.01%,Home Advantage: 10.02%,Away Possession: 44.99%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_4,Home Possession: 30.25%,Home Advantage: N/A,Away Possession: 69.75%,Away Advantage: 39.5%,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_5,Home Possession: 37.92%,Home Advantage: N/A,Away Possession: 62.08%,Away Advantage: 24.16%,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_6,Home Possession: 53.67%,Home Advantage: 7.34%,Away Possession: 46.33%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_7,Home Possession: 79.67%,Home Advantage: 59.34%,Away Possession: 20.33%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+,,,possession,bar_2_8,Home Possession: 55.35%,Home Advantage: 10.7%,Away Possession: 44.65%,Away Advantage: N/A,d19065bb,2024-07-06,Seattle,New England
+Total Team XG,1.2,0.9,xg,,,,,,d19065bb,2024-07-06,Seattle,New England
+Shots,15,11,xg,,,,,,d19065bb,2024-07-06,Seattle,New England
+Shots On Target,7,4,xg,,,,,,d19065bb,2024-07-06,Seattle,New England
+Possession %,48,52,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Shots,25,11,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Shots on Target,7,4,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Blocked Shots,9,3,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Total Passes,432,478,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Passing Accuracy %,83.8,85.4,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Corners,9,4,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Total Crosses,5,1,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Offsides,3,1,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Aerial Duels Won,13,10,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Expected Goals,2.3,1.6,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Goalkeeper Saves,3,6,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Clearances,7,7,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Fouls,11,10,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Yellow Cards,1,2,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Red Cards,0,0,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Overall %,83.8,85.4,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Open Play Pass %,84,85,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Set Piece Cross %,75,50,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Open Play Cross %,20,100,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Goals,1,1,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+On Target,7,4,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Off Target,24,10,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Blocked,9,3,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Goals Conceded,2,1,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Shots Against,25,11,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Clean Sheets,0,0,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+XG Conceded,1.6,2.3,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Interceptions,0,0,general,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Goals,1,1,shooting,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+On Target,7,4,shooting,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Off Target,9,3,shooting,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Blocked,9,3,shooting,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Overall %,83.8,85.4,passing,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Open Play Pass %,84,85,passing,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Set Piece Cross %,75,50,passing,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Open Play Cross %,20,100,passing,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_0,Home Possession: 41.16%,Home Advantage: N/A,Away Possession: 58.84%,Away Advantage: 17.68%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_1,Home Possession: 46.17%,Home Advantage: N/A,Away Possession: 53.83%,Away Advantage: 7.66%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2,Home Possession: 48.16%,Home Advantage: N/A,Away Possession: 51.84%,Away Advantage: 3.68%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_3,Home Possession: 62.56%,Home Advantage: 25.12%,Away Possession: 37.44%,Away Advantage: N/A,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_4,Home Possession: 62.54%,Home Advantage: 25.08%,Away Possession: 37.46%,Away Advantage: N/A,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_5,Home Possession: 41.87%,Home Advantage: N/A,Away Possession: 58.13%,Away Advantage: 16.26%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_6,Home Possession: 35.68%,Home Advantage: N/A,Away Possession: 64.32%,Away Advantage: 28.64%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_7,Home Possession: 44.64%,Home Advantage: N/A,Away Possession: 55.36%,Away Advantage: 10.72%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_8,Home Possession: 43%,Home Advantage: N/A,Away Possession: 57%,Away Advantage: 14%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_0,Home Possession: 30.27%,Home Advantage: N/A,Away Possession: 69.73%,Away Advantage: 39.46%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_1,Home Possession: 39.33%,Home Advantage: N/A,Away Possession: 60.67%,Away Advantage: 21.34%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_2,Home Possession: 30.73%,Home Advantage: N/A,Away Possession: 69.27%,Away Advantage: 38.54%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_3,Home Possession: 44.48%,Home Advantage: N/A,Away Possession: 55.52%,Away Advantage: 11.04%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_4,Home Possession: 40.47%,Home Advantage: N/A,Away Possession: 59.53%,Away Advantage: 19.06%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_5,Home Possession: 59.84%,Home Advantage: 19.68%,Away Possession: 40.16%,Away Advantage: N/A,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_6,Home Possession: 58.86%,Home Advantage: 17.72%,Away Possession: 41.14%,Away Advantage: N/A,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_7,Home Possession: 42.21%,Home Advantage: N/A,Away Possession: 57.79%,Away Advantage: 15.58%,2fece7e3,2025-07-16,Orlando,New York City
+,,,possession,bar_2_8,Home Possession: 72.25%,Home Advantage: 44.5%,Away Possession: 27.75%,Away Advantage: N/A,2fece7e3,2025-07-16,Orlando,New York City
+Total Team XG,2.3,1.6,xg,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Shots,25,11,xg,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Shots On Target,7,4,xg,,,,,,2fece7e3,2025-07-16,Orlando,New York City
+Possession %,43.9,56.1,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Shots,16,12,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Shots on Target,7,2,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Blocked Shots,4,4,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Total Passes,326,476,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Passing Accuracy %,83.7,87.4,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Corners,7,10,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Total Crosses,7,15,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Offsides,3,1,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Aerial Duels Won,7,10,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Expected Goals,3,1,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Goalkeeper Saves,2,3,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Clearances,12,4,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Fouls,8,16,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Yellow Cards,2,1,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Red Cards,0,0,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Overall %,83.7,87.4,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Open Play Pass %,84.8,87.4,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Set Piece Cross %,40,22.2,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Open Play Cross %,14.3,40,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Goals,3,0,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+On Target,7,2,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Off Target,13,12,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Blocked,4,4,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Goals Conceded,0,3,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Shots Against,16,12,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Clean Sheets,0,0,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+XG Conceded,1,3,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Interceptions,3,2,general,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Goals,3,0,shooting,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+On Target,7,2,shooting,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Off Target,4,5,shooting,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Blocked,4,4,shooting,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Overall %,83.7,87.4,passing,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Open Play Pass %,84.8,87.4,passing,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Set Piece Cross %,40,22.2,passing,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Open Play Cross %,14.3,40,passing,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_0,Home Possession: 55.96%,Home Advantage: 11.92%,Away Possession: 44.04%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_1,Home Possession: 52.13%,Home Advantage: 4.26%,Away Possession: 47.87%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2,Home Possession: 54.91%,Home Advantage: 9.82%,Away Possession: 45.09%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_3,Home Possession: 35.79%,Home Advantage: N/A,Away Possession: 64.21%,Away Advantage: 28.42%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_4,Home Possession: 64.78%,Home Advantage: 29.56%,Away Possession: 35.22%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_5,Home Possession: 49.98%,Home Advantage: N/A,Away Possession: 50.02%,Away Advantage: 0.04%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_6,Home Possession: 18.16%,Home Advantage: N/A,Away Possession: 81.84%,Away Advantage: 63.68%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_7,Home Possession: 60.19%,Home Advantage: 20.38%,Away Possession: 39.81%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_8,Home Possession: 39.04%,Home Advantage: N/A,Away Possession: 60.96%,Away Advantage: 21.92%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_0,Home Possession: 46.74%,Home Advantage: N/A,Away Possession: 53.26%,Away Advantage: 6.52%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_1,Home Possession: 25.07%,Home Advantage: N/A,Away Possession: 74.93%,Away Advantage: 49.86%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_2,Home Possession: 53.89%,Home Advantage: 7.78%,Away Possession: 46.11%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_3,Home Possession: 57.71%,Home Advantage: 15.42%,Away Possession: 42.29%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_4,Home Possession: 62.87%,Home Advantage: 25.74%,Away Possession: 37.13%,Away Advantage: N/A,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_5,Home Possession: 37.6%,Home Advantage: N/A,Away Possession: 62.4%,Away Advantage: 24.8%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_6,Home Possession: 16.18%,Home Advantage: N/A,Away Possession: 83.82%,Away Advantage: 67.64%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_7,Home Possession: 19.68%,Home Advantage: N/A,Away Possession: 80.32%,Away Advantage: 60.64%,c8fa0997,2025-07-12,Colorado,Vancouver
+,,,possession,bar_2_8,Home Possession: 18.27%,Home Advantage: N/A,Away Possession: 81.73%,Away Advantage: 63.46%,c8fa0997,2025-07-12,Colorado,Vancouver
+Total Team XG,3,1,xg,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Shots,16,12,xg,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Shots On Target,7,2,xg,,,,,,c8fa0997,2025-07-12,Colorado,Vancouver
+Possession %,47.8,52.2,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Shots,6,13,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Shots on Target,2,3,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Blocked Shots,2,2,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Total Passes,427,555,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Passing Accuracy %,86.4,91.9,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Corners,5,7,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Total Crosses,2,7,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Offsides,0,3,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Aerial Duels Won,5,9,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Expected Goals,0.4,2,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Goalkeeper Saves,2,1,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Clearances,10,9,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Fouls,9,21,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Yellow Cards,2,2,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Red Cards,1,0,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Overall %,86.4,91.9,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Open Play Pass %,86.8,92,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Set Piece Cross %,0,16.7,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Open Play Cross %,0,28.6,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Goals,1,1,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+On Target,2,3,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Off Target,5,12,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Blocked,2,2,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Goals Conceded,1,1,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Shots Against,6,13,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Clean Sheets,0,0,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+XG Conceded,2,0.4,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Interceptions,0,2,general,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Goals,1,1,shooting,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+On Target,2,3,shooting,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Off Target,2,4,shooting,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Blocked,2,2,shooting,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Overall %,86.4,91.9,passing,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Open Play Pass %,86.8,92,passing,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Set Piece Cross %,0,16.7,passing,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Open Play Cross %,0,28.6,passing,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_0,Home Possession: 45.85%,Home Advantage: N/A,Away Possession: 54.15%,Away Advantage: 8.3%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_1,Home Possession: 51.31%,Home Advantage: 2.62%,Away Possession: 48.69%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2,Home Possession: 46.85%,Home Advantage: N/A,Away Possession: 53.15%,Away Advantage: 6.3%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_3,Home Possession: 61.07%,Home Advantage: 22.14%,Away Possession: 38.93%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_4,Home Possession: 67.15%,Home Advantage: 34.3%,Away Possession: 32.85%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_5,Home Possession: 49.29%,Home Advantage: N/A,Away Possession: 50.71%,Away Advantage: 1.42%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_6,Home Possession: 69.54%,Home Advantage: 39.08%,Away Possession: 30.46%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_7,Home Possession: 60.02%,Home Advantage: 20.04%,Away Possession: 39.98%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_8,Home Possession: 50.22%,Home Advantage: 0.44%,Away Possession: 49.78%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_0,Home Possession: 41.93%,Home Advantage: N/A,Away Possession: 58.07%,Away Advantage: 16.14%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_1,Home Possession: 39.74%,Home Advantage: N/A,Away Possession: 60.26%,Away Advantage: 20.52%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_2,Home Possession: 23.31%,Home Advantage: N/A,Away Possession: 76.69%,Away Advantage: 53.38%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_3,Home Possession: 49.55%,Home Advantage: N/A,Away Possession: 50.45%,Away Advantage: 0.9%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_4,Home Possession: 39.66%,Home Advantage: N/A,Away Possession: 60.34%,Away Advantage: 20.68%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_5,Home Possession: 35.27%,Home Advantage: N/A,Away Possession: 64.73%,Away Advantage: 29.46%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_6,Home Possession: 64.04%,Home Advantage: 28.08%,Away Possession: 35.96%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_7,Home Possession: 42.67%,Home Advantage: N/A,Away Possession: 57.33%,Away Advantage: 14.66%,673356d5,2025-04-12,LA Galaxy,Houston
+,,,possession,bar_2_8,Home Possession: 56.86%,Home Advantage: 13.72%,Away Possession: 43.14%,Away Advantage: N/A,673356d5,2025-04-12,LA Galaxy,Houston
+Total Team XG,0.4,2,xg,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Shots,6,13,xg,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Shots On Target,2,3,xg,,,,,,673356d5,2025-04-12,LA Galaxy,Houston
+Possession %,53.7,46.3,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Shots,17,9,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Shots on Target,5,4,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Blocked Shots,5,3,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Total Passes,419,367,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Passing Accuracy %,88.5,87.2,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Corners,7,5,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Total Crosses,24,5,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Offsides,2,0,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Aerial Duels Won,13,6,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Expected Goals,1.6,1.4,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Goalkeeper Saves,3,4,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Clearances,8,22,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Fouls,7,7,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Yellow Cards,1,4,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Red Cards,0,0,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Overall %,88.5,87.2,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Open Play Pass %,89.4,88.9,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Set Piece Cross %,0,0,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Open Play Cross %,12.5,20,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Goals,1,1,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+On Target,5,4,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Off Target,16,8,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Blocked,5,3,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Goals Conceded,1,1,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Shots Against,17,9,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Clean Sheets,0,0,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+XG Conceded,1.4,1.6,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Interceptions,1,3,general,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Goals,1,1,shooting,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+On Target,5,4,shooting,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Off Target,6,2,shooting,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Blocked,5,3,shooting,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Overall %,88.5,87.2,passing,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Open Play Pass %,89.4,88.9,passing,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Set Piece Cross %,0,0,passing,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Open Play Cross %,12.5,20,passing,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_0,Home Possession: 50.85%,Home Advantage: 1.7%,Away Possession: 49.15%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_1,Home Possession: 48.64%,Home Advantage: N/A,Away Possession: 51.36%,Away Advantage: 2.72%,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2,Home Possession: 22.78%,Home Advantage: N/A,Away Possession: 77.22%,Away Advantage: 54.44%,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_3,Home Possession: 35.25%,Home Advantage: N/A,Away Possession: 64.75%,Away Advantage: 29.5%,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_4,Home Possession: 53.97%,Home Advantage: 7.94%,Away Possession: 46.03%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_5,Home Possession: 58.23%,Home Advantage: 16.46%,Away Possession: 41.77%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_6,Home Possession: 32.37%,Home Advantage: N/A,Away Possession: 67.63%,Away Advantage: 35.26%,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_7,Home Possession: 40.49%,Home Advantage: N/A,Away Possession: 59.51%,Away Advantage: 19.02%,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_8,Home Possession: 81.39%,Home Advantage: 62.78%,Away Possession: 18.61%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_0,Home Possession: 52.72%,Home Advantage: 5.44%,Away Possession: 47.28%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_1,Home Possession: 60.07%,Home Advantage: 20.14%,Away Possession: 39.93%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_2,Home Possession: 48.77%,Home Advantage: N/A,Away Possession: 51.23%,Away Advantage: 2.46%,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_3,Home Possession: 51.14%,Home Advantage: 2.28%,Away Possession: 48.86%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_4,Home Possession: 55.77%,Home Advantage: 11.54%,Away Possession: 44.23%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_5,Home Possession: 65.54%,Home Advantage: 31.08%,Away Possession: 34.46%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_6,Home Possession: 50.25%,Home Advantage: 0.5%,Away Possession: 49.75%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_7,Home Possession: 85.19%,Home Advantage: 70.38%,Away Possession: 14.81%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+,,,possession,bar_2_8,Home Possession: 50.72%,Home Advantage: 1.44%,Away Possession: 49.28%,Away Advantage: N/A,28d3f298,2024-04-27,Nashville,San Jose
+Total Team XG,1.6,1.4,xg,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Shots,17,9,xg,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Shots On Target,5,4,xg,,,,,,28d3f298,2024-04-27,Nashville,San Jose
+Possession %,50.4,49.6,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Shots,17,8,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Shots on Target,4,4,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Blocked Shots,9,3,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Total Passes,493,479,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Passing Accuracy %,84,83.5,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Corners,5,4,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Total Crosses,8,4,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Offsides,3,7,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Aerial Duels Won,6,11,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Expected Goals,1.5,0.6,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Goalkeeper Saves,3,2,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Clearances,11,12,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Fouls,15,11,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Yellow Cards,3,3,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Red Cards,0,0,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Overall %,84,83.5,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Open Play Pass %,84,83.5,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Set Piece Cross %,33.3,0,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Open Play Cross %,12.5,0,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Goals,2,1,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+On Target,4,4,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Off Target,15,7,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Blocked,9,3,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Goals Conceded,1,2,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Shots Against,17,8,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Clean Sheets,0,0,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+XG Conceded,0.6,1.5,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Interceptions,1,0,general,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Goals,2,1,shooting,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+On Target,4,4,shooting,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Off Target,3,1,shooting,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Blocked,9,3,shooting,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Overall %,84,83.5,passing,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Open Play Pass %,84,83.5,passing,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Set Piece Cross %,33.3,0,passing,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Open Play Cross %,12.5,0,passing,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_0,Home Possession: 52.49%,Home Advantage: 4.98%,Away Possession: 47.51%,Away Advantage: N/A,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_1,Home Possession: 65.68%,Home Advantage: 31.36%,Away Possession: 34.32%,Away Advantage: N/A,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2,Home Possession: 63.61%,Home Advantage: 27.22%,Away Possession: 36.39%,Away Advantage: N/A,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_3,Home Possession: 56.38%,Home Advantage: 12.76%,Away Possession: 43.62%,Away Advantage: N/A,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_4,Home Possession: 28.11%,Home Advantage: N/A,Away Possession: 71.89%,Away Advantage: 43.78%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_5,Home Possession: 42.13%,Home Advantage: N/A,Away Possession: 57.87%,Away Advantage: 15.74%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_6,Home Possession: 47.58%,Home Advantage: N/A,Away Possession: 52.42%,Away Advantage: 4.84%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_7,Home Possession: 59.94%,Home Advantage: 19.88%,Away Possession: 40.06%,Away Advantage: N/A,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_8,Home Possession: 33.06%,Home Advantage: N/A,Away Possession: 66.94%,Away Advantage: 33.88%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_0,Home Possession: 78.68%,Home Advantage: 57.36%,Away Possession: 21.32%,Away Advantage: N/A,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_1,Home Possession: 35.07%,Home Advantage: N/A,Away Possession: 64.93%,Away Advantage: 29.86%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_2,Home Possession: 42.81%,Home Advantage: N/A,Away Possession: 57.19%,Away Advantage: 14.38%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_3,Home Possession: 43.95%,Home Advantage: N/A,Away Possession: 56.05%,Away Advantage: 12.1%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_4,Home Possession: 46.02%,Home Advantage: N/A,Away Possession: 53.98%,Away Advantage: 7.96%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_5,Home Possession: 45.78%,Home Advantage: N/A,Away Possession: 54.22%,Away Advantage: 8.44%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_6,Home Possession: 56.1%,Home Advantage: 12.2%,Away Possession: 43.9%,Away Advantage: N/A,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_7,Home Possession: 49.38%,Home Advantage: N/A,Away Possession: 50.62%,Away Advantage: 1.24%,8e29fa31,2024-04-13,Montréal,Cincinnati
+,,,possession,bar_2_8,Home Possession: 36.48%,Home Advantage: N/A,Away Possession: 63.52%,Away Advantage: 27.04%,8e29fa31,2024-04-13,Montréal,Cincinnati
+Total Team XG,1.5,0.6,xg,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Shots,17,8,xg,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Shots On Target,4,4,xg,,,,,,8e29fa31,2024-04-13,Montréal,Cincinnati
+Possession %,44,56,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Shots,8,16,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Shots on Target,4,5,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Blocked Shots,1,4,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Total Passes,413,597,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Passing Accuracy %,79.7,87.3,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Corners,2,5,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Total Crosses,8,9,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Offsides,1,0,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Aerial Duels Won,19,15,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Expected Goals,1.1,1.7,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Goalkeeper Saves,5,2,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Clearances,7,3,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Fouls,10,17,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Yellow Cards,2,1,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Red Cards,0,0,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Overall %,79.7,87.3,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Open Play Pass %,81.5,87.3,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Set Piece Cross %,50,0,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Open Play Cross %,12.5,11.1,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Goals,2,2,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+On Target,4,5,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Off Target,6,15,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Blocked,1,4,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Goals Conceded,2,2,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Shots Against,8,16,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Clean Sheets,0,0,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+XG Conceded,1.7,1.1,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Interceptions,2,2,general,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Goals,2,2,shooting,,,,,,4358c7d6,2025-10-18,New England,Chicago
+On Target,4,5,shooting,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Off Target,3,7,shooting,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Blocked,1,4,shooting,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Overall %,79.7,87.3,passing,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Open Play Pass %,81.5,87.3,passing,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Set Piece Cross %,50,0,passing,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Open Play Cross %,12.5,11.1,passing,,,,,,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_0,Home Possession: 53.05%,Home Advantage: 6.1%,Away Possession: 46.95%,Away Advantage: N/A,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_1,Home Possession: 23.78%,Home Advantage: N/A,Away Possession: 76.22%,Away Advantage: 52.44%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2,Home Possession: 35.91%,Home Advantage: N/A,Away Possession: 64.09%,Away Advantage: 28.18%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_3,Home Possession: 47.61%,Home Advantage: N/A,Away Possession: 52.39%,Away Advantage: 4.78%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_4,Home Possession: 24.93%,Home Advantage: N/A,Away Possession: 75.07%,Away Advantage: 50.14%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_5,Home Possession: 58.88%,Home Advantage: 17.76%,Away Possession: 41.12%,Away Advantage: N/A,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_6,Home Possession: 36.55%,Home Advantage: N/A,Away Possession: 63.45%,Away Advantage: 26.9%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_7,Home Possession: 54.07%,Home Advantage: 8.14%,Away Possession: 45.93%,Away Advantage: N/A,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_8,Home Possession: 48.46%,Home Advantage: N/A,Away Possession: 51.54%,Away Advantage: 3.08%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_0,Home Possession: 50.19%,Home Advantage: 0.38%,Away Possession: 49.81%,Away Advantage: N/A,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_1,Home Possession: 58.32%,Home Advantage: 16.64%,Away Possession: 41.68%,Away Advantage: N/A,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_2,Home Possession: 59.16%,Home Advantage: 18.32%,Away Possession: 40.84%,Away Advantage: N/A,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_3,Home Possession: 41.68%,Home Advantage: N/A,Away Possession: 58.32%,Away Advantage: 16.64%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_4,Home Possession: 30.63%,Home Advantage: N/A,Away Possession: 69.37%,Away Advantage: 38.74%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_5,Home Possession: 39.4%,Home Advantage: N/A,Away Possession: 60.6%,Away Advantage: 21.2%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_6,Home Possession: 53.79%,Home Advantage: 7.58%,Away Possession: 46.21%,Away Advantage: N/A,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_7,Home Possession: 39.84%,Home Advantage: N/A,Away Possession: 60.16%,Away Advantage: 20.32%,4358c7d6,2025-10-18,New England,Chicago
+,,,possession,bar_2_8,Home Possession: 45.01%,Home Advantage: N/A,Away Possession: 54.99%,Away Advantage: 9.98%,4358c7d6,2025-10-18,New England,Chicago
+Total Team XG,1,1.7,xg,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Shots,8,16,xg,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Shots On Target,4,5,xg,,,,,,4358c7d6,2025-10-18,New England,Chicago
+Possession %,60.7,39.3,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Shots,18,10,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Shots on Target,7,6,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Blocked Shots,4,2,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Total Passes,564,323,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Passing Accuracy %,89,82,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Corners,9,1,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Total Crosses,18,7,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Offsides,4,3,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Aerial Duels Won,6,10,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Expected Goals,3,2,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Goalkeeper Saves,3,6,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Clearances,6,12,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Fouls,12,7,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Yellow Cards,2,1,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Red Cards,0,0,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Overall %,89,82,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Open Play Pass %,89,81.8,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Set Piece Cross %,12.5,50,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Open Play Cross %,22.2,57.1,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Goals,1,3,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+On Target,7,6,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Off Target,17,7,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Blocked,4,2,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Goals Conceded,3,1,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Shots Against,18,10,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Clean Sheets,0,0,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+XG Conceded,2,3,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Interceptions,1,3,general,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Goals,1,3,shooting,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+On Target,7,6,shooting,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Off Target,6,2,shooting,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Blocked,4,2,shooting,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Overall %,89,82,passing,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Open Play Pass %,89,81.8,passing,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Set Piece Cross %,12.5,50,passing,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Open Play Cross %,22.2,57.1,passing,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_0,Home Possession: 52.48%,Home Advantage: 4.96%,Away Possession: 47.52%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_1,Home Possession: 72.17%,Home Advantage: 44.34%,Away Possession: 27.83%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2,Home Possession: 67.71%,Home Advantage: 35.42%,Away Possession: 32.29%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_3,Home Possession: 51.24%,Home Advantage: 2.48%,Away Possession: 48.76%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_4,Home Possession: 81.01%,Home Advantage: 62.02%,Away Possession: 18.99%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_5,Home Possession: 70.8%,Home Advantage: 41.6%,Away Possession: 29.2%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_6,Home Possession: 67.89%,Home Advantage: 35.78%,Away Possession: 32.11%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_7,Home Possession: 49.67%,Home Advantage: N/A,Away Possession: 50.33%,Away Advantage: 0.66%,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_8,Home Possession: 52.84%,Home Advantage: 5.68%,Away Possession: 47.16%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_0,Home Possession: 51.16%,Home Advantage: 2.32%,Away Possession: 48.84%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_1,Home Possession: 68.75%,Home Advantage: 37.5%,Away Possession: 31.25%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_2,Home Possession: 33.05%,Home Advantage: N/A,Away Possession: 66.95%,Away Advantage: 33.9%,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_3,Home Possession: 86.82%,Home Advantage: 73.64%,Away Possession: 13.18%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_4,Home Possession: 49.57%,Home Advantage: N/A,Away Possession: 50.43%,Away Advantage: 0.86%,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_5,Home Possession: 49.72%,Home Advantage: N/A,Away Possession: 50.28%,Away Advantage: 0.56%,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_6,Home Possession: 38.84%,Home Advantage: N/A,Away Possession: 61.16%,Away Advantage: 22.32%,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_7,Home Possession: 56.49%,Home Advantage: 12.98%,Away Possession: 43.51%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+,,,possession,bar_2_8,Home Possession: 65.09%,Home Advantage: 30.18%,Away Possession: 34.91%,Away Advantage: N/A,2aa1eccc,2025-07-25,Columbus,Orlando
+Total Team XG,3,2,xg,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Shots,18,10,xg,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Shots On Target,7,6,xg,,,,,,2aa1eccc,2025-07-25,Columbus,Orlando
+Possession %,66.6,33.4,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Shots,16,10,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Shots on Target,5,7,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Blocked Shots,6,1,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Total Passes,607,298,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Passing Accuracy %,89.8,80.5,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Corners,5,3,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Total Crosses,11,4,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Offsides,2,4,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Aerial Duels Won,11,11,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Expected Goals,2.4,2.4,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Goalkeeper Saves,5,2,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Clearances,5,8,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Fouls,13,7,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Yellow Cards,6,1,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Red Cards,0,0,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Overall %,89.8,80.5,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Open Play Pass %,89.6,80.2,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Set Piece Cross %,50,25,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Open Play Cross %,36.4,0,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Goals,3,2,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+On Target,5,7,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Off Target,13,8,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Blocked,6,1,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Goals Conceded,2,3,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Shots Against,16,10,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Clean Sheets,0,0,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+XG Conceded,2.4,2.4,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Interceptions,1,0,general,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Goals,3,2,shooting,,,,,,4599bff3,2024-10-19,Austin,Colorado
+On Target,5,7,shooting,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Off Target,5,1,shooting,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Blocked,6,1,shooting,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Overall %,89.8,80.5,passing,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Open Play Pass %,89.6,80.2,passing,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Set Piece Cross %,50,25,passing,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Open Play Cross %,36.4,0,passing,,,,,,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_0,Home Possession: 43.56%,Home Advantage: N/A,Away Possession: 56.44%,Away Advantage: 12.88%,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_1,Home Possession: 54.18%,Home Advantage: 8.36%,Away Possession: 45.82%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2,Home Possession: 76.67%,Home Advantage: 53.34%,Away Possession: 23.33%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_3,Home Possession: 61.54%,Home Advantage: 23.08%,Away Possession: 38.46%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_4,Home Possession: 72.63%,Home Advantage: 45.26%,Away Possession: 27.37%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_5,Home Possession: 77.2%,Home Advantage: 54.4%,Away Possession: 22.8%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_6,Home Possession: 87.55%,Home Advantage: 75.1%,Away Possession: 12.45%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_7,Home Possession: 60.21%,Home Advantage: 20.42%,Away Possession: 39.79%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_8,Home Possession: 83.16%,Home Advantage: 66.32%,Away Possession: 16.84%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_0,Home Possession: 54.66%,Home Advantage: 9.32%,Away Possession: 45.34%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_1,Home Possession: 61.43%,Home Advantage: 22.86%,Away Possession: 38.57%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_2,Home Possession: 66.25%,Home Advantage: 32.5%,Away Possession: 33.75%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_3,Home Possession: 52.47%,Home Advantage: 4.94%,Away Possession: 47.53%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_4,Home Possession: 39.94%,Home Advantage: N/A,Away Possession: 60.06%,Away Advantage: 20.12%,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_5,Home Possession: 81.34%,Home Advantage: 62.68%,Away Possession: 18.66%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_6,Home Possession: 58.81%,Home Advantage: 17.62%,Away Possession: 41.19%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_7,Home Possession: 83.63%,Home Advantage: 67.26%,Away Possession: 16.37%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+,,,possession,bar_2_8,Home Possession: 74.06%,Home Advantage: 48.12%,Away Possession: 25.94%,Away Advantage: N/A,4599bff3,2024-10-19,Austin,Colorado
+Total Team XG,2.4,2.4,xg,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Shots,16,10,xg,,,,,,4599bff3,2024-10-19,Austin,Colorado
+Shots On Target,5,7,xg,,,,,,4599bff3,2024-10-19,Austin,Colorado
